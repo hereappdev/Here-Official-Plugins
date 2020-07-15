@@ -1,0 +1,16 @@
+{
+   "name": "Apple Developer Releases",
+   "version": "1.0.0",
+   "description": "Show apple developer releases",
+   "icon": "icon.png",
+   "identifier": "app.here.appledeveloperreleases",
+   "createdBy": "Here",
+   "website": "https://here.app",
+   "appcast": "https://plugins.herecdn.com/source/Apple-Developer-Releases/appcast.xml",
+   "script": "index.js",
+   "defaultCategory": "news",
+   "displayOn": [
+      "mini",
+      "menuBar"
+   ]
+}
