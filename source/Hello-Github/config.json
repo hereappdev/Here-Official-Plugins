@@ -1,7 +1,7 @@
 {
    "name": "Hello GitHub",
    "version": "1.0.1",
-   "description": "Show post feeds",
+   "description": "Show Hello GitHub post feeds",
    "icon": "icon.png",
    "identifier": "app.here.hellogithub",
    "createdBy": "Here",

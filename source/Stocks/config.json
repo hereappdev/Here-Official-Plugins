@@ -1,7 +1,7 @@
 {
    "name": "Stocks",
    "version": "1.3.2",
-   "description": "Show stocks everywhere. [Stock Code]: https://github.com/hereappdev/Here-Plugins/blob/master/source/Stocks/info.md",
+   "description": "Show stocks everywhere.",
    "icon": "icon.png",
    "identifier": "app.here.stocks",
    "createdBy": "Here",

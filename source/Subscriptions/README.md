@@ -1,5 +1,15 @@
+# Subscriptions
+
+> Show and calculation on all your subscription services
+
+## Usage
+
 Please rename `example.json` to `save.json`
 
-This is a sample plugin using here `process API`
+## Development
 
-* API: https://doc.here.app/#/jsAPI/process
+* Here [`process API`](https://doc.here.app/#/jsAPI/process)
+
+## License
+
+This is an open source plugin published under the MIT License

@@ -1,3 +1,11 @@
-This is a sample plugin using here `crypto API`
+# MD5 Encode
 
-* API: https://doc.here.app/#/jsAPI/crypto
+> Quick MD5 tools
+
+## Development
+
+* Here [`crypto API`](https://doc.here.app/#/jsAPI/crypto)
+
+## License
+
+This is an open source plugin published under the MIT License

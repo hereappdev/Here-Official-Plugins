@@ -1,3 +1,11 @@
-This is a sample plugin using here Power Management API
+# Battery
 
-* API: https://doc.here.app/#/jsAPI/powerManagement
+> Show battery status includes Bluetooth devices(Mouse & AirPods)
+
+## Development
+
+* Here API [`powerManagement`](https://doc.here.app/#/jsAPI/powerManagement)
+
+## License
+
+This is an open source plugin published under the MIT License

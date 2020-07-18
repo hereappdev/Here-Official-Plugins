@@ -1,7 +1,7 @@
 {
    "name": "雪球每日热帖",
    "version": "1.0.1",
-   "description": "显示热门文章",
+   "description": "显示雪球热门文章",
    "icon": "icon.png",
    "identifier": "app.here.xueqiu",
    "createdBy": "Here",

@@ -1,7 +1,7 @@
 {
    "name": "湾区日报",
    "version": "1.0.1",
-   "description": "显示每日文章",
+   "description": "显示湾区日报每日文章",
    "icon": "icon.png",
    "identifier": "app.here.wanqu",
    "createdBy": "Here",

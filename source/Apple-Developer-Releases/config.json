@@ -1,7 +1,7 @@
 {
    "name": "Apple Developer Releases",
    "version": "1.0.0",
-   "description": "Show apple developer releases",
+   "description": "Show apple developer releases news and updates.",
    "icon": "icon.png",
    "identifier": "app.here.appledeveloperreleases",
    "createdBy": "Here",

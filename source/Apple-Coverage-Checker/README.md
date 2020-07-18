@@ -1,8 +1,10 @@
-# Bookmark
+# Apple Coverage Checker
 
-> Bookmark your favorite website.
+> Check the Status of AppleCare on your Apple Devices
 
 ## Development
+
+Website: [https://checkcoverage.apple.com/](https://checkcoverage.apple.com/)
 
 Use Here API [here.setPopover](https://doc.here.app/) `type: "webView"`
 

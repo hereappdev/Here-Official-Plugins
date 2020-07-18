@@ -18,13 +18,7 @@
          "title": "Country Code",
          "type": "text",
          "key": "countryCode",
-         "default": "cn"
-      },
-      {
-         "title": "Readme",
-         "type": "text",
-         "key": "readme",
-         "default": "See: https://rss.itunes.apple.com/"
+         "default": "US"
       }
    ]
 }

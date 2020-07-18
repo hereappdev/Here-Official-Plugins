@@ -1,5 +1,5 @@
 {
-   "name": "Battery Status",
+   "name": "Battery",
    "version": "1.0.2",
    "description": "Show battery status includes Bluetooth devices(Mouse & AirPods)",
    "icon": "icon.png",

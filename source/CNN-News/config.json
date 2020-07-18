@@ -1,7 +1,7 @@
 {
    "name": "CNN News",
    "version": "1.0.2",
-   "description": "Show hot news",
+   "description": "Show CNN News hot news",
    "icon": "icon.png",
    "identifier": "app.here.cnnnews",
    "createdBy": "Here",
