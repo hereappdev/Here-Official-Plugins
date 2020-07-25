@@ -1,5 +1,5 @@
 {
-   "name": "CPU Usage",
+   "name": "CPU",
    "version": "1.0.1",
    "description": "Show system CPU usage",
    "icon": "icon.png",
