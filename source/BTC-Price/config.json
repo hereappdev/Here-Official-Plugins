@@ -6,7 +6,7 @@
    "identifier": "app.here.btcprice",
    "createdBy": "Here",
    "website": "https://here.app",
-   "appcast": "https://plugins.herecdn.com/source/BTC-Price/appcast.xml",
+   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/BTC-Price/appcast.xml",
    "script": "index.js",
    "defaultCategory": "fav",
    "displayOn": [

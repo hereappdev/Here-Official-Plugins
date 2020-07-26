@@ -6,7 +6,7 @@
    "identifier": "app.here.stocks",
    "createdBy": "Here",
    "website": "https://here.app",
-   "appcast": "https://plugins.herecdn.com/source/Stocks/appcast.xml",
+   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Stocks/appcast.xml",
    "script": "index.js",
    "defaultCategory": "fav",
    "displayOn": [

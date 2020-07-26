@@ -6,7 +6,7 @@
    "identifier": "app.here.producthunt",
    "createdBy": "Here",
    "website": "https://here.app",
-   "appcast": "https://plugins.herecdn.com/source/Product-Hunt/appcast.xml",
+   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Product-Hunt/appcast.xml",
    "script": "index.js",
    "defaultCategory": "news",
    "displayOn": [

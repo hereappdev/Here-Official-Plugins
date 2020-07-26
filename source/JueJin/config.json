@@ -6,7 +6,7 @@
    "identifier": "app.here.juejin",
    "createdBy": "Here",
    "website": "https://here.app",
-   "appcast": "https://plugins.herecdn.com/source/JueJin/appcast.xml",
+   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/JueJin/appcast.xml",
    "script": "index.js",
    "defaultCategory": "news",
    "displayOn": [

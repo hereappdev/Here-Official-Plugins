@@ -6,7 +6,7 @@
    "identifier": "app.here.appledeveloperreleases",
    "createdBy": "Here",
    "website": "https://here.app",
-   "appcast": "https://plugins.herecdn.com/source/Apple-Developer-Releases/appcast.xml",
+   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Apple-Developer-Releases/appcast.xml",
    "script": "index.js",
    "defaultCategory": "news",
    "displayOn": [

@@ -6,7 +6,7 @@
    "identifier": "app.here.opensearch",
    "createdBy": "Here",
    "website": "https://here.app",
-   "appcast": "https://plugins.herecdn.com/source/Open-Search/appcast.xml",
+   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Open-Search/appcast.xml",
    "script": "index.js",
    "defaultCategory": "quick",
    "displayOn": [

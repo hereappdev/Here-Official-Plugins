@@ -6,7 +6,7 @@
    "identifier": "app.here.dailysentence",
    "createdBy": "Here",
    "website": "https://here.app",
-   "appcast": "https://plugins.herecdn.com/source/Daily-Sentence/appcast.xml",
+   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Daily-Sentence/appcast.xml",
    "script": "index.js",
    "defaultCategory": "quick",
    "displayOn": [

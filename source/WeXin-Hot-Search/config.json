@@ -3,10 +3,10 @@
    "version": "1.0.1",
    "description": "显示微信热搜关键词",
    "icon": "icon.png",
-   "identifier": "app.here.weixinhot",
+   "identifier": "app.here.weixinhotsearch",
    "createdBy": "Here",
    "website": "https://here.app",
-   "appcast": "https://plugins.herecdn.com/source/WeXin-Hot/appcast.xml",
+   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/WeXin-Hot-Search/appcast.xml",
    "script": "index.js",
    "defaultCategory": "news",
    "displayOn": [

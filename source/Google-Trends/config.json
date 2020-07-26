@@ -6,7 +6,7 @@
    "identifier": "app.here.googletrends",
    "createdBy": "Here",
    "website": "https://here.app",
-   "appcast": "https://plugins.herecdn.com/source/Google-Trends/appcast.xml",
+   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Google-Trends/appcast.xml",
    "script": "index.js",
    "defaultCategory": "news",
    "displayOn": [

@@ -6,7 +6,7 @@
    "identifier": "app.here.qdaily",
    "createdBy": "Here",
    "website": "https://here.app",
-   "appcast": "https://plugins.herecdn.com/source/Qdaily/appcast.xml",
+   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Qdaily/appcast.xml",
    "script": "index.js",
    "defaultCategory": "news",
    "displayOn": [

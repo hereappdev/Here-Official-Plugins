@@ -6,7 +6,7 @@
    "identifier": "app.here.dailypoetry",
    "createdBy": "Here",
    "website": "https://here.app",
-   "appcast": "https://plugins.herecdn.com/source/Daily-Poetry/appcast.xml",
+   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Daily-Poetry/appcast.xml",
    "script": "index.js",
    "defaultCategory": "quick",
    "displayOn": [

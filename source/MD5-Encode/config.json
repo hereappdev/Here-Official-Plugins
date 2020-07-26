@@ -5,7 +5,7 @@
    "identifier": "app.here.encode",
    "createdBy": "Here",
    "website": "https://here.app",
-   "appcast": "https://plugins.herecdn.com/source/MD5-Encode/appcast.xml",
+   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/MD5-Encode/appcast.xml",
    "script": "index.js",
    "defaultCategory": "quick",
    "displayOn": [

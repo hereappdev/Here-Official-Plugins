@@ -6,7 +6,7 @@
    "identifier": "app.here.appstoreranking",
    "createdBy": "Here",
    "website": "https://here.app",
-   "appcast": "https://plugins.herecdn.com/source/App-Store-Ranking/appcast.xml",
+   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/App-Store-Ranking/appcast.xml",
    "script": "index.js",
    "defaultCategory": "news",
    "displayOn": [
