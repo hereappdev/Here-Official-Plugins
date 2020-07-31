@@ -1,7 +1,7 @@
 {
    "name": "cnBeta",
-   "version": "1.0.3",
-   "description": "显示实时热文",
+   "version": "1.0.4",
+   "description": "显示cnBeta实时热文",
    "icon": "icon.png",
    "identifier": "app.here.cnbeta",
    "createdBy": "Here",

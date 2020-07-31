@@ -38,22 +38,9 @@ function updateData() {
             }else{
                 indexNum++;
             }
-            // console.log(adNum + "-" + indexNum)
-            return {
-                title: indexNum + ". " + entry.title,
-                accessory: {
-                    title: "",
-                    imageURL: entry.thumb,
-                    imageCornerRadius: 4
-                },
-                onClick: () => { if (entry.url != undefined)  { here.openURL(entry.url) } }
-            }
         })
 
         const topFeed = entryList[adNum]
-        let popOversNew = popOvers.splice(adNum, popOvers.length)
-
-        // console.log(popOversNew)
 
         // Mini Window
         here.miniWindow.set({
@@ -61,7 +48,7 @@ function updateData() {
             title: topFeed.title,
             detail: "cnBeta"
         })
-        here.popover.set(_.map(entryList, (entry, index) => {
+        here.popover.set(_.map(entryList.splice(adNum, entryList.length), (entry, index) => {
             return {
                 title: entry.title,
                 accessory: {
