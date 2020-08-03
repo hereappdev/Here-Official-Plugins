@@ -1,0 +1,16 @@
+{
+   "name": "人民网新闻",
+   "version": "1.0.0",
+   "description": "显示人民网国内、国际、经济、体育等新闻",
+   "icon": "icon.png",
+   "identifier": "app.here.peoplenews",
+   "createdBy": "Here",
+   "website": "https://here.app",
+   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/People-News/appcast.xml",
+   "script": "index.js",
+   "defaultCategory": "news",
+   "displayOn": [
+      "mini",
+      "menuBar"
+   ]
+}
