@@ -1,0 +1,15 @@
+{
+   "name": "TheTop热门聚合",
+   "version": "1.0.0",
+   "description": "显示TheTop热门聚合",
+   "icon": "icon.png",
+   "identifier": "app.here.thetop",
+   "createdBy": "Here",
+   "website": "https://here.app",
+   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/TheTop/appcast.xml",
+   "script": "index.js",
+   "defaultCategory": "news",
+   "displayOn": [
+      "mini"
+   ]
+}
