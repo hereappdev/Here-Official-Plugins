@@ -1,6 +1,6 @@
 {
    "name": "ToDoMVC",
-   "version": "1.0.0",
+   "version": "1.0.1",
    "description": "A ToDo webapp.",
    "icon": "icon.png",
    "identifier": "app.here.todomvc",
