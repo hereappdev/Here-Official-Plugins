@@ -1,6 +1,6 @@
 {
    "name": "Apple Coverage Checker",
-   "version": "1.0.0",
+   "version": "1.0.1",
    "description": "Check the Status of AppleCare on your Apple Devices",
    "icon": "icon.png",
    "identifier": "app.here.applecoveragechecker",
