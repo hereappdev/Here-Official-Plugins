@@ -1,6 +1,6 @@
 {
    "name": "bilibili新番时间表",
-   "version": "1.0.0",
+   "version": "1.0.1",
    "description": "显示 bilibili 新番剧目播放时间",
    "icon": "icon.png",
    "identifier": "app.here.bilibilitimeline",
