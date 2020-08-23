@@ -5,7 +5,7 @@ here.on("load", () => {
     };
     here.miniWindow.reload();
 
-    here.popover = new here.WebViewPopover()
+    here.popover = new here.WebViewPopover();
     here.popover.data = {
         url: "https://checkcoverage.apple.com",
         width: 375,
