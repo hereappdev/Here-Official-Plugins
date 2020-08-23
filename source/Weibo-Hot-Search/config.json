@@ -1,6 +1,6 @@
 {
    "name": "微博热搜榜",
-   "version": "1.0.1",
+   "version": "1.0.2",
    "description": "显示微博热搜关键词",
    "icon": "icon.png",
    "identifier": "app.here.weibohotsearch",
