@@ -4,6 +4,7 @@ const fs = require("fs")
 const pasteboard = require("pasteboard")
 const crypto = require("crypto")
 const cache = require("cache")
+const hotkey = require("hotkey")
 
 function _hashInputOutput(hashFunc, name, input, output) {
     return new Promise((res, rej) => {
@@ -285,7 +286,7 @@ class Test {
     testHerePluginIdentifier() {
         return new Promise((res, rej) => {
             return res({ 
-                ret: (here.pluginIdentifier() == "app.here.test"),
+                ret: (here.pluginIdentifier() == "app.here.heretest"),
                 msg: "here.pluginIdentifier()" 
             })
         })
@@ -567,4 +568,32 @@ class Test {
         })
     }
     // here ========== END
+
+    // hotkey ========== BEGIN
+    testHokeyAssignable() {
+        return new Promise((res, rej) => {
+            let msg = `hotkey.assignable(cmd + a) == false`
+            let ret = false
+
+            // Taken by system
+            ret = (hotkey.assignable([`cmd`, `a`]) == false)
+            if (!ret) {
+                res({ ret: ret, msg: msg })
+                return
+            }
+
+            // Taken by menu
+            ret = (hotkey.assignable([`cmd`, `r`]) == false)
+            if (!ret) {
+                res({ ret: ret, msg: msg })
+                return
+            }
+            msg += `\nhotkey.assignable(cmd + r) == false`
+
+            ret = (hotkey.assignable([`cmd`, `alt`, `a`]) == true)
+            msg += `\nhotkey.assignable(cmd + option + a)`
+            res({ ret: ret, msg: msg })
+        })
+    }
+    // hotkey ========== END
 }

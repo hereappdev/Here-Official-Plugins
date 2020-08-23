@@ -1,6 +1,6 @@
 {
    "name": "Here Test",
-   "version": "1.0.2",
+   "version": "1.0.3",
    "description": "Here App API Unit Test",
    "identifier": "app.here.heretest",
    "createdBy": "Here",
@@ -9,7 +9,9 @@
    "script": "index.js",
    "defaultCategory": "fav",
    "displayOn": [
-      "mini"
+      "mini",
+      "dock",
+      "menuBar"
    ],
    "preferences": [
        {
