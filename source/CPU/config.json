@@ -1,17 +1,13 @@
 {
-   "name": "CPU Usage",
-   "version": "1.0.1",
-   "description": "Show system CPU usage",
-   "icon": "icon.png",
-   "identifier": "app.here.cpu",
-   "createdBy": "Here",
-   "website": "https://here.app",
-   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/CPU/appcast.xml",
-   "script": "index.js",
-   "defaultCategory": "fav",
-   "displayOn": [
-      "menuBar",
-      "mini",
-      "dock"
-   ]
+    "name": "CPU Usage",
+    "version": "1.0.2",
+    "description": "Show system CPU usage",
+    "icon": "icon.png",
+    "identifier": "app.here.cpu",
+    "createdBy": "Here",
+    "website": "https://here.app",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/CPU/appcast.xml",
+    "script": "index.js",
+    "defaultCategory": "fav",
+    "displayOn": ["menuBar", "mini", "dock"]
 }
