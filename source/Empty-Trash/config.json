@@ -1,14 +1,12 @@
 {
-   "name": "Empty Trash",
-   "version": "1.0.3",
-   "description": "Quick empty trash",
-   "identifier": "app.here.emptytrash",
-   "createdBy": "Here",
-   "website": "https://here.app",
-   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Empty-Trash/appcast.xml",
-   "script": "index.js",
-   "defaultCategory": "quick",
-   "displayOn": [
-      "mini"
-   ]
+    "name": "Empty Trash",
+    "version": "1.0.4",
+    "description": "Quick empty trash",
+    "identifier": "app.here.emptytrash",
+    "createdBy": "Here",
+    "website": "https://here.app",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Empty-Trash/appcast.xml",
+    "script": "index.js",
+    "defaultCategory": "quick",
+    "displayOn": ["mini"]
 }
