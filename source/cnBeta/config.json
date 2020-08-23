@@ -1,16 +1,13 @@
 {
-   "name": "cnBeta",
-   "version": "1.0.4",
-   "description": "显示cnBeta实时热文",
-   "icon": "icon.png",
-   "identifier": "app.here.cnbeta",
-   "createdBy": "Here",
-   "website": "https://here.app",
-   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/cnBeta/appcast.xml",
-   "script": "index.js",
-   "defaultCategory": "news",
-   "displayOn": [
-      "mini",
-      "menuBar"
-   ]
+    "name": "cnBeta",
+    "version": "1.0.6",
+    "description": "显示cnBeta实时热文",
+    "icon": "icon.png",
+    "identifier": "app.here.cnbeta",
+    "createdBy": "Here",
+    "website": "https://here.app",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/cnBeta/appcast.xml",
+    "script": "index.js",
+    "defaultCategory": "news",
+    "displayOn": ["mini", "menuBar"]
 }
