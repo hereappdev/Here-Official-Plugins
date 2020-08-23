@@ -1,6 +1,6 @@
 {
    "name": "Memory Usage",
-   "version": "1.0.1",
+   "version": "1.0.2",
    "description": "Show system memory usage",
    "icon": "icon.png",
    "identifier": "app.here.memory",
