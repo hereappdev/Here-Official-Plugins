@@ -1,6 +1,6 @@
 {
    "name": "新型冠状病毒疫情追踪",
-   "version": "1.0.0",
+   "version": "1.0.1",
    "description": "2019新型冠状病毒疫情追踪(腾讯新闻API)",
    "icon": "icon.png",
    "identifier": "app.here.2019ncovstatus",
