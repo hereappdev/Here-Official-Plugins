@@ -1,17 +1,13 @@
 {
-   "name": "Debug Info",
-   "version": "1.0.7",
-   "description": "Show developing info",
-   "icon": "icon.png",
-   "identifier": "app.here.debug",
-   "createdBy": "Here",
-   "website": "https://here.app",
-   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Debug/appcast.xml",
-   "script": "index.js",
-   "defaultCategory": "fav",
-   "displayOn": [
-      "menuBar",
-      "mini",
-      "dock"
-   ]
+    "name": "Debug Info",
+    "version": "1.0.8",
+    "description": "Show developing info",
+    "icon": "icon.png",
+    "identifier": "app.here.debug",
+    "createdBy": "Here",
+    "website": "https://here.app",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Debug/appcast.xml",
+    "script": "index.js",
+    "defaultCategory": "fav",
+    "displayOn": ["menuBar", "mini", "dock"]
 }

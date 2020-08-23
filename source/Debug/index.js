@@ -1,89 +1,97 @@
-const pb = require("pasteboard")
-const process = require("process")
-const _ = require("underscore")
-const i18n = require("i18n")
+const pb = require("pasteboard");
+const process = require("process");
+const _ = require("underscore");
+const i18n = require("i18n");
 
 function updateData() {
-    const versions = process.versions
-    const keys = _.allKeys(versions)
+    const versions = process.versions;
+    const keys = _.allKeys(versions);
     if (keys.includes("uuid")) {
-        keys.splice(keys.indexOf("uuid"), 1)
+        keys.splice(keys.indexOf("uuid"), 1);
     }
     let versionData = _.map(keys, (key) => {
-        let val = versions[key]
+        let val = versions[key];
         return {
             title: key,
             accessory: {
-                title: val
-            }
-        }
-    })
-    let debug = []
-    debug.push({ 
+                title: val,
+            },
+        };
+    });
+    let debug = [];
+    debug.push({
         title: __("Reveal Logs in Finder…"),
-        onClick: () => { process.openLogsFolder() }
-    })
-    debug.push({ 
+        onClick: () => {
+            process.openLogsFolder();
+        },
+    });
+    debug.push({
         title: __("Reveal Plugins in Finder…"),
-        onClick: () => { process.openPluginsFolder() }
-    })
-    if (typeof(process.checkForUpdates) === "function") { 
+        onClick: () => {
+            process.openPluginsFolder();
+        },
+    });
+    if (typeof process.checkForUpdates === "function") {
         // checkForUpdates function exists
         debug.push({
             title: __("Check for Updates…"),
-            onClick: () => { process.checkForUpdates() }
-        })
+            onClick: () => {
+                process.checkForUpdates();
+            },
+        });
     }
-    debug.push({ 
+    debug.push({
         title: `Toggle auto install preloaded plugins: ${process.installPreloadPluginsAtLaunch()}`,
-        onClick: () => { 
-            process.toggleInstallPreloadPluginsAtLaunch() 
-            updateData()
-        }
-    })
+        onClick: () => {
+            process.toggleInstallPreloadPluginsAtLaunch();
+            updateData();
+        },
+    });
 
-    // console.log(JSON.stringify(process.versions.shortVersion))
+    // Popovers
+    here.popover = new here.TabPopover();
+    here.popover.data = [
+        {
+            title: __("Version"),
+            data: _.sortBy(versionData, (v) => { return v.title }),
+        },
+        {
+            title: __("Debug"),
+            data: debug,
+        },
+    ];
+    here.popover.reload();
+
     // Mini Window
-    here.miniWindow.set({
+    here.miniWindow.data = {
         title: __("Debug Info"),
         detail: `Here (${process.versions.stage})`,
         accessory: {
-                title: "v" + process.versions.shortVersion,
-                detail: "(" + process.versions.buildNumber + ")"
-            },
+            title: "v" + process.versions.shortVersion,
+            detail: "(" + process.versions.buildNumber + ")",
+        },
         onClick: () => {
-            pb.setText(JSON.stringify(process.versions))
-            here.hudNotification("Debug info copied.")
-        }
-    })
-
-    // Popovers
-    if (typeof(here.popover.set) == "function") {
-        here.popover.set([
-            {
-                title: __("Version"),
-                data: versionData
-            },
-            {
-                title: __("Debug"),
-                data: debug
-            }
-        ])
+            pb.setText(JSON.stringify(process.versions));
+            here.hudNotification("Debug info copied.");
+        },
     }
+    here.miniWindow.reload()
 
     // Menu Bar
-    here.menuBar.set({
+    here.menuBar.data = {
         title: "v" + process.versions.shortVersion,
-        detail: process.versions.buildNumber
-    })
+        detail: process.versions.buildNumber,
+    }
+    here.menuBar.reload();
 
     // Dock
-    here.dock.set({
+    here.dock.data = {
         title: "v" + process.versions.shortVersion,
-        detail: process.versions.buildNumber
-    })
+        detail: process.versions.buildNumber,
+    }
+    here.dock.reload()
 }
 
-here.on('load', () => {
-    updateData()
-})
+here.on("load", () => {
+    updateData();
+});
