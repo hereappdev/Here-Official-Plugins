@@ -1,6 +1,6 @@
 {
    "name": "知乎热榜",
-   "version": "1.0.2",
+   "version": "1.0.3",
    "description": "显示知乎热门话题",
    "icon": "icon.png",
    "identifier": "app.here.zhihu",
