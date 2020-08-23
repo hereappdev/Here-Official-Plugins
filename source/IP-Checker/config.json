@@ -1,6 +1,6 @@
 {
    "name": "IP Checker",
-   "version": "1.0.2",
+   "version": "1.0.3",
    "description": "Check IP address info",
    "icon": "icon.png",
    "identifier": "app.here.ipchecker",
