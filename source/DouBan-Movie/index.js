@@ -7,7 +7,10 @@ function updateData() {
 
     here.miniWindow.set({ title: "Updating…" })
 
-    http.request("https://api.douban.com/v2/movie/in_theaters?apikey=0b2bdeda43b5688921839c8ecb20399b&city=%E5%8C%97%E4%BA%AC&start=0&count=10&client=&udid=")
+    http.request({
+        url: "http://t.yushu.im/v2/movie/in_theaters?apikey=0b2bdeda43b5688921839c8ecb20399b&city=%E5%8C%97%E4%BA%AC&start=0&count=10&client=&udid=",
+        allowHTTPRequest: true
+    })
     .then(function(response) {
         const json = response.data
         const entryList = json.subjects
