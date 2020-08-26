@@ -3,13 +3,15 @@ const net = require("net")
 const http = require("http")
 
 function updateData() {
-    const LIMIT = 10
+    const LIMIT = 30
     const nowTime = new Date()
     
     here.miniWindow.set({ title: "Updating…" })
-    http.get("https://www.qdaily.com/homes/articlemore/" + Math.round(new Date().getTime()/1000) + ".json")
+    http.request({
+        url: "http://www.qdaily.com/homes/articlemore/" + Math.round(new Date().getTime()/1000) + ".json",
+        allowHTTPRequest: true
+    })
     .then(function(response) {
-
         let feed = response.data.data.feeds
 
         if (feed.length <= 0) {
@@ -24,12 +26,12 @@ function updateData() {
         // Mini Window
         here.miniWindow.set({
             onClick: () => { if (topFeed.post.id != undefined)  { here.openURL("http://www.qdaily.com/articles/" + topFeed.post.id + ".html") } },
-            title: topFeed.post.title,
+            title: topFeed.post.title.replace("大公司头条：",""),
             detail: "好奇心日报"
         })
         here.popover.set(_.map(feed, (item, index) => {
             return {
-                title: item.post.title,
+                title: item.post.title.replace("大公司头条：",""),
                 onClick: () => { if (item.post.id != undefined)  { here.openURL("http://www.qdaily.com/articles/" + item.post.id + ".html") } }
             }
         }))
