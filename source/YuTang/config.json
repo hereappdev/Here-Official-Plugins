@@ -1,0 +1,16 @@
+{
+   "name": "鱼塘热门",
+   "version": "1.0.0",
+   "description": "显示鱼塘热门推荐和Top榜",
+   "icon": "icon.png",
+   "identifier": "app.here.yutang",
+   "createdBy": "Here",
+   "website": "https://here.app",
+   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/YuTang/appcast.xml",
+   "script": "index.js",
+   "defaultCategory": "news",
+   "displayOn": [
+      "mini",
+      "menuBar"
+   ]
+}
