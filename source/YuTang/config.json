@@ -1,7 +1,7 @@
 {
    "name": "鱼塘热门",
-   "version": "1.0.0",
-   "description": "显示鱼塘热门推荐和Top榜",
+   "version": "1.0.1",
+   "description": "显示鱼塘最新热门内容",
    "icon": "icon.png",
    "identifier": "app.here.yutang",
    "createdBy": "Here",

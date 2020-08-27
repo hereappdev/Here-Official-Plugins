@@ -12,13 +12,13 @@ function getData(api) {
     let entryList = []
     return http.get(api)
     .then(function(response) {
-        const json = response.data.Data.data
-        if (json == undefined) {
-            console.log(222)
-            json = response.data.Data.data.data
+        var json = []
+
+        if (response.data.Data.data == undefined) {
+            json = response.data.Data
+        }else{
+            json = response.data.Data.data
         }
-
-
         if (json == undefined) {
             return here.miniWindow.set({ title: "Invalid data." })
         }
@@ -42,9 +42,11 @@ function updateData() {
 
     Promise.all([
         getData("https://www.tophub.fun:8888/v2/GetAllInfoGzip?id=1006"),
-        getData("https://www.tophub.fun:8888/v2/GetAllInfoGzip?id=1065")
+        getData("https://www.tophub.fun:8888/v2/GetAllInfoGzip?id=1065"),
+        getData("https://www.tophub.fun:8888/GetRandomInfo?time=0&is_follow=0")
     ]).then(function (values) {
-        console.log(values)
+
+        // console.log(values[1])
 
         const topFeed = values[0][0]
         
@@ -77,12 +79,6 @@ function updateData() {
                 }
             })
 
-        
-
-            // popovers[index].push({
-            //     title: "View All…",
-            //     onClick: () => { _.each(values[index], (feed) => { here.openURL(feed.url) }) }
-            // })
         });
 
 
@@ -92,21 +88,13 @@ function updateData() {
                 data: popovers[0]
             },
             {
-                title: "鱼塘推荐流",
+                title: "鱼塘推荐榜",
                 data: popovers[1]
             },
-            // {
-            //     title: "创业",
-            //     data: popovers[2]
-            // },
-            // {
-            //     title: "生活",
-            //     data: popovers[3]
-            // },
-            // {
-            //     title: "政务",
-            //     data: popovers[4]
-            // }
+            {
+                title: "鱼塘最新榜",
+                data: popovers[2]
+            }
         ]
 
         here.popover.set(tabs)
