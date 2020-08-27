@@ -54,7 +54,7 @@ function updateData() {
         here.miniWindow.set({
             onClick: () => { here.openURL(topFeed.Url) },
             title: topFeed.Title,
-            detail: "鱼塘热门"
+            detail: "鱼塘热榜"
         })
 
         here.menuBar.set({
