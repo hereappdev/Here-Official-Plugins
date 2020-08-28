@@ -1,6 +1,6 @@
 {
    "name": "Stocks",
-   "version": "1.3.2",
+   "version": "1.3.3",
    "description": "Show stocks everywhere.",
    "icon": "icon.png",
    "identifier": "app.here.stocks",
