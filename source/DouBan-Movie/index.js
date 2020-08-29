@@ -41,10 +41,12 @@ function updateData() {
                 title: "🎬《" + topFeed.title + "》 ★" + topFeed.rating.average,
                 detail: "上映" + topFeed["mainland_pubdate"],
                 accessory: { badge: topFeed["rating"]["average"].toString() },
+                onClick: () => {
+                    if (topFeed.alt != undefined) {
+                        here.openURL(topFeed.alt);
+                    }
+                },
             };
-            here.miniWindow.onClick(() => {
-                here.openURL(topFeed.alt);
-            });
             here.miniWindow.reload();
 
             // Popover

@@ -45,10 +45,12 @@ function updateData() {
             here.miniWindow.data = {
                 title: topFeed.title,
                 detail: "cnBeta",
+                onClick: () => {
+                    if (topFeed.url != undefined) {
+                        here.openURL(topFeed.url);
+                    }
+                },
             };
-            here.miniWindow.onClick(() => {
-                here.openURL(topFeed.url);
-            });
             here.miniWindow.reload();
 
             here.popover.data = _.map(entryList.splice(adNum, entryList.length), (entry, index) => {

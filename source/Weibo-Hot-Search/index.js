@@ -10,8 +10,8 @@ function updateData() {
     let entryList = [];
 
     // Setup title
-    here.miniWindow.data.title = "Updating…"
-    here.miniWindow.reload()
+    here.miniWindow.data.title = "Updating…";
+    here.miniWindow.reload();
 
     // Featch data from weibo
     http.request(WEIBO_API)
@@ -23,16 +23,16 @@ function updateData() {
                 json.cards[0] == undefined ||
                 json.cards[0].card_group == undefined
             ) {
-                here.miniWindow.data.title = "Invalid data."
-                here.miniWindow.reload()
-                return
+                here.miniWindow.data.title = "Invalid data.";
+                here.miniWindow.reload();
+                return;
             }
 
             entryList = json.cards[0].card_group;
             if (entryList.length <= 1) {
-                here.miniWindow.data.title = "Entrylist is empty."
-                here.miniWindow.reload()
-                return
+                here.miniWindow.data.title = "Entrylist is empty.";
+                here.miniWindow.reload();
+                return;
             }
 
             if (entryList.length > LIMIT) {
@@ -55,26 +55,28 @@ function updateData() {
                 accessory: {
                     title: topFeed.desc_extr == null ? "置顶🔝" : "🔥" + (parseInt(topFeed.desc_extr / 10000) + "万"),
                 },
-            }
-            here.miniWindow.onClick(() => {
-                if (topFeed.url != undefined) {
-                    here.openURL(topFeed.url);
-                }
-            })
-            here.miniWindow.reload()
-            
+                onClick: () => {
+                    if (topFeed.url != undefined) {
+                        here.openURL(topFeed.url);
+                    }
+                },
+            };
+            here.miniWindow.reload();
+
             // Popover
-            here.popover = new here.ListPopover()
+            here.popover = new here.ListPopover();
             here.popover.data = _.map(entryList, (entry, index) => {
-                let prefix = (entry["desc_extr"] == null) ? "置顶🔝" : "🔥"
-                let acTitle = `${prefix}${(parseInt(entry["desc_extr"]) / 10000)}万`
+                let prefix = entry["desc_extr"] == null ? "置顶🔝" : "🔥";
+                let acTitle = `${prefix}${parseInt(entry["desc_extr"]) / 10000}万`;
                 return {
                     title: entry.title,
                     accessory: { title: acTitle },
-                    onClick: () => { here.openURL(entry.url) }
-                }
-            })
-            here.popover.reload()
+                    onClick: () => {
+                        here.openURL(entry.url);
+                    },
+                };
+            });
+            here.popover.reload();
         })
         .catch(function (error) {
             console.error(`Error: ${JSON.stringify(error)}`);

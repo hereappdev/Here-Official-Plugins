@@ -47,12 +47,12 @@ function updateData() {
                 accessory: {
                     title: "🔥" + topFeed.formattedTraffic,
                 },
+                onClick: () => {
+                    if (topFeed.url != undefined) {
+                        here.openURL(topFeed.url);
+                    }
+                },
             };
-            here.miniWindow.onClick(function () {
-                if (topFeed.url != undefined) {
-                    here.openURL(topFeed.url);
-                }
-            });
             here.miniWindow.reload();
 
             here.popover.data = _.map(entryList, (entry, index) => {

@@ -38,10 +38,10 @@ function updateData() {
                 accessory: {
                     title: topFeed.xh_buy,
                 },
+                onClick: () => {
+                    here.openURL("https://finance.sina.com.cn/forex/");
+                },
             };
-            here.miniWindow.onClick(() => {
-                here.openURL("https://finance.sina.com.cn/forex/");
-            });
             here.miniWindow.reload();
 
             here.popover.data = _.map(entryList, (entry) => {

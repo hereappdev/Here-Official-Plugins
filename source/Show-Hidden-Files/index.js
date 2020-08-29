@@ -14,7 +14,7 @@ here.on("load", () => {
 
         here.miniWindow.data = {
             title: "Hide Desktop Icons",
-            detail: "Click to show/hide desktop icons"
+            detail: "Click to show/hide desktop icons",
         };
         here.miniWindow.data.accessory = new here.SwitchAccessory({
             isOn: isHidden,

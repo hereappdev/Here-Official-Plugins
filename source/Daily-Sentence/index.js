@@ -34,10 +34,10 @@ function updateData() {
             here.miniWindow.data = {
                 title: entryList.content,
                 detail: entryList.note,
+                onClick: () => {
+                    here.openURL("http://m.iciba.com/daily.html");
+                },
             };
-            here.miniWindow.onClick(() => {
-                here.openURL("http://m.iciba.com/daily.html");
-            });
             here.miniWindow.reload();
 
             // Popover

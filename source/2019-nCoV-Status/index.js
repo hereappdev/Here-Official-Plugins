@@ -63,12 +63,10 @@ function updateData() {
                     title: "确诊" + topFeed.confirm,
                     detail: lastUpdateTime,
                 },
-            };
-            here.miniWindow.onClick(() => {
-                if (topFeed.alt != undefined) {
+                onClick: () => {
                     here.openURL("https://news.qq.com/zt2020/page/feiyan.htm");
-                }
-            });
+                },
+            };
             here.miniWindow.reload();
 
             // 直接调用 Webview

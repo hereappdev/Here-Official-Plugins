@@ -20,14 +20,12 @@ function getDate(api, title = "", LIMIT = 15) {
             entryList = json.data;
 
             if (entryList == undefined) {
-                here.miniWindow.data.title = "Invalid data.";
-                here.miniWindow.reload();
+                here.miniWindow.set({ title: "Invalid data." });
                 return;
             }
 
             if (entryList.length <= 0) {
-                here.miniWindow.data.title = "Entrylist is empty.";
-                here.miniWindow.reload();
+                here.miniWindow.set({ title: "Entrylist is empty." });
                 return;
             }
 
@@ -74,8 +72,8 @@ function updateData() {
         here.miniWindow.data.title = topFeed.title;
         here.miniWindow.data.detail = "知乎热榜";
         here.miniWindow.onClick(function () {
-            if (topFeed["id"] != undefined) {
-                here.openURL("https://www.zhihu.com/question/" + topFeed.id);
+            if (topFeed.url != undefined) {
+                here.openURL(topFeed.url);
             }
         });
         here.miniWindow.reload();

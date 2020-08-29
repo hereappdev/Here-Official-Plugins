@@ -68,12 +68,12 @@ function updateData() {
             accessory: {
                 badge: topFeed.rank,
             },
+            onClick: () => {
+                if (topFeed.url != undefined) {
+                    here.openURL(topFeed.url);
+                }
+            },
         };
-        here.miniWindow.onClick(() => {
-            if (topFeed.url != undefined) {
-                here.openURL(topFeed.url);
-            }
-        });
         here.miniWindow.reload();
 
         // Menu Bar

@@ -67,10 +67,10 @@ function updateData() {
             accessory: {
                 title: entryList.device_count.toString(),
             },
+            onClick: () => {
+                here.openURL("https://appcenter.ms/");
+            },
         };
-        here.miniWindow.onClick(() => {
-            here.openURL("https://appcenter.ms/");
-        });
         here.miniWindow.reload();
 
         // Popover

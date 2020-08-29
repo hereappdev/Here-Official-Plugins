@@ -27,10 +27,10 @@ function updateData() {
             here.miniWindow.data = {
                 title: topFeed.title,
                 detail: "CNN News",
+                onClick: () => {
+                    here.openURL(topFeed.link);
+                },
             };
-            here.miniWindow.onClick(() => {
-                here.openURL(topFeed.link);
-            });
             here.miniWindow.reload();
 
             // Popover
@@ -44,7 +44,7 @@ function updateData() {
                     },
                 };
             });
-            here.popover.reload()
+            here.popover.reload();
         })
         .catch((error) => {
             console.error(`Error: ${JSON.stringify(error)}`);

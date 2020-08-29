@@ -25,10 +25,10 @@ function updateData() {
             here.miniWindow.data = {
                 title: topFeed.title,
                 detail: "Hacker News",
+                onClick: () => {
+                    here.openURL("https://news.ycombinator.com/");
+                },
             };
-            here.miniWindow.onClick(function () {
-                here.openURL("https://news.ycombinator.com/");
-            });
             here.miniWindow.reload();
 
             here.popover.data = _.map(feed.items, (item, index) => {

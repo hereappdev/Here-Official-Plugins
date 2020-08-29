@@ -20,13 +20,13 @@ function updateData() {
             const topFeed = feed.items[0];
             // Mini Window
             here.miniWindow.data = {
+                title: topFeed.title,
+                detail: "Hello GitHub",
                 onClick: () => {
                     if (topFeed.link != undefined) {
                         here.openURL(topFeed.link);
                     }
                 },
-                title: topFeed.title,
-                detail: "Hello GitHub",
             };
             here.miniWindow.reload();
 

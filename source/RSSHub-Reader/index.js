@@ -57,12 +57,12 @@ function updateData() {
             here.miniWindow.data = {
                 title: topFeed.title,
                 detail: apiName + "(RSSHub)",
+                onClick: () => {
+                    if (topFeed.link != undefined) {
+                        here.openURL(topFeed.link);
+                    }
+                },
             };
-            here.miniWindow.onClick(function () {
-                if (topFeed.link != undefined) {
-                    here.openURL(topFeed.link);
-                }
-            });
             here.miniWindow.reload();
 
             here.popover.data = _.map(feed.items, (item, index) => {

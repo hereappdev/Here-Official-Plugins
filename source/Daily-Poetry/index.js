@@ -40,10 +40,12 @@ function updateData() {
             here.miniWindow.data = {
                 title: entryList.quote.replace(/\r\n/g, "，"),
                 detail: entryList.author.intro.replace(/\r\n/g, "，"),
+                onClick: () => {
+                    if (entryList.poetry.uuid != undefined) {
+                        here.openURL("http://meirishici.com/poetry/" + entryList.poetry.uuid);
+                    }
+                },
             };
-            here.miniWindow.onClick(() => {
-                here.openURL("http://meirishici.com/poetry/" + entryList.poetry.uuid);
-            });
             here.miniWindow.reload();
 
             // Popover

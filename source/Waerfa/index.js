@@ -36,10 +36,10 @@ function updateData() {
             here.miniWindow.data = {
                 title: topFeed.title,
                 detail: "Mac玩儿法",
+                onClick: () => {
+                    here.openURL("https://www.waerfa.com/");
+                },
             };
-            here.miniWindow.onClick(function () {
-                here.openURL("https://www.waerfa.com/");
-            });
             here.miniWindow.reload();
 
             here.popover.data = _.map(feed.items, (item, index) => {

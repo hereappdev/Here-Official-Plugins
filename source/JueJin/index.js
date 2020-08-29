@@ -27,7 +27,7 @@ function updateData() {
             if (entryList.length > LIMIT) {
                 entryList = entryList.slice(0, LIMIT);
             }
-            console.log(entryList[0]);
+            // console.log(entryList[0]);
 
             const topFeed = entryList[0];
 
@@ -35,12 +35,12 @@ function updateData() {
             here.miniWindow.data = {
                 title: topFeed.Title,
                 detail: "掘金热文",
+                onClick: () => {
+                    if (topFeed.Url != undefined) {
+                        here.openURL(topFeed.Url);
+                    }
+                },
             };
-            here.miniWindow.onClick(function () {
-                if (topFeed.Url != undefined) {
-                    here.openURL(topFeed.Url);
-                }
-            });
             here.miniWindow.reload();
 
             // WebView

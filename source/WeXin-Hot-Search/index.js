@@ -33,10 +33,12 @@ function updateData() {
             here.miniWindow.data = {
                 title: topFeed.word,
                 detail: "微信热搜",
+                onClick: () => {
+                    if (topFeed.word != undefined) {
+                        here.openURL("https://news.sogou.com/news?query=" + topFeed.word);
+                    }
+                },
             };
-            here.miniWindow.onClick(function () {
-                here.openURL("https://news.sogou.com/news?query=" + topFeed.word);
-            });
             here.miniWindow.reload();
 
             here.popover.data = _.map(entryList, (entry, index) => {

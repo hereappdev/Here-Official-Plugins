@@ -33,12 +33,12 @@ function updateData() {
             here.miniWindow.data = {
                 title: topFeed.title,
                 detail: "NPR News",
+                onClick: () => {
+                    if (topFeed.url != undefined) {
+                        here.openURL(topFeed.url);
+                    }
+                },
             };
-            here.miniWindow.onClick(function () {
-                if (topFeed.url != undefined) {
-                    here.openURL(topFeed.url);
-                }
-            });
             here.miniWindow.reload();
 
             // popover

@@ -51,10 +51,10 @@ function updateData() {
                 title: "bilibili每日新番时间表",
                 detail: feedYear + "-" + feedMon + "-" + feedDate + "日" + "(" + feedWeek + ")",
                 accessory: { badge: entryList.seasons.length + "部" },
+                onClick: () => {
+                    here.openURL("https://www.bilibili.com/anime/timeline/");
+                },
             };
-            here.miniWindow.onClick(() => {
-                here.openURL("https://www.bilibili.com/anime/timeline/");
-            });
             here.miniWindow.reload();
 
             // Popover
@@ -69,7 +69,7 @@ function updateData() {
                     },
                 };
             });
-            here.popover.reload()
+            here.popover.reload();
         })
         .catch(function (error) {
             console.error(`Error: ${JSON.stringify(error)}`);

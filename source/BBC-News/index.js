@@ -27,10 +27,10 @@ function updateData() {
             here.miniWindow.data = {
                 title: topFeed.title,
                 detail: "BBC News",
+                onClick: () => {
+                    here.openURL(topFeed.link);
+                },
             };
-            here.miniWindow.onClick(() => {
-                here.openURL(topFeed.link);
-            });
             here.miniWindow.reload();
 
             // Popover

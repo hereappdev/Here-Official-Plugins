@@ -25,10 +25,10 @@ function updateData() {
                 title: topFeed.title,
                 detail: "Apple Developer Releases",
                 accessory: { badge: feed.items.length.toString() },
+                onClick: () => {
+                    here.openURL("https://developer.apple.com/news/releases/");
+                },
             };
-            here.miniWindow.onClick(() => {
-                here.openURL("https://developer.apple.com/news/releases/");
-            });
             here.miniWindow.reload();
 
             // Popover
@@ -56,7 +56,7 @@ function updateData() {
                 { title: "Beta", data: dataBeta },
                 { title: "Released", data: dataReleased },
             ];
-            
+
             here.popover = new here.TabPopover();
             here.popover.data = tabs;
             here.popover.reload();

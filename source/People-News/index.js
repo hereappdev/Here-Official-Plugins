@@ -54,10 +54,10 @@ function updateData() {
         here.miniWindow.data = {
             title: topFeed.title,
             detail: "人民网",
+            onClick: () => {
+                here.openURL("http://people.cn/");
+            },
         };
-        here.miniWindow.onClick(function () {
-            here.openURL("http://people.cn/");
-        });
         here.miniWindow.reload();
 
         // Popover

@@ -5,12 +5,12 @@ here.on("load", () => {
     here.miniWindow.data = {
         title: "Screen Saver",
         detail: "Click to Start",
-        onClick: () => {
-            here.exec(`open -a ScreenSaverEngine`).then(() => {
-                console.log("Done.");
-            });
-        },
     };
+    here.miniWindow.onClick(function () {
+        here.exec(`open -a ScreenSaverEngine`).then(() => {
+            console.log("Done.");
+        });
+    });
     here.miniWindow.reload();
 
     // Bind hotkey

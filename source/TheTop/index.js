@@ -35,10 +35,12 @@ function updateData() {
         here.miniWindow.data = {
             title: topFeed.title,
             detail: "TheTop热门聚合",
+            onClick: () => {
+                if (topFeed.url != undefined) {
+                    here.openURL(topFeed.url);
+                }
+            },
         };
-        here.miniWindow.onClick(function () {
-            here.openURL(topFeed.url);
-        });
         here.miniWindow.reload();
 
         function getPopovers(cateArray) {

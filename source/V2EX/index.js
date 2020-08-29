@@ -43,12 +43,12 @@ function updateData() {
         here.miniWindow.data = {
             title: topFeed.title,
             detail: "V2EX",
+            onClick: () => {
+                if (topFeed.url != undefined) {
+                    here.openURL(topFeed.url);
+                }
+            },
         };
-        here.miniWindow.onClick(function () {
-            if (topFeed.url != undefined) {
-                here.openURL(topFeed.url);
-            }
-        });
         here.miniWindow.reload();
 
         let tabs = [

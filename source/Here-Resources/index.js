@@ -134,11 +134,11 @@ function updateData() {
             const topFeed = entryList[0];
             // Mini Window
             here.miniWindow.data = {
+                title: "Here Resources",
+                detail: "Everything about Here",
                 onClick: () => {
                     here.openURL("https://here.app");
                 },
-                title: "Here Resources",
-                detail: "Everything about Here",
             };
             here.miniWindow.reload();
 
