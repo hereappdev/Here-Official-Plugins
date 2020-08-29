@@ -143,9 +143,7 @@ function updateData() {
             here.miniWindow.reload();
 
             // Popover
-            let popover = new TabPopover();
-            popover.data = tabs;
-            here.popover = popover;
+            here.popover = new TabPopover({ tabs: tabs });
             here.popover.reload();
         })
         .catch(function (error) {
