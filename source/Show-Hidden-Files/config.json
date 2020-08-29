@@ -1,14 +1,12 @@
 {
-   "name": "Hide Desktop Icons",
-   "version": "1.0.3",
-   "description": "Show/Hide desktop icons.",
-   "identifier": "app.here.showhiddenfiles",
-   "createdBy": "Here",
-   "website": "https://here.app",
-   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Show-Hidden-Files/appcast.xml",
-   "script": "index.js",
-   "defaultCategory": "quick",
-   "displayOn": [
-      "mini"
-   ]
+    "name": "Hide Desktop Icons",
+    "version": "1.0.3",
+    "description": "Show/Hide desktop icons.",
+    "identifier": "app.here.showhiddenfiles",
+    "createdBy": "Here",
+    "website": "https://here.app",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Show-Hidden-Files/appcast.xml",
+    "script": "index.js",
+    "defaultCategory": "quick",
+    "displayOn": ["mini"]
 }

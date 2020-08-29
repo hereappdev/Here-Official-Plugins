@@ -1,16 +1,13 @@
 {
-   "name": "鱼塘热榜",
-   "version": "1.0.1",
-   "description": "显示鱼塘热榜内容",
-   "icon": "icon.png",
-   "identifier": "app.here.yutang",
-   "createdBy": "HereCN",
-   "website": "https://here.app",
-   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/YuTang/appcast.xml",
-   "script": "index.js",
-   "defaultCategory": "news",
-   "displayOn": [
-      "mini",
-      "menuBar"
-   ]
+    "name": "鱼塘热榜",
+    "version": "1.0.1",
+    "description": "显示鱼塘热榜内容",
+    "icon": "icon.png",
+    "identifier": "app.here.yutang",
+    "createdBy": "HereCN",
+    "website": "https://here.app",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/YuTang/appcast.xml",
+    "script": "index.js",
+    "defaultCategory": "news",
+    "displayOn": ["mini", "menuBar"]
 }

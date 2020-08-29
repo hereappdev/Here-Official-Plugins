@@ -1,16 +1,13 @@
 {
-   "name": "ToDoMVC",
-   "version": "1.0.1",
-   "description": "A ToDo webapp.",
-   "icon": "icon.png",
-   "identifier": "app.here.todomvc",
-   "createdBy": "Here",
-   "website": "https://here.app",
-   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/feedly/ToDoMVC.xml",
-   "script": "index.js",
-   "defaultCategory": "quick",
-   "displayOn": [
-      "mini",
-      "menuBar"
-   ]
+    "name": "ToDoMVC",
+    "version": "1.0.1",
+    "description": "A ToDo webapp.",
+    "icon": "icon.png",
+    "identifier": "app.here.todomvc",
+    "createdBy": "Here",
+    "website": "https://here.app",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/feedly/ToDoMVC.xml",
+    "script": "index.js",
+    "defaultCategory": "quick",
+    "displayOn": ["mini", "menuBar"]
 }

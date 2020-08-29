@@ -1,16 +1,13 @@
 {
-   "name": "bilibili新番时间表",
-   "version": "1.0.1",
-   "description": "显示 bilibili 新番剧目播放时间",
-   "icon": "icon.png",
-   "identifier": "app.here.bilibilitimeline",
-   "createdBy": "Here",
-   "website": "https://here.app",
-   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/app.here.Bilibili-Timeline/appcast.xml",
-   "script": "index.js",
-   "defaultCategory": "news",
-   "displayOn": [
-      "mini",
-      "menuBar"
-   ]
+    "name": "bilibili新番时间表",
+    "version": "1.0.1",
+    "description": "显示 bilibili 新番剧目播放时间",
+    "icon": "icon.png",
+    "identifier": "app.here.bilibilitimeline",
+    "createdBy": "Here",
+    "website": "https://here.app",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/app.here.Bilibili-Timeline/appcast.xml",
+    "script": "index.js",
+    "defaultCategory": "news",
+    "displayOn": ["mini", "menuBar"]
 }

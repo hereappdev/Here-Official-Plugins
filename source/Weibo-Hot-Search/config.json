@@ -1,15 +1,13 @@
 {
-   "name": "微博热搜榜",
-   "version": "1.0.2",
-   "description": "显示微博热搜关键词",
-   "icon": "icon.png",
-   "identifier": "app.here.weibohotsearch",
-   "createdBy": "Here",
-   "website": "https://here.app",
-   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Weibo-Hot-Search/appcast.xml",
-   "script": "index.js",
-   "defaultCategory": "news",
-   "displayOn": [
-      "mini"
-   ]
+    "name": "微博热搜榜",
+    "version": "1.0.2",
+    "description": "显示微博热搜关键词",
+    "icon": "icon.png",
+    "identifier": "app.here.weibohotsearch",
+    "createdBy": "Here",
+    "website": "https://here.app",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Weibo-Hot-Search/appcast.xml",
+    "script": "index.js",
+    "defaultCategory": "news",
+    "displayOn": ["mini"]
 }

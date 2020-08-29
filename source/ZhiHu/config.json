@@ -1,16 +1,13 @@
 {
-   "name": "知乎热榜",
-   "version": "1.0.3",
-   "description": "显示知乎热门话题",
-   "icon": "icon.png",
-   "identifier": "app.here.zhihu",
-   "createdBy": "Here",
-   "website": "https://here.app",
-   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/ZhiHu/appcast.xml",
-   "script": "index.js",
-   "defaultCategory": "news",
-   "displayOn": [
-      "mini",
-      "menuBar"
-   ]
+    "name": "知乎热榜",
+    "version": "1.0.3",
+    "description": "显示知乎热门话题",
+    "icon": "icon.png",
+    "identifier": "app.here.zhihu",
+    "createdBy": "Here",
+    "website": "https://here.app",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/ZhiHu/appcast.xml",
+    "script": "index.js",
+    "defaultCategory": "news",
+    "displayOn": ["mini", "menuBar"]
 }

@@ -1,24 +1,20 @@
 {
-   "name": "Here Test",
-   "version": "1.0.3",
-   "description": "Here App API Unit Test",
-   "identifier": "app.here.heretest",
-   "createdBy": "Here",
-   "website": "https://here.app",
-   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Here-Test/appcast.xml",
-   "script": "index.js",
-   "defaultCategory": "fav",
-   "displayOn": [
-      "mini",
-      "dock",
-      "menuBar"
-   ],
-   "preferences": [
-       {
-           "title": "Text type",
-           "type": "text",
-           "key": "textType",
-           "default": "textType"
+    "name": "Here Test",
+    "version": "1.0.3",
+    "description": "Here App API Unit Test",
+    "identifier": "app.here.heretest",
+    "createdBy": "Here",
+    "website": "https://here.app",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Here-Test/appcast.xml",
+    "script": "index.js",
+    "defaultCategory": "fav",
+    "displayOn": ["mini", "dock", "menuBar"],
+    "preferences": [
+        {
+            "title": "Text type",
+            "type": "text",
+            "key": "textType",
+            "default": "textType"
         },
         {
             "title": "Checkbox type",
@@ -31,10 +27,7 @@
             "type": "popup",
             "key": "popupType",
             "default": 1,
-            "options": [
-                "option 0",
-                "option 1"
-            ]
+            "options": ["option 0", "option 1"]
         }
-   ]
+    ]
 }
