@@ -27,7 +27,7 @@ function updateData() {
             }
 
             // Menu Bar
-            here.menuBar.data.title = entryList.content.substring(0, 50) + "...";
+            here.menuBar.data.title = entryList.content.substring(0, 20) + "...";
             here.menuBar.reload();
 
             // Mini Window

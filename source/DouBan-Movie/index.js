@@ -32,10 +32,6 @@ function updateData() {
 
             const topFeed = entryList[0];
 
-            // Menu Bar
-            here.menuBar.data.title = topFeed.title;
-            here.menuBar.reload();
-
             // Mini Window
             here.miniWindow.data = {
                 title: "🎬《" + topFeed.title + "》 ★" + topFeed.rating.average,

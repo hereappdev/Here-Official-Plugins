@@ -81,14 +81,6 @@ function updateData() {
         });
         here.miniWindow.reload();
 
-        // Menu Bar
-        let title = topFeed.title;
-        if (title.length > 15) {
-            title = title.substring(0, 15) + `…`;
-        }
-        here.menuBar.data.title = title;
-        here.menuBar.reload();
-
         // Popover
         let popover = new TabPopover();
         popover.data = _.map(results, (data) => {

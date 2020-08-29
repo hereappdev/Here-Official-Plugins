@@ -76,10 +76,6 @@ function updateData() {
         };
         here.miniWindow.reload();
 
-        // Menu Bar
-        here.menuBar.data.title = "";
-        here.menuBar.reload();
-
         // Popover
         here.popover = new here.TabPopover();
         const tabs = results.map((result) => {
