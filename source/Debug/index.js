@@ -2,6 +2,7 @@ const pb = require("pasteboard");
 const process = require("process");
 const _ = require("underscore");
 const i18n = require("i18n");
+const { version } = require("os");
 
 function updateData() {
     const versions = process.versions;
@@ -49,11 +50,14 @@ function updateData() {
     });
 
     // Popovers
+    here.popover.reload();
     here.popover = new here.TabPopover();
     here.popover.data = [
         {
             title: __("Version"),
-            data: _.sortBy(versionData, (v) => { return v.title }),
+            data: _.sortBy(versionData, (v) => {
+                return v.title;
+            }),
         },
         {
             title: __("Debug"),
@@ -67,29 +71,29 @@ function updateData() {
         title: __("Debug Info"),
         detail: `Here (${process.versions.stage})`,
         accessory: {
-            title: "v" + process.versions.shortVersion,
-            detail: "(" + process.versions.buildNumber + ")",
+            title: process.versions.shortVersion,
+            detail: process.versions.buildNumber,
         },
         onClick: () => {
             pb.setText(JSON.stringify(process.versions));
             here.hudNotification("Debug info copied.");
-        },
-    }
-    here.miniWindow.reload()
+        }
+    };
+    here.miniWindow.reload();
 
     // Menu Bar
     here.menuBar.data = {
         title: "v" + process.versions.shortVersion,
         detail: process.versions.buildNumber,
-    }
+    };
     here.menuBar.reload();
 
     // Dock
     here.dock.data = {
         title: "v" + process.versions.shortVersion,
         detail: process.versions.buildNumber,
-    }
-    here.dock.reload()
+    };
+    here.dock.reload();
 }
 
 here.on("load", () => {
