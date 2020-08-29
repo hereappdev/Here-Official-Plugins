@@ -36,25 +36,32 @@ function clipboardQuery() {
 }
 
 function showIP(ip) {
-    here.miniWindow.data = { title: "Loading...", detail: "Request " + ip + " info." };
-    here.miniWindow.reload();
+    here.miniWindow.set({ title: "Loading...", detail: "Request " + ip + " info." });
 
-    http.get(`https://api.ip.sb/geoip/${ip}`).then((response) => {
+    http.get({
+        url: "https://api.ip.sb/geoip/" + ip,
+    }).then((response) => {
         if (response.statusCode != 200) {
-            here.miniWindow.data = {
+            here.miniWindow.set({
                 title: "Bad HTTP response.",
                 detail: "HTTP " + response.statusCode + " (Click to check IP from clipboard)",
-            };
-        } else {
-            const ipInfo = response.data;
-
-            // Mini Window
-            here.miniWindow.data = {
-                title: "IP: " + ip + " (Click to check)",
-                detail: ipInfo.isp + " / " + ipInfo.city + " / " + ipInfo.country,
-            };
+                onClick: () => {
+                    clipboardQuery();
+                },
+            });
+            return;
         }
-        here.miniWindow.onClick(clipboardQuery);
+
+        const ipInfo = response.data;
+
+        // Mini Window
+        here.miniWindow.data = {
+            title: "IP: " + ip + " (Click to check)",
+            detail: ipInfo.isp + " / " + ipInfo.city + " / " + ipInfo.country,
+        };
+        here.miniWindow.onClick(function () {
+            clipboardQuery();
+        });
         here.miniWindow.reload();
     });
 }
@@ -73,14 +80,19 @@ function updateData() {
         })
         .catch((error) => {
             console.error(JSON.stringify(error));
-
-            here.miniWindow.data.title = "Failed to get IP address.";
-            here.miniWindow.data.detail = "Copy IP firstly";
-            here.miniWindow.reload();
-
+            here.miniWindow.set({ title: "Failed to get IP address.", detail: "Copy IP firstly" });
             setTimeout(updateData, 3000);
         });
 }
+
+// 直接调用 Webview
+here.popover = new here.WebViewPopover();
+here.popover.data = {
+    url: "https://ip.sb/ip/",
+    width: 375,
+    height: 500,
+};
+here.popover.reload();
 
 here.on("load", () => {
     updateData();
@@ -92,11 +104,3 @@ net.onChange((type) => {
         updateData();
     }
 });
-
-here.popover = new here.WebViewPopover();
-here.popover.data = {
-    url: "https://ip.sb/ip/",
-    width: 375,
-    height: 500,
-};
-here.popover.reload();

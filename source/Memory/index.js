@@ -37,10 +37,11 @@ function updateMemoryInfo() {
             const swapUsed = usage["swap_used_string"].replace(/\s+/g, "");
 
             // Menu Bar
-            here.menuBar.set({
-                title: ((used.slice(0, -2) / mem_size.slice(0, -2)) * 100).toFixed(0) + "%",
+            here.dock.data = {
+                title: (Number(used.slice(0, -2) / mem_size.slice(0, -2)) * 100).toFixed(0) + "%",
                 detail: "MEM",
-            });
+            };
+            here.menuBar.reload();
 
             // Mini Window
             here.miniWindow.data = {
@@ -71,13 +72,6 @@ function updateMemoryInfo() {
                 detail: "MEM",
             };
             here.dock.reload();
-
-            // Menu Bar
-            here.menuBar.data = {
-                title: (Number(used.slice(0, -2) / mem_size.slice(0, -2)) * 100).toFixed(0) + "%",
-                detail: "MEM",
-            };
-            here.menuBar.reload();
         })
         .catch((error) => {
             console.error(JSON.stringify(error));

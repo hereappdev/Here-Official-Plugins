@@ -18,7 +18,7 @@ const CHANNELS = [
     { api: "181", title: "影视" },
 ];
 
-function getDate(api, title = "", LIMIT = 15) {
+function getData(api, title = "", LIMIT = 15) {
     let entryList = [];
     return http
         .get("https://api.bilibili.com/x/web-interface/ranking?rid=" + api + "&day=1&type=1")
@@ -55,7 +55,7 @@ function updateData() {
 
     Promise.all(
         CHANNELS.map((channel) => {
-            return getDate(channel.api, channel.title);
+            return getData(channel.api, channel.title);
         })
     ).then(function (results) {
         const totalData = results[0].entryList["list"];
@@ -72,7 +72,6 @@ function updateData() {
         }
 
         // Mini Window
-        console.log(topFeed);
         here.miniWindow.data.title = topFeed.title;
         here.miniWindow.data.detail = "Bilibili排行榜";
         here.miniWindow.onClick(function () {

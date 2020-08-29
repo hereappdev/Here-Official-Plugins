@@ -21,7 +21,8 @@ function updateData() {
     var stockCode = "gb_aapl";
     var stockName = "Apple Inc.";
 
-    here.miniWindow.set({ title: "Updating…" });
+    here.miniWindow.data = { title: "Updating…" };
+    here.miniWindow.reload();
 
     const json = pref.all();
     if (json == undefined) {
@@ -48,7 +49,7 @@ function updateData() {
             var arr = json.split(",");
             var arrIndex = [];
 
-            console.log(stockCode.substring(0, 2));
+            console.verbose(stockCode.substring(0, 2));
 
             switch (stockCode.substring(0, 2)) {
                 case "gb":
@@ -76,6 +77,47 @@ function updateData() {
             const previousClose = Number(arr[arrIndex[4]]).toFixed(2);
             const date = arr[arrIndex[5]];
 
+            let popovers = [];
+
+            popovers.push(
+                {
+                    title: "Current Price",
+                    accessory: {
+                        title: curPrice,
+                    },
+                },
+                {
+                    title: "Rise Percent",
+                    accessory: {
+                        title: percentage,
+                    },
+                },
+                {
+                    title: "Rise",
+                    accessory: {
+                        title: diff,
+                    },
+                },
+                {
+                    title: "Open",
+                    accessory: {
+                        title: open,
+                    },
+                },
+                {
+                    title: "Previous Close",
+                    accessory: {
+                        title: previousClose,
+                    },
+                },
+                {
+                    title: "Date",
+                    accessory: {
+                        title: date,
+                    },
+                }
+            );
+
             // Menu Bar
             here.menuBar.data = {
                 title: curPrice,
@@ -94,42 +136,16 @@ function updateData() {
             };
             here.miniWindow.reload();
 
+            // popover
+            here.popover.data = popovers;
+            here.popover.reload();
+
             // Dock
             here.dock.data = {
                 title: curPrice,
                 detail: percentage,
             };
             here.dock.reload();
-
-            // Popover
-            here.popover = new here.ListPopover();
-            here.popover.data = [
-                {
-                    title: "Current Price",
-                    accessory: { title: curPrice },
-                },
-                {
-                    title: "Rise Percent",
-                    accessory: { title: percentage },
-                },
-                {
-                    title: "Rise",
-                    accessory: { title: diff },
-                },
-                {
-                    title: "Open",
-                    accessory: { title: open },
-                },
-                {
-                    title: "Previous Close",
-                    accessory: { title: previousClose },
-                },
-                {
-                    title: "Date",
-                    accessory: { title: date },
-                },
-            ];
-            here.popover.reload();
         })
         .catch((error) => {
             console.error("Error: " + JSON.stringify(error));

@@ -1,63 +1,55 @@
-const _ = require("underscore")
-const http = require("http")
-const net = require("net")
-const pref = require("pref")
+const _ = require("underscore");
+const http = require("http");
+const net = require("net");
+const pref = require("pref");
 
 // const jsonPref = pref.all()
 
 function getData(api) {
+    const LIMIT = 30;
 
-    const LIMIT = 30
+    let entryList = [];
+    return http.get(api).then(function (response) {
+        const json = response.data.data;
 
-    let entryList = []
-    return http.get(api)
-    .then(function(response) {
-
-        const json = response.data.data
-
-        
         if (json == undefined) {
-            return here.miniWindow.set({ title: "Invalid data." })
+            return here.miniWindow.set({ title: "Invalid data." });
         }
-    
-        let entryList = json
+
+        let entryList = json;
 
         if (entryList.length <= 1) {
-            return here.miniWindow.set({ title: "Entrylist is empty." })
+            return here.miniWindow.set({ title: "Entrylist is empty." });
         }
-    
+
         if (entryList.length > LIMIT) {
-            entryList = entryList.slice(0, LIMIT)
+            entryList = entryList.slice(0, LIMIT);
         }
-            return entryList
-        })
+        return entryList;
+    });
 }
 
 function updateData() {
+    here.miniWindow.data = { title: "Updating…" };
+    here.miniWindow.reload();
 
-    here.miniWindow.set({ title: "Updating…" })
-
-    Promise.all([
-        getData("https://the.top/v1/weixin/1/30")
-    ]).then(function (values) {
+    Promise.all([getData("https://the.top/v1/weixin/1/30")]).then(function (values) {
         // console.log(values)
-        const topFeed = values[0][0]
-        
+        const topFeed = values[0][0];
+
         // Mini Window
-        here.miniWindow.set({
-            onClick: () => { here.openURL("https://news.sogou.com/news?query=" + topFeed.word) },
+        here.miniWindow.data = {
             title: topFeed.title,
-            detail: "微信公众号热文"
-        })
+            detail: "微信公众号热文",
+        };
+        here.miniWindow.onClick(function () {
+            here.openURL("https://news.sogou.com/news?query=" + topFeed.word);
+        });
+        here.miniWindow.reload();
 
-        here.menuBar.set({
-            title: ""
-        })
+        let popovers = [];
 
-        let popovers = []
-
-
-        values.forEach(function(element, index){
+        values.forEach(function (element, index) {
             // console.log(index)
             // console.log(values[index])
 
@@ -65,14 +57,14 @@ function updateData() {
                 return {
                     title: feed.title,
                     accessory: {
-                        title: '🔥' + feed.heat
+                        title: "🔥" + feed.heat,
                     },
                     // detail: feed.description,
-                    onClick: () => { here.openURL(feed.url) }
-                }
-            })
-
-        
+                    onClick: () => {
+                        here.openURL(feed.url);
+                    },
+                };
+            });
 
             // popovers[index].push({
             //     title: "View All…",
@@ -80,12 +72,11 @@ function updateData() {
             // })
         });
 
-
         let tabs = [
             {
                 title: "综合",
-                data: popovers[0]
-            }
+                data: popovers[0],
+            },
             // {
             //     title: "科技",
             //     data: popovers[1]
@@ -102,22 +93,25 @@ function updateData() {
             //     title: "政务",
             //     data: popovers[4]
             // }
-        ]
+        ];
 
-        here.popover.set(tabs)
-
+        // Popover
+        let popover = new TabPopover();
+        popover.data = tabs;
+        here.popover = popover;
+        here.popover.reload();
     });
 }
 
-here.on('load', () => {
-    updateData()
+here.on("load", () => {
+    updateData();
     // Update every 2 hours
-    setInterval(updateData, 12 * 3600 * 1000)
-})
+    setInterval(updateData, 12 * 3600 * 1000);
+});
 
-net.on('change', (type) => {
-    console.log("Connection type changed:", type)
+net.on("change", (type) => {
+    console.log("Connection type changed:", type);
     if (net.isReachable()) {
-        updateData()
+        updateData();
     }
-})
+});

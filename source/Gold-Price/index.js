@@ -2,8 +2,15 @@ const _ = require("underscore");
 const http = require("http");
 const net = require("net");
 
+function strToVar(str) {
+    var json = new Function("return " + str)();
+    return json;
+}
+
 function updateData() {
-    here.miniWindow.set({ title: "Updating…" });
+    here.miniWindow.data = { title: "Updating…" };
+    here.miniWindow.reload();
+
     http.get("https://hq.sinajs.cn/?list=gds_AUTD")
         .then(function (response) {
             let goldPrice;
@@ -11,11 +18,9 @@ function updateData() {
 
             let data = response.data;
             if (data != undefined) {
-                //  var hq_str_gds_AUTD="417.70,0,417.52,417.70,423.29,411.33,15:30:07,417.55,417.59,109956,0.00,0.00,2020-08-28,黄金延期";
-                data = data.split(",");
-                const firstItem = data[0].split('"');
-                goldPrice = firstItem[firstItem.length - 1];
-                goldDate = data[data.length - 2];
+                goldPrice = data.toString().split('="')[1].split(",")[0];
+                goldDate =
+                    data.toString().split('="')[1].split(",")[12] + " " + data.toString().split('="')[1].split(",")[6];
             }
 
             // console.log(goldPrice)
@@ -50,6 +55,18 @@ function updateData() {
         });
 }
 
+// 直接调用 Webview
+here.popover = new here.WebViewPopover();
+here.popover.data = {
+    type: "webView",
+    data: {
+        url: "http://gu.sina.cn/m/?vt=4&cid=76613#/futures/month?symbol=AU0",
+        width: 375,
+        height: 500,
+    },
+};
+here.popover.reload();
+
 here.on("load", () => {
     updateData();
     // Update every 2 hours
@@ -62,12 +79,3 @@ net.onChange((type) => {
         updateData();
     }
 });
-
-// WebView
-here.popover = new here.WebViewPopover();
-here.popover.data = {
-    url: "http://gu.sina.cn/m/?vt=4&cid=76613#/futures/month?symbol=AU0",
-    width: 375,
-    height: 500,
-};
-here.popover.reload();
