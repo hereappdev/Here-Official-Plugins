@@ -1,160 +1,129 @@
-const _ = require("underscore")
-const http = require("http")
-const net = require("net")
-const pref = require("pref")
+const _ = require("underscore");
+const http = require("http");
+const net = require("net");
 
-// const jsonPref = pref.all()
+const CHANNELS = [
+    { api: "0", title: "全站" },
+    { api: "1", title: "动画" },
+    { api: "168", title: "国创相关" },
+    { api: "3", title: "音乐" },
+    { api: "129", title: "舞蹈" },
+    { api: "4", title: "游戏" },
+    { api: "36", title: "知识" },
+    { api: "188", title: "数码" },
+    { api: "160", title: "生活" },
+    { api: "119", title: "鬼畜" },
+    { api: "155", title: "时尚" },
+    { api: "5", title: "娱乐" },
+    { api: "181", title: "影视" },
+];
 
-function getData(api) {
+function getDate(api, title = "", LIMIT = 15) {
+    let entryList = [];
+    return http
+        .get("https://api.bilibili.com/x/web-interface/ranking?rid=" + api + "&day=1&type=1")
+        .then(function (response) {
+            const json = response.data;
+            entryList = json.data;
 
-    const LIMIT = 30
+            if (entryList == undefined) {
+                here.miniWindow.data.title = "Invalid data.";
+                here.miniWindow.reload();
+                return;
+            }
 
-    let entryList = []
-    return http.get(api)
-    .then(function(response) {
-        var json = response.data.data.list
+            if (entryList.length <= 0) {
+                here.miniWindow.data.title = "Entrylist is empty.";
+                here.miniWindow.reload();
+                return;
+            }
 
-        if (json == undefined) {
-            return here.miniWindow.set({ title: "Invalid data." })
-        }
-    
-        let entryList = json
+            if (entryList.length > LIMIT) {
+                entryList = entryList.slice(0, LIMIT);
+            }
 
-        if (entryList.length <= 1) {
-            return here.miniWindow.set({ title: "Entrylist is empty." })
-        }
-    
-        if (entryList.length > LIMIT) {
-            entryList = entryList.slice(0, LIMIT)
-        }
-            return entryList
-        })
+            return {
+                title: title,
+                entryList: entryList,
+            };
+        });
 }
 
 function updateData() {
+    here.miniWindow.data = { title: "Updating…" };
+    here.miniWindow.reload();
 
-    here.miniWindow.set({ title: "Updating…" })
+    Promise.all(
+        CHANNELS.map((channel) => {
+            return getDate(channel.api, channel.title);
+        })
+    ).then(function (results) {
+        const totalData = results[0].entryList["list"];
 
-    Promise.all([
-        getData("https://api.bilibili.com/x/web-interface/ranking?rid=0&day=1&type=1"),
-        getData("https://api.bilibili.com/x/web-interface/ranking?rid=1&day=3&type=1"),
-        getData("https://api.bilibili.com/x/web-interface/ranking?rid=168&day=3&type=1"),
-        getData("https://api.bilibili.com/x/web-interface/ranking?rid=3&day=3&type=1"),
-        getData("https://api.bilibili.com/x/web-interface/ranking?rid=129&day=3&type=1"),
-        getData("https://api.bilibili.com/x/web-interface/ranking?rid=4&day=3&type=1"),
-        getData("https://api.bilibili.com/x/web-interface/ranking?rid=36&day=3&type=1"),
-        getData("https://api.bilibili.com/x/web-interface/ranking?rid=188&day=3&type=1"),
-        getData("https://api.bilibili.com/x/web-interface/ranking?rid=160&day=3&type=1"),
-        getData("https://api.bilibili.com/x/web-interface/ranking?rid=119&day=3&type=1"),
-        getData("https://api.bilibili.com/x/web-interface/ranking?rid=155&day=3&type=1"),
-        getData("https://api.bilibili.com/x/web-interface/ranking?rid=5&day=3&type=1"),
-        getData("https://api.bilibili.com/x/web-interface/ranking?rid=181&day=3&type=1")
-    ]).then(function (values) {
+        if (totalData == undefined || !Array.isArray(totalData) || totalData.length == 0) {
+            console.error(`Invalid data.`);
+            return;
+        }
 
-        const topFeed = values[0][0]
+        const topFeed = totalData[0];
+        if (topFeed == undefined) {
+            console.error(`Invalid top feed.`);
+            return;
+        }
 
         // Mini Window
-        here.miniWindow.set({
-            onClick: () => { here.openURL(topFeed.url) },
-            title: topFeed.title,
-            detail: "Bilibili排行榜"
-        })
-
-        here.menuBar.set({
-            title: ""
-        })
-
-        let popovers = []
-
-
-        values.forEach(function(element, index){
-            // console.log(index)
-            // console.log(values[index])
-
-            popovers[index] = _.map(values[index], (feed, index) => {
-                return {
-                    title: feed.title + " - @" + feed.author,
-                    accessory: {
-                        title: "",
-                        imageURL: feed.pic,
-                        imageCornerRadius: 4
-                    },
-                    // detail: feed.description,
-                    onClick: () => { here.openURL(feed.url) }
-                }
-            })
-
-        });
-
-        let tabs = [
-            {
-                title: "全站",
-                data: popovers[0]
-            },
-            {
-                title: "动画",
-                data: popovers[1]
-            },
-            {
-                title: "国创相关",
-                data: popovers[2]
-            },
-            {
-                title: "音乐",
-                data: popovers[3]
-            },
-            {
-                title: "舞蹈",
-                data: popovers[4]
-            },
-            {
-                title: "游戏",
-                data: popovers[5]
-            },
-            {
-                title: "知识",
-                data: popovers[6]
-            },
-            {
-                title: "数码",
-                data: popovers[7]
-            },
-            {
-                title: "生活",
-                data: popovers[8]
-            },
-            {
-                title: "鬼畜",
-                data: popovers[9]
-            },
-            {
-                title: "时尚",
-                data: popovers[10]
-            },
-            {
-                title: "娱乐",
-                data: popovers[11]
-            },
-            {
-                title: "影视",
-                data: popovers[12]
+        console.log(topFeed);
+        here.miniWindow.data.title = topFeed.title;
+        here.miniWindow.data.detail = "Bilibili排行榜";
+        here.miniWindow.onClick(function () {
+            if (topFeed.bvid != undefined) {
+                here.openURL("https://www.bilibili.com/video/" + topFeed.bvid);
             }
-        ]
+        });
+        here.miniWindow.reload();
 
-        here.popover.set(tabs)
+        // Menu Bar
+        let title = topFeed.title;
+        if (title.length > 15) {
+            title = title.substring(0, 15) + `…`;
+        }
+        here.menuBar.data.title = title;
+        here.menuBar.reload();
 
+        // Popover
+        let popover = new TabPopover();
+        popover.data = _.map(results, (data) => {
+            return {
+                title: data.title,
+                data: _.map(data.entryList["list"], (entry) => {
+                    return {
+                        title: entry.title + " - @" + entry.author,
+                        accessory: {
+                            title: "",
+                            imageURL: entry.pic,
+                            imageCornerRadius: 4,
+                        },
+                        onClick: () => {
+                            here.openURL("https://www.bilibili.com/video/" + entry.bvid);
+                        },
+                    };
+                }),
+            };
+        });
+        here.popover = popover;
+        here.popover.reload();
     });
 }
 
-here.on('load', () => {
-    updateData()
+here.on("load", () => {
+    updateData();
     // Update every 2 hours
-    setInterval(updateData, 12 * 3600 * 1000)
-})
+    setInterval(updateData, 2 * 3600 * 1000);
+});
 
-net.on('change', (type) => {
-    console.log("Connection type changed:", type)
+net.on("change", (type) => {
+    console.log("Connection type changed:", type);
     if (net.isReachable()) {
-        updateData()
+        updateData();
     }
-})
+});
