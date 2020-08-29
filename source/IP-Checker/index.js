@@ -42,13 +42,14 @@ function showIP(ip) {
         url: "https://api.ip.sb/geoip/" + ip,
     }).then((response) => {
         if (response.statusCode != 200) {
-            here.miniWindow.set({
+            here.miniWindow.data = {
                 title: "Bad HTTP response.",
                 detail: "HTTP " + response.statusCode + " (Click to check IP from clipboard)",
                 onClick: () => {
                     clipboardQuery();
                 },
-            });
+            };
+            here.miniWindow.reload();
             return;
         }
 

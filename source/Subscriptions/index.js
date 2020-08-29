@@ -133,12 +133,13 @@ here.on("load", () => {
     if (hasData()) {
         displayData();
     } else {
-        here.miniWindow.set({
+        here.miniWindow.data = {
             title: "No save.json found.",
             detail: "Please rename [example.json] to [save.json]. Click here.",
             onClick: () => {
                 here.exec(`open "${process.cwd()}"`);
             },
-        });
+        };
+        here.miniWindow.reload();
     }
 });

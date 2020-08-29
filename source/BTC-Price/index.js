@@ -219,12 +219,13 @@ function updateData() {
 
             if (!json.hasOwnProperty("data")) {
                 console.error("JSON result undefined");
-                here.miniWindow.set({
+                here.miniWindow.data = {
                     onClick: () => {
                         updateData();
                     },
                     title: "Please check options.",
-                });
+                };
+                here.miniWindow.reload();
                 return;
             }
 
@@ -291,16 +292,17 @@ function updateData() {
                 foregroundColor: rgba(255, 255, 255, 0.5),
                 hideStatusBar: true,
             };
-            here.popover.reload()
+            here.popover.reload();
         })
         .catch((error) => {
             console.error("Error: " + JSON.stringify(error));
-            here.miniWindow.set({
+            here.miniWindow.data = {
                 onClick: () => {
                     updateData();
                 },
                 title: "Click to refresh.",
-            });
+            };
+            here.miniWindow.reload();
         });
 }
 
