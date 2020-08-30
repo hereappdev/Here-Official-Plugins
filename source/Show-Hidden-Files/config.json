@@ -9,6 +9,7 @@
    "script": "index.js",
    "defaultCategory": "quick",
    "displayOn": [
-      "mini"
+      "mini",
+      "menuBar"
    ]
 }
