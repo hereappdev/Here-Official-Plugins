@@ -1,6 +1,4 @@
 /// <reference path="../../../../hereapp/jslib/src/common.d.ts" />
-/// <reference path="../../../../hereapp/jslib/src/here-console.d.ts" />
-/// <reference path="../../../../hereapp/jslib/src/here-mini-window.d.ts" />
 
 function isDesktopIconsHidden() {
     return here.exec("defaults read com.apple.finder CreateDesktop");
