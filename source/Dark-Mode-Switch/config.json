@@ -9,5 +9,5 @@
     "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Dark-Mode-Switch/appcast.xml",
     "script": "index.js",
     "defaultCategory": "quick",
-    "displayOn": ["mini"]
+    "displayOn": ["mini", "menuBar"]
 }
