@@ -1,5 +1,4 @@
 const hotkey = require("hotkey");
-let isFirstTime = 1;
 
 here.on("load", () => {
     // Mini Window
@@ -11,26 +10,22 @@ here.on("load", () => {
         isOn: false,
         onValueChange: (isOn) => {
             // console.log(`isFirstTime: ${isFirstTime}`);
-            if (!isFirstTime) {
-                if (isOn) {
-                    here.exec(
-                        `osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to not dark mode'`
-                    ).then(() => {
-                        // console.log("Switch to dark.");
-                        here.miniWindow.data.accessory.isOn = false;
-                        // console.log(`after isOn: ${isOn}`);
-                    });
-                } else {
-                    here.exec(
-                        `osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to not dark mode'`
-                    ).then(() => {
-                        // console.log("Switch to light.");
-                        here.miniWindow.data.accessory.isOn = true;
-                        // console.log(`after isOn: ${isOn}`);
-                    });
-                }
+            if (isOn) {
+                here.exec(
+                    `osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to true'`
+                ).then(() => {
+                    // console.log("Switch to dark.");
+                    here.miniWindow.data.accessory.isOn = false;
+                    // console.log(`after isOn: ${isOn}`);
+                });
             } else {
-                isFirstTime = 0;
+                here.exec(
+                    `osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to false'`
+                ).then(() => {
+                    // console.log("Switch to light.");
+                    here.miniWindow.data.accessory.isOn = true;
+                    // console.log(`after isOn: ${isOn}`);
+                });
             }
         },
     });
