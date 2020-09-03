@@ -1,0 +1,13 @@
+{
+    "name": "Dark Mode Switch",
+    "version": "1.0.0",
+    "description": "Switch between light and dark mode",
+    "icon": "icon.png",
+    "identifier": "app.here.darkmodeswitch",
+    "createdBy": "Here",
+    "website": "https://here.app",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Dark-Mode-Switch/appcast.xml",
+    "script": "index.js",
+    "defaultCategory": "quick",
+    "displayOn": ["mini"]
+}
