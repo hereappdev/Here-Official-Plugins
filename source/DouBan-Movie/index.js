@@ -3,18 +3,18 @@ const http = require("http");
 const net = require("net");
 
 function updateData() {
-    const LIMIT = 10;
 
     here.miniWindow.set({ title: "Updating…" });
 
     http.request({
         url:
-            "http://t.yushu.im/v2/movie/in_theaters?apikey=0b2bdeda43b5688921839c8ecb20399b&city=%E5%8C%97%E4%BA%AC&start=0&count=10&client=&udid=",
+            "https://api.douban.com/v2/movie/new_movies?apikey=0df993c66c0c636e29ecbb5344252a4a&city=%E5%8C%97%E4%BA%AC&start=0&count=10&client=&udid=",
         allowHTTPRequest: true,
     })
         .then(function (response) {
             const json = response.data;
             const entryList = json.subjects;
+
 
             if (entryList == undefined) {
                 console.error("Invalid data.");
@@ -26,16 +26,13 @@ function updateData() {
                 return;
             }
 
-            if (entryList.length > LIMIT) {
-                entryList = entryList.slice(0, LIMIT);
-            }
 
             const topFeed = entryList[0];
 
             // Mini Window
             here.miniWindow.data = {
                 title: "🎬《" + topFeed.title + "》 ★" + topFeed.rating.average,
-                detail: "上映" + topFeed["mainland_pubdate"],
+                detail: "上映" + topFeed["mainland_pubdate"] != "" ? topFeed["mainland_pubdate"] + "(CN)" : "",
                 accessory: { badge: topFeed["rating"]["average"].toString() },
                 onClick: () => {
                     if (topFeed.alt != undefined) {
@@ -50,7 +47,7 @@ function updateData() {
                 return {
                     title: "《" + entry.title + "️️️》 ★" + entry.rating.average + "",
                     accessory: {
-                        title: entry["mainland_pubdate"],
+                        title: entry["mainland_pubdate"] != "" ? entry["mainland_pubdate"] + "(CN)" : "",
                     },
                     onClick: () => {
                         here.openURL(entry.alt);
