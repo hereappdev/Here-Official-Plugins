@@ -1,6 +1,6 @@
 {
     "name": "Github Trending",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Show what the GitHub is most excited about today",
     "icon": "icon.png",
     "identifier": "app.here.githubtrending",
@@ -9,5 +9,19 @@
     "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Github-Trending/appcast.xml",
     "script": "index.js",
     "defaultCategory": "news",
-    "displayOn": ["mini", "menuBar"]
+    "displayOn": ["mini", "menuBar"],
+    "preferences": [
+        {
+            "title": "Code Language",
+            "type": "text",
+            "key": "codeLanguage",
+            "default": ""
+        },
+        {
+            "title": "Spoken Language Code",
+            "type": "text",
+            "key": "spokenLanguageCode",
+            "default": "EN"
+        }
+    ]
 }

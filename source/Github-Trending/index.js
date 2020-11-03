@@ -1,6 +1,20 @@
 const _ = require("underscore");
+const pref = require("pref");
 const http = require("http");
 const net = require("net");
+
+var codeLanguage = ""; // via https://github.com/trending
+var spokenLanguageCode = "";
+
+const json = pref.all();
+    if (json == undefined) {
+        console.log("No prefs found.");
+    }
+
+    if (json != undefined) {
+        codeLanguage = json.codeLanguage;
+        spokenLanguageCode = json.spokenLanguageCode;
+    }
 
 const CHANNELS = [
     { api: "today", title: "Today" },
@@ -10,7 +24,7 @@ const CHANNELS = [
 
 function getDate(api, title = "", LIMIT = 25) {
     let entryList = [];
-    return http.get("https://github-trending-api.now.sh/repositories?since=" + api).then(function (response) {
+    return http.get("https://weapp.44i.cc/api/github/trending?time=" + api + "&lang=" + codeLanguage + "&spoken_language_code=" + spokenLanguageCode).then(function (response) {
         const json = response.data;
         entryList = json;
 
@@ -59,24 +73,14 @@ function updateData() {
             console.error(`Invalid top feed.`);
             return;
         }
-        // 直接调用 Webview
-        here.popover = new here.WebViewPopover();
-        here.popover.data = {
-            url: "https://news.qq.com/zt2020/page/feiyan.htm",
-            width: 375,
-            height: 550,
-            backgroundColor: "#ffffff",
-            foregroundColor: rgba(0, 0, 0, 0.5),
-            hideStatusBar: false,
-        };
-        here.popover.reload();
+        
         // Mini Window
-        here.miniWindow.data.title = topFeed.author + "/" + topFeed.name;
+        here.miniWindow.data.title = topFeed.author_account + "/" + topFeed.name;
         here.miniWindow.data.detail = "Github Trending";
-        here.miniWindow.data.accessory = { title: (Number(topFeed.stars) / 1000).toFixed(1) + "k⭐️" };
+        here.miniWindow.data.accessory = { title: (Number(topFeed.star.replace(",","")) / 1000).toFixed(1) + "k⭐️" };
         here.miniWindow.onClick(function () {
-            if (topFeed["id"] != undefined) {
-                here.openURL(topFeed.url);
+            if (topFeed["name"] != undefined) {
+                here.openURL(topFeed.link);
             }
         });
         here.miniWindow.reload();
@@ -84,17 +88,17 @@ function updateData() {
         // Popover
         let popover = new TabPopover();
         popover.data = _.map(results, (data) => {
-            console.log(results);
+            // console.log(results);
             return {
                 title: data.title /*  */,
                 data: _.map(data.entryList, (entry) => {
                     return {
-                        title: entry.author + "/" + entry.name,
+                        title: entry.author_account + "/" + entry.name,
                         accessory: {
-                            title: (Number(entry.stars) / 1000).toFixed(1) + "k⭐️",
+                            title: (Number(entry.star.replace(",","")) / 1000).toFixed(1) + "k⭐️",
                         },
                         onClick: () => {
-                            here.openURL(entry.url);
+                            here.openURL(entry.link);
                         },
                     };
                 }),

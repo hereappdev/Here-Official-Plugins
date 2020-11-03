@@ -2,6 +2,13 @@
 
 > Show what the GitHub is most excited about today
 
+## Usage
+
+* Code Language: `php`, `javascript`, `swift`.
+	via [https://github.com/trending/swift?since=daily](https://github.com/trending/swift?since=daily)
+* Spoken Language Code: `en`,`fr`, `zh`
+	via [http://www.lingoes.net/en/translator/langcode.htm](http://www.lingoes.net/en/translator/langcode.htm)
+
 ## Development
 
 * Site: [https://github.com/trending](https://github.com/trending)
