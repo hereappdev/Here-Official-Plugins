@@ -67,7 +67,8 @@ function updateData() {
             here.popover = new here.ListPopover();
             here.popover.data = _.map(entryList, (entry, index) => {
                 let prefix = entry["desc_extr"] == null ? "置顶🔝" : "🔥";
-                let acTitle = `${prefix}${parseInt(entry["desc_extr"]) / 10000}万`;
+                let acContent = entry["desc_extr"] == null ? "" : (parseInt(entry["desc_extr"]) / 10000) + "万"
+                let acTitle = prefix + acContent;
                 return {
                     title: entry.title,
                     accessory: { title: acTitle },
