@@ -58,12 +58,9 @@ function updateData() {
 // 直接调用 Webview
 here.popover = new here.WebViewPopover();
 here.popover.data = {
-    type: "webView",
-    data: {
-        url: "http://gu.sina.cn/m/?vt=4&cid=76613#/futures/month?symbol=AU0",
-        width: 375,
-        height: 500,
-    },
+    url: "http://gu.sina.cn/m/?vt=4&cid=76613#/futures/month?symbol=AU0",
+    width: 375,
+    height: 500,
 };
 here.popover.reload();
 

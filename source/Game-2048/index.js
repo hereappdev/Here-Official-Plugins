@@ -7,15 +7,12 @@ here.on("load", () => {
 
     here.popover = new here.WebViewPopover();
     here.popover.data = {
-        type: "webView",
-        data: {
-            url: "./game/index.html",
-            width: 300,
-            height: 432,
-            backgroundColor: "#FAF8EF",
-            foregroundColor: rgba(133, 109, 0, 1),
-            hideStatusBar: true,
-        },
+        url: "./game/index.html",
+        width: 300,
+        height: 432,
+        backgroundColor: "#FAF8EF",
+        foregroundColor: rgba(133, 109, 0, 1),
+        hideStatusBar: true,
     };
     here.popover.reload();
 });
