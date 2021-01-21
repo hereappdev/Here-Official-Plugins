@@ -37,13 +37,10 @@ function getData(api) {
 function updateData() {
     here.miniWindow.data = { title: "Updating…" };
     here.miniWindow.reload();
-
     Promise.all([
-        getData("https://www.tophub.fun:8888/v2/GetAllInfoGzip?id=1006"),
-        getData("https://www.tophub.fun:8888/v2/GetAllInfoGzip?id=1065"),
-        getData("https://www.tophub.fun:8888/GetRandomInfo?time=0&is_follow=0"),
+        getData("https://api.tophub.fun/v2/GetAllInfoGzip?id=1065"),
+        getData("https://api.tophub.fun/GetRandomInfo?time=0&is_follow=0"),
     ]).then(function (values) {
-        // console.log(values[1])
 
         const topFeed = values[0][0];
 
@@ -65,9 +62,9 @@ function updateData() {
 
             popovers[index] = _.map(values[index], (feed, index) => {
                 return {
-                    title: feed.Title,
+                    title: feed.Title.trim(),
                     accessory: {
-                        title: feed.type,
+                        title: feed.type.trim(),
                     },
                     // detail: feed.description,
                     onClick: () => {
@@ -83,12 +80,8 @@ function updateData() {
                 data: popovers[0],
             },
             {
-                title: "鱼塘推荐榜",
-                data: popovers[1],
-            },
-            {
                 title: "鱼塘最新榜",
-                data: popovers[2],
+                data: popovers[1],
             },
         ];
 

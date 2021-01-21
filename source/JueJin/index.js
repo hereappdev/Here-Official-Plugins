@@ -8,7 +8,7 @@ function updateData() {
     here.miniWindow.data.title = "Updating…";
     here.miniWindow.reload();
 
-    http.get("https://www.tophub.fun:8888/v2/GetAllInfoGzip?id=154&page=0")
+    http.get("https://api.tophub.fun/v2/GetAllInfoGzip?id=154&page=0")
         .then(function (response) {
             const json = response.data.Data.data;
 
@@ -33,7 +33,7 @@ function updateData() {
 
             // Mini Window
             here.miniWindow.data = {
-                title: topFeed.Title,
+                title: topFeed.Title.trim(),
                 detail: "掘金热文",
                 onClick: () => {
                     if (topFeed.Url != undefined) {
@@ -46,7 +46,7 @@ function updateData() {
             // WebView
             here.popover.data = _.map(entryList, (entry, index) => {
                 return {
-                    title: entry.Title,
+                    title: entry.Title.trim(),
                     onClick: () => {
                         if (entry.Url != undefined) {
                             here.openURL(entry.Url);
