@@ -1,16 +1,13 @@
 {
-   "name": "Apple Developer Releases",
-   "version": "1.0.0",
-   "description": "Show apple developer releases news and updates.",
-   "icon": "icon.png",
-   "identifier": "app.here.appledeveloperreleases",
-   "createdBy": "Here",
-   "website": "https://here.app",
-   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Apple-Developer-Releases/appcast.xml",
-   "script": "index.js",
-   "defaultCategory": "news",
-   "displayOn": [
-      "mini",
-      "menuBar"
-   ]
+    "name": "Apple Developer Releases",
+    "version": "1.0.1",
+    "description": "Show apple developer releases news and updates.",
+    "icon": "icon.png",
+    "identifier": "app.here.appledeveloperreleases",
+    "createdBy": "Here",
+    "website": "https://here.app",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Apple-Developer-Releases/appcast.xml",
+    "script": "index.js",
+    "defaultCategory": "news",
+    "displayOn": ["mini", "menuBar"]
 }

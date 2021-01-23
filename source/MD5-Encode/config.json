@@ -1,14 +1,12 @@
 {
-   "name": "MD5 Encode",
-   "version": "1.0.1",
-   "description": "Quick MD5 tools",
-   "identifier": "app.here.encode",
-   "createdBy": "Here",
-   "website": "https://here.app",
-   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/MD5-Encode/appcast.xml",
-   "script": "index.js",
-   "defaultCategory": "quick",
-   "displayOn": [
-      "mini"
-   ]
+    "name": "MD5 Encode",
+    "version": "1.0.1",
+    "description": "Quick MD5 tools",
+    "identifier": "app.here.encode",
+    "createdBy": "Here",
+    "website": "https://here.app",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/MD5-Encode/appcast.xml",
+    "script": "index.js",
+    "defaultCategory": "quick",
+    "displayOn": ["mini"]
 }

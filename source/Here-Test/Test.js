@@ -4,6 +4,9 @@ const fs = require("fs")
 const pasteboard = require("pasteboard")
 const crypto = require("crypto")
 const cache = require("cache")
+const hotkey = require("hotkey")
+const i18n = require("i18n")
+const process = require("process")
 
 function _hashInputOutput(hashFunc, name, input, output) {
     return new Promise((res, rej) => {
@@ -285,7 +288,7 @@ class Test {
     testHerePluginIdentifier() {
         return new Promise((res, rej) => {
             return res({ 
-                ret: (here.pluginIdentifier() == "app.here.test"),
+                ret: (here.pluginIdentifier() == "app.here.heretest"),
                 msg: "here.pluginIdentifier()" 
             })
         })
@@ -567,4 +570,71 @@ class Test {
         })
     }
     // here ========== END
+
+    // hotkey ========== BEGIN
+    testHokeyAssignable() {
+        return new Promise((res, rej) => {
+            let msg = `hotkey.assignable(cmd + a) == false`
+            let ret = false
+
+            // Taken by system
+            ret = (hotkey.assignable([`cmd`, `a`]) == false)
+            if (!ret) {
+                res({ ret: ret, msg: msg })
+                return
+            }
+
+            // Taken by menu
+            ret = (hotkey.assignable([`cmd`, `r`]) == false)
+            if (!ret) {
+                res({ ret: ret, msg: msg })
+                return
+            }
+            msg += `\nhotkey.assignable(cmd + r) == false`
+
+            ret = (hotkey.assignable([`cmd`, `alt`, `a`]) == true)
+            msg += `\nhotkey.assignable(cmd + option + a)`
+            res({ ret: ret, msg: msg })
+        })
+    }
+    // hotkey ========== END
+
+    // i18n ========== BEGIN
+    testi18n() {
+        return new Promise((res, rej) => {
+            let ret = false
+            let msg = `__("Steve-Jobs-Quote")`
+
+            let lang = i18n.currentLanguage()
+            if (lang.length == 0) {
+                lang = "en"
+            }
+            // __(`Steve-Jobs-Quote`)
+            fs.readFile(`./locales/${lang}.json`)
+            .then((data) => {
+                try {
+                    let json = JSON.parse(data)
+                    // console.log("json.data: ", json.data)
+                    ret = (__(`Steve-Jobs-Quote`) == json[`Steve-Jobs-Quote`])
+                    res({ ret: ret, msg: msg })
+
+                } catch (error) {
+                    res({ ret: ret, msg: msg })
+                }
+            })
+        })
+    }
+    // i18n ========== END
+
+    // process ========== BEGIN
+    testVersions() {
+        console.log(`testVersions`)
+        return new Promise((res, rej) => {
+            const versions = process.versions
+            console.log(versions)
+
+            res({ ret: true, msg: `` })
+        })
+    }
+    // process ========== END
 }

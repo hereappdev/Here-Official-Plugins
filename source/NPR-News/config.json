@@ -1,15 +1,13 @@
 {
-   "name": "NPR News",
-   "version": "1.0.3",
-   "description": "Show hot news",
-   "icon": "icon.png",
-   "identifier": "app.here.nprnews",
-   "createdBy": "Here",
-   "website": "https://here.app",
-   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/NPR-News/appcast.xml",
-   "script": "index.js",
-   "defaultCategory": "news",
-   "displayOn": [
-      "mini"
-   ]
+    "name": "NPR News",
+    "version": "1.0.3",
+    "description": "Show hot news",
+    "icon": "icon.png",
+    "identifier": "app.here.nprnews",
+    "createdBy": "Here",
+    "website": "https://here.app",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/NPR-News/appcast.xml",
+    "script": "index.js",
+    "defaultCategory": "news",
+    "displayOn": ["mini"]
 }

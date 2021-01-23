@@ -1,58 +1,55 @@
-const _ = require("underscore")
-const http = require("http")
-const net = require("net")
-const pref = require("pref")
+const _ = require("underscore");
+const http = require("http");
+const net = require("net");
+const pref = require("pref");
 
-const jsonPref = pref.all()
+const jsonPref = pref.all();
 
 function getDate(api) {
+    const LIMIT = 25;
 
-    const LIMIT = 25
+    let entryList = [];
+    return http.get(api).then(function (response) {
+        entryList = Object.values(response.data);
 
-    let entryList = []
-    return http.get(api)
-        .then(function (response) {
+        if (entryList == undefined) {
+            return here.miniWindow.set({ title: "Invalid data." });
+        }
 
-            entryList = Object.values(response.data)
+        if (entryList.length <= 0) {
+            return here.miniWindow.set({ title: "Entrylist is empty." });
+        }
 
-            if (entryList == undefined) {
-                return here.miniWindow.set({ title: "Invalid data." })
-            }
+        if (entryList.length > LIMIT) {
+            entryList = entryList.slice(0, LIMIT);
+        }
 
-            if (entryList.length <= 0) {
-                return here.miniWindow.set({ title: "Entrylist is empty." })
-            }
-            
-            if (entryList.length > LIMIT) {
-                entryList = entryList.slice(0, LIMIT)
-            }
-
-            return entryList
-        })
+        return entryList;
+    });
 }
 
 function updateData() {
-
-    here.miniWindow.set({ title: "Updating…" })
+    here.miniWindow.data = { title: "Updating…" };
+    here.miniWindow.reload();
 
     Promise.all([
         getDate("https://apispeedy.com/v2ex/api/topics/hot.json"),
         getDate("https://apispeedy.com/v2ex/api/topics/latest.json"),
-        getDate("https://apispeedy.com/v2ex/api/topics/show.json?node_name=" + jsonPref["nodeName"])
-
+        getDate("https://apispeedy.com/v2ex/api/topics/show.json?node_name=" + jsonPref["nodeName"]),
     ]).then(function (values) {
-        const topFeed = values[0][0]
-        
-        // Mini Window
-        here.miniWindow.set({
-            onClick: () => { if (topFeed.url != undefined)  { here.openURL(topFeed.url) } },
-            title: topFeed.title,
-            detail: "V2EX"
-        })
+        const topFeed = values[0][0];
 
-        here.menuBar.set({
-            title: ""
-        })
+        // Mini Window
+        here.miniWindow.data = {
+            title: topFeed.title,
+            detail: "V2EX",
+            onClick: () => {
+                if (topFeed.url != undefined) {
+                    here.openURL(topFeed.url);
+                }
+            },
+        };
+        here.miniWindow.reload();
 
         let tabs = [
             {
@@ -64,11 +61,15 @@ function updateData() {
                         accessory: {
                             title: "",
                             imageURL: entry.member.avatar_large,
-                            imageCornerRadius: 4
+                            imageCornerRadius: 4,
                         },
-                        onClick: () => { if (entry.url != undefined)  { here.openURL(entry.url) } }
-                    }
-                })
+                        onClick: () => {
+                            if (entry.url != undefined) {
+                                here.openURL(entry.url);
+                            }
+                        },
+                    };
+                }),
             },
             {
                 title: "全部",
@@ -79,11 +80,15 @@ function updateData() {
                         accessory: {
                             title: "",
                             imageURL: "https:" + entry.member.avatar_large,
-                            imageCornerRadius: 4
+                            imageCornerRadius: 4,
                         },
-                        onClick: () => { if (entry.url != undefined)  { here.openURL(entry.url) } }
-                    }
-                })
+                        onClick: () => {
+                            if (entry.url != undefined) {
+                                here.openURL(entry.url);
+                            }
+                        },
+                    };
+                }),
             },
             {
                 title: jsonPref["nodeName"],
@@ -94,28 +99,35 @@ function updateData() {
                         accessory: {
                             title: "",
                             imageURL: "https:" + entry.member.avatar_large,
-                            imageCornerRadius: 4
+                            imageCornerRadius: 4,
                         },
-                        onClick: () => { if (entry.url != undefined)  { here.openURL(entry.url) } }
-                    }
-                })
-            }
-        ]
+                        onClick: () => {
+                            if (entry.url != undefined) {
+                                here.openURL(entry.url);
+                            }
+                        },
+                    };
+                }),
+            },
+        ];
 
-        here.popover.set(tabs)
-
+        // Popover
+        let popover = new TabPopover();
+        popover.data = tabs;
+        here.popover = popover;
+        here.popover.reload();
     });
 }
 
-here.on('load', () => {
-    updateData()
+here.on("load", () => {
+    updateData();
     // Update every 2 hours
-    setInterval(updateData, 12 * 3600 * 1000)
-})
+    setInterval(updateData, 12 * 3600 * 1000);
+});
 
-net.on('change', (type) => {
-    console.log("Connection type changed:", type)
+net.on("change", (type) => {
+    console.log("Connection type changed:", type);
     if (net.isReachable()) {
-        updateData()
+        updateData();
     }
-})
+});

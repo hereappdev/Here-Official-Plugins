@@ -1,24 +1,21 @@
 {
-   "name": "Mac玩儿法",
-   "version": "1.0.0",
-   "description": "显示Mac玩儿法最新文章",
-   "icon": "icon.png",
-   "identifier": "app.here.waerfa",
-   "createdBy": "Waerfa",
-   "website": "https://www.waerfa.com",
-   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Waerfa/appcast.xml",
-   "script": "index.js",
-   "defaultCategory": "news",
-   "displayOn": [
-      "mini",
-      "menuBar"
-   ],
-   "preferences": [
-       {
+    "name": "Mac玩儿法",
+    "version": "1.0.0",
+    "description": "显示Mac玩儿法最新文章",
+    "icon": "icon.png",
+    "identifier": "app.here.waerfa",
+    "createdBy": "Waerfa",
+    "website": "https://www.waerfa.com",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Waerfa/appcast.xml",
+    "script": "index.js",
+    "defaultCategory": "news",
+    "displayOn": ["mini", "menuBar"],
+    "preferences": [
+        {
             "title": "显示文章数量",
             "type": "text",
             "key": "postSum",
             "default": "30"
         }
-   ]
+    ]
 }

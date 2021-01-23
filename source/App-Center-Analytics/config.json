@@ -1,19 +1,17 @@
 {
-   "name": "App Center Analytics",
-   "version": "1.0.1",
-   "description": "Show analytics from Visual Studio App Center",
-   "icon": "icon.png",
-   "identifier": "app.here.appcenteranalytics",
-   "createdBy": "Here",
-   "website": "https://here.app",
-   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/App-Center-Analytics/appcast.xml",
-   "script": "index.js",
-   "defaultCategory": "news",
-   "displayOn": [
-      "mini"
-   ],
-   "preferences": [
-       {
+    "name": "App Center Analytics",
+    "version": "1.0.2",
+    "description": "Show analytics from Visual Studio App Center",
+    "icon": "icon.png",
+    "identifier": "app.here.appcenteranalytics",
+    "createdBy": "Here",
+    "website": "https://here.app",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/App-Center-Analytics/appcast.xml",
+    "script": "index.js",
+    "defaultCategory": "news",
+    "displayOn": ["mini"],
+    "preferences": [
+        {
             "title": "API Token",
             "type": "text",
             "key": "apiToken",
@@ -25,5 +23,5 @@
             "key": "apiUrl",
             "default": "https://api.appcenter.ms/v0.1/apps/xxx/xxx/analytics/versions?%24top=30&start="
         }
-   ]
+    ]
 }

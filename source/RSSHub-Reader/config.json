@@ -1,19 +1,16 @@
 {
-   "name": "RSSHub Reader",
-   "version": "1.0.1",
-   "description": "Show rss feeds from RSSHub APIs",
-   "icon": "icon.png",
-   "identifier": "app.here.rsshubreader",
-   "createdBy": "Here",
-   "website": "https://here.app",
-   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/RSSHub-Reader/appcast.xml",
-   "script": "index.js",
-   "defaultCategory": "news",
-   "displayOn": [
-      "mini",
-      "menuBar"
-   ],
-   "preferences": [
+    "name": "RSSHub Reader",
+    "version": "1.0.1",
+    "description": "Show rss feeds from RSSHub APIs",
+    "icon": "icon.png",
+    "identifier": "app.here.rsshubreader",
+    "createdBy": "Here",
+    "website": "https://here.app",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/RSSHub-Reader/appcast.xml",
+    "script": "index.js",
+    "defaultCategory": "news",
+    "displayOn": ["mini", "menuBar"],
+    "preferences": [
         {
             "title": "API Name",
             "type": "input",
@@ -38,5 +35,5 @@
             "key": "apiLink",
             "default": "docs.rsshub.app"
         }
-   ]
+    ]
 }

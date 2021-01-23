@@ -1,17 +1,13 @@
 {
-   "name": "Memory Usage",
-   "version": "1.0.1",
-   "description": "Show system memory usage",
-   "icon": "icon.png",
-   "identifier": "app.here.memory",
-   "createdBy": "Here",
-   "website": "https://here.app",
-   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Memory/appcast.xml",
-   "script": "index.js",
-   "defaultCategory": "fav",
-   "displayOn": [
-      "menuBar",
-      "mini",
-      "dock"
-   ]
+    "name": "Memory Usage",
+    "version": "1.0.2",
+    "description": "Show system memory usage",
+    "icon": "icon.png",
+    "identifier": "app.here.memory",
+    "createdBy": "Here",
+    "website": "https://here.app",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Memory/appcast.xml",
+    "script": "index.js",
+    "defaultCategory": "fav",
+    "displayOn": ["menuBar", "mini", "dock"]
 }

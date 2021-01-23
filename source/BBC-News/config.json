@@ -1,16 +1,13 @@
 {
-   "name": "BBC News",
-   "version": "1.0.2",
-   "description": "Show hot news",
-   "icon": "icon.png",
-   "identifier": "app.here.bbcnews",
-   "createdBy": "Here",
-   "website": "https://here.app",
-   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/BBC-News/appcast.xml",
-   "script": "index.js",
-   "defaultCategory": "news",
-   "displayOn": [
-      "mini",
-      "menuBar"
-   ]
+    "name": "BBC News",
+    "version": "1.0.3",
+    "description": "Show hot news",
+    "icon": "icon.png",
+    "identifier": "app.here.bbcnews",
+    "createdBy": "Here",
+    "website": "https://here.app",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/BBC-News/appcast.xml",
+    "script": "index.js",
+    "defaultCategory": "news",
+    "displayOn": ["mini", "menuBar"]
 }

@@ -1,0 +1,12 @@
+{
+    "name": "Simple Switch",
+    "version": "1.0.3",
+    "description": "All in one simple switch",
+    "identifier": "app.here.switch",
+    "createdBy": "Here",
+    "website": "https://here.app",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Show-Hidden-Files/appcast.xml",
+    "script": "index.js",
+    "defaultCategory": "quick",
+    "displayOn": ["mini", "menuBar"]
+}

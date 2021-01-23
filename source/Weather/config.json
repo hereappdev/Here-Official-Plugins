@@ -1,21 +1,17 @@
 {
-   "name": "Weather",
-   "version": "1.0.2",
-   "description": "Show world weather",
-   "icon": "icon.png",
-   "identifier": "app.here.weather",
-   "createdBy": "Here",
-   "website": "https://here.app",
-   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Weather/appcast.xml",
-   "script": "index.js",
-   "defaultCategory": "fav",
-   "displayOn": [
-      "mini",
-      "menuBar",
-      "dock"
-   ],
-   "preferences": [
-       {
+    "name": "Weather",
+    "version": "1.0.2",
+    "description": "Show world weather",
+    "icon": "icon.png",
+    "identifier": "app.here.weather",
+    "createdBy": "Here",
+    "website": "https://here.app",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Weather/appcast.xml",
+    "script": "index.js",
+    "defaultCategory": "fav",
+    "displayOn": ["mini", "menuBar", "dock"],
+    "preferences": [
+        {
             "title": "Location",
             "type": "text",
             "key": "location",
@@ -26,10 +22,7 @@
             "type": "popup",
             "key": "degreeUnits",
             "default": 0,
-            "options": [
-                "℉ - Fahrenheit",
-                "℃ - Celsius"
-            ]
+            "options": ["℉ - Fahrenheit", "℃ - Celsius"]
         }
-   ]
+    ]
 }

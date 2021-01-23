@@ -1,107 +1,96 @@
-const _ = require("underscore")
-const http = require("http")
-const net = require("net")
-const pref = require("pref")
+const _ = require("underscore");
+const http = require("http");
+const net = require("net");
 
-const jsonPref = pref.all()
+const CHANNELS = [
+    { api: "politics", title: "国内新闻" },
+    { api: "world", title: "国际新闻" },
+    { api: "finance", title: "经济新闻" },
+    { api: "sports", title: "体育新闻" },
+];
 
-function getData(api) {
+function getData(api, title = "", LIMIT = 15) {
+    let entryList = [];
+    return here.parseRSSFeed("http://www.people.com.cn/rss/" + api + ".xml").then(function (feed) {
+        entryList = feed.items;
+        // console.log(JSON.stringify(feed.items[0]))
+        if (feed.items.length <= 0) {
+            return here.miniWindow.set({ title: "No item found." });
+        }
 
-    const LIMIT = 20
-
-    let entryList = []
-    return here.parseRSSFeed(api)
-        .then(function (feed) {
-
-            const entryList = feed.items
-
-            // console.log(JSON.stringify(feed.items[0]))
-            if (feed.items.length <= 0) {
-                return here.miniWindow.set({ title: "No item found." })
-            }
-        
-            if (feed.items.length > LIMIT) {
-                feed.items = feed.items.slice(0, LIMIT)
-            }
-
-            return entryList
-        })
-}
-
-function updateData() {
-
-    here.miniWindow.set({ title: "Updating…" })
-
-    Promise.all([
-        getData("http://www.people.com.cn/rss/politics.xml"),
-        getData("http://www.people.com.cn/rss/world.xml"),
-        getData("http://www.people.com.cn/rss/finance.xml"),
-        getData("http://www.people.com.cn/rss/sports.xml")
-    ]).then(function (values) {
-        const topFeed = values[0][0]
-
-        // console.log(topFeed)
-        
-        // Mini Window
-        here.miniWindow.set({
-            title: topFeed.title,
-            detail: "人民网",
-            onClick: () => { here.openURL("http://people.cn/") }
-        })
-
-        here.menuBar.set({
-            title: ""
-        })
-
-        let popovers = []
-
-        values.forEach(function(element, index){
-            popovers[index] = _.map(values[index], (feed, index) => {
-                return {
-                    title: feed.title,
-                    // detail: feed.description,
-                    onClick: () => { here.openURL("http://people.cn/") }
-                }
-            })
-            popovers[index].push({
-                title: "View All…",
-                onClick: () => { _.each(values[index], (feed) => { here.openURL(feed.link) }) }
-            })
-        });
-
-        let tabs = [
-            {
-                title: "国内新闻",
-                data: popovers[0]
-            },
-            {
-                title: "国际新闻",
-                data: popovers[1]
-            },
-            {
-                title: "经济新闻",
-                data: popovers[2]
-            },
-            {
-                title: "体育新闻",
-                data: popovers[3]
-            }
-        ]
-
-        here.popover.set(tabs)
-
+        if (feed.items.length > LIMIT) {
+            feed.items = feed.items.slice(0, LIMIT);
+        }
+        return {
+            title: title,
+            entryList: entryList,
+        };
     });
 }
 
-here.on('load', () => {
-    updateData()
-    // Update every 2 hours
-    setInterval(updateData, 12 * 3600 * 1000)
-})
+function updateData() {
+    here.miniWindow.data = { title: "Updating…" };
+    here.miniWindow.reload();
 
-net.on('change', (type) => {
-    console.log("Connection type changed:", type)
+    Promise.all(
+        CHANNELS.map((channel) => {
+            return getData(channel.api, channel.title);
+        })
+    ).then(function (results) {
+        const totalData = results[0].entryList;
+
+        if (totalData == undefined || !Array.isArray(totalData) || totalData.length == 0) {
+            console.error(`Invalid data.`);
+            return;
+        }
+
+        const topFeed = totalData[0];
+        if (topFeed == undefined) {
+            console.error(`Invalid top feed.`);
+            return;
+        }
+
+        // Mini Window
+        here.miniWindow.data = {
+            title: topFeed.title,
+            detail: "人民网",
+            onClick: () => {
+                here.openURL("http://people.cn/");
+            },
+        };
+        here.miniWindow.reload();
+
+        // Popover
+        let popover = new TabPopover();
+        popover.data = _.map(results, (data) => {
+            return {
+                title: data.title,
+                data: _.map(data.entryList, (entry) => {
+                    return {
+                        title: entry.title,
+                        onClick: () => {
+                            if (topFeed.link != undefined) {
+                                here.openURL(entry.link);
+                            }
+                        },
+                    };
+                }),
+            };
+        });
+        here.popover = popover;
+        here.popover.reload();
+    });
+}
+
+here.on("load", () => {
+    updateData();
+    // Update every 2 hours
+    setInterval(updateData, 12 * 3600 * 1000);
+});
+
+net.on("change", (type) => {
+    console.log("Connection type changed:", type);
     if (net.isReachable()) {
-        updateData()
+        updateData();
     }
-})
+});

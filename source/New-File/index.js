@@ -1,17 +1,16 @@
-
-here.on('load', () => {
-    const fileName = "NewFile.txt"
-    const filePath = `~/Desktop/${fileName}`
+here.on("load", () => {
+    const fileName = "NewFile.txt";
+    const filePath = `~/Desktop/${fileName}`;
 
     // Mini Window
-    here.miniWindow.set({
+    here.miniWindow.data = {
         title: "Create a New File",
         detail: filePath,
-        onClick: () => {
-            here.exec(`touch ${filePath}`)
-            .then(() => {
-                here.exec(`open ${filePath}`)
-            })
-        }
-    })
-})
+    };
+    here.miniWindow.onClick(function () {
+        here.exec(`touch ${filePath}`).then(() => {
+            here.exec(`open ${filePath}`);
+        });
+    });
+    here.miniWindow.reload();
+});

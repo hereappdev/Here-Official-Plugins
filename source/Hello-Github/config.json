@@ -1,15 +1,13 @@
 {
-   "name": "Hello GitHub",
-   "version": "1.0.1",
-   "description": "Show Hello GitHub post feeds",
-   "icon": "icon.png",
-   "identifier": "app.here.hellogithub",
-   "createdBy": "Here",
-   "website": "https://here.app",
-   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Hello-Github/appcast.xml",
-   "script": "index.js",
-   "defaultCategory": "news",
-   "displayOn": [
-      "mini"
-   ]
+    "name": "Hello GitHub",
+    "version": "1.0.1",
+    "description": "Show Hello GitHub post feeds",
+    "icon": "icon.png",
+    "identifier": "app.here.hellogithub",
+    "createdBy": "Here",
+    "website": "https://here.app",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Hello-Github/appcast.xml",
+    "script": "index.js",
+    "defaultCategory": "news",
+    "displayOn": ["mini"]
 }

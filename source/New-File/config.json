@@ -1,15 +1,13 @@
 {
-   "name": "New File",
-   "version": "1.0.1",
-   "description": "Create a new, blank text file",
-   "icon": "icon.png",
-   "identifier": "app.here.newfile",
-   "createdBy": "Here",
-   "website": "https://here.app",
-   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/New-File/appcast.xml",
-   "script": "index.js",
-   "defaultCategory": "quick",
-   "displayOn": [
-      "mini"
-   ]
+    "name": "New File",
+    "version": "1.0.1",
+    "description": "Create a new, blank text file",
+    "icon": "icon.png",
+    "identifier": "app.here.newfile",
+    "createdBy": "Here",
+    "website": "https://here.app",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/New-File/appcast.xml",
+    "script": "index.js",
+    "defaultCategory": "quick",
+    "displayOn": ["mini"]
 }
