@@ -12,7 +12,7 @@ here.on("load", () => {
         height: 150,
         backgroundColor: "#FFFFFF",
         foregroundColor: rgba(255, 255, 255, 255),
-        hideStatusBar: true,
+        hideStatusBar: true
     };
     here.popover.reload();
 });
