@@ -24,9 +24,9 @@ function setDoNotDisturbOn(isOn) {
 
 function doNotDisturbSwitch() {
     return isDoNotDisturbOn().then((stdOut) => {
-        const isDNDOn = stdOut == 1;
-        console.log(`stdOut: ${stdOut}`);
-        console.log(`isDoNotDisturbOn: ${isDNDOn}`);
+        const isDNDOn = stdOut == "NO";
+        // console.log(`stdOut: ${stdOut}`);
+        // console.log(`isDoNotDisturbOn: ${isDNDOn}`);
 
         return Promise.resolve({
             title: "Do Not Disturb",
@@ -61,7 +61,7 @@ function setDesktopIconsHidden(hidden) {
 
 function hideDesktopIconSwitch() {
     return isDesktopIconsHidden().then((stdOut) => {
-        const isHidden = stdOut == 0;
+        const isHidden = stdOut == "NO";
         console.log(`stdOut: ${stdOut}`);
         console.log(`isDesktopIconsHidden: ${isHidden}`);
 
@@ -96,9 +96,9 @@ function setShowAllFiles(hidden) {
 
 function allFileHiddenSwitch() {
     return isShowingAllFiles().then((stdOut) => {
-        const isShowing = stdOut == 1;
+        const isShowing = stdOut == "NO";
         console.log(`stdOut: ${stdOut}`);
-        console.log(`isShowingAllFiles: ${isShowing}`);
+        console.log(`isShowing: ${isShowing}`);
 
         return Promise.resolve({
             title: "Show hidden files",
