@@ -26,7 +26,7 @@ function updateData() {
 
             // Menu Bar
             here.menuBar.data = {
-                title: Number(topFeed.xh_buy).toFixed(2),
+                title: (Number(topFeed.xh_buy)/100).toFixed(4),
                 detail: "CNY/USD",
             };
             here.menuBar.reload();
@@ -36,7 +36,7 @@ function updateData() {
                 title: "人民币牌价 (" + topFeed.name + ")",
                 detail: "中国人民银行",
                 accessory: {
-                    title: topFeed.xh_buy,
+                    title: (Number(topFeed.xh_buy)/100).toFixed(4),
                 },
                 onClick: () => {
                     here.openURL("https://finance.sina.com.cn/forex/");
@@ -48,7 +48,7 @@ function updateData() {
                 return {
                     title: entry.name,
                     accessory: {
-                        title: entry.xh_buy,
+                        title: (Number(entry.xh_buy)/100).toFixed(4),
                     },
                 };
             });
@@ -56,8 +56,8 @@ function updateData() {
 
             // Dock
             here.dock.data = {
-                title: Number(topFeed.xh_buy).toFixed(2),
-                detail: "￥/$",
+                title: (Number(topFeed.xh_buy)/100).toFixed(4),
+                detail: "$⇌￥",
             };
             here.dock.reload();
         })
