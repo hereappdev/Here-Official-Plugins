@@ -79,7 +79,7 @@ function updateData() {
                         title: entry.title,
                         accessory: {
                             title: "",
-                            imageURL: "https:" + entry.member.avatar_large,
+                            imageURL: entry.member.avatar_large,
                             imageCornerRadius: 4,
                         },
                         onClick: () => {
@@ -98,7 +98,7 @@ function updateData() {
                         title: entry.title,
                         accessory: {
                             title: "",
-                            imageURL: "https:" + entry.member.avatar_large,
+                            imageURL: entry.member.avatar_large,
                             imageCornerRadius: 4,
                         },
                         onClick: () => {
