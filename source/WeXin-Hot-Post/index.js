@@ -10,8 +10,13 @@ function getData(api) {
 
     let entryList = [];
     return http.get(api).then(function (response) {
-        const json = response.data.data;
+        var json = [];
 
+        if (response.data.Data.data == undefined) {
+            json = response.data.Data;
+        } else {
+            json = response.data.Data.data;
+        }
         if (json == undefined) {
             return here.miniWindow.set({ title: "Invalid data." });
         }
@@ -32,18 +37,27 @@ function getData(api) {
 function updateData() {
     here.miniWindow.data = { title: "Updating…" };
     here.miniWindow.reload();
+    Promise.all([
+        getData("https://api.tophub.fun/v2/GetAllInfoGzip?id=1104"),
+        getData("https://api.tophub.fun/v2/GetAllInfoGzip?id=1109"),
+        getData("https://api.tophub.fun/v2/GetAllInfoGzip?id=1132"),
+        getData("https://api.tophub.fun/v2/GetAllInfoGzip?id=1111"),
+        getData("https://api.tophub.fun/v2/GetAllInfoGzip?id=1129"),
+        getData("https://api.tophub.fun/v2/GetAllInfoGzip?id=1128"),
+        getData("https://api.tophub.fun/v2/GetAllInfoGzip?id=1134"),
+        getData("https://api.tophub.fun/v2/GetAllInfoGzip?id=1105"),
+        getData("https://api.tophub.fun/v2/GetAllInfoGzip?id=1107"),
+    ]).then(function (values) {
 
-    Promise.all([getData("https://the.top/v1/weixin/1/30")]).then(function (values) {
-        // console.log(values)
         const topFeed = values[0][0];
 
         // Mini Window
         here.miniWindow.data = {
-            title: topFeed.title,
+            title: topFeed.Title,
             detail: "微信公众号热文",
         };
         here.miniWindow.onClick(function () {
-            here.openURL("https://news.sogou.com/news?query=" + topFeed.word);
+            here.openURL(topFeed.Url);
         });
         here.miniWindow.reload();
 
@@ -55,44 +69,55 @@ function updateData() {
 
             popovers[index] = _.map(values[index], (feed, index) => {
                 return {
-                    title: feed.title,
+                    title: feed.Title.trim(),
                     accessory: {
-                        title: "🔥" + feed.heat,
+                        title: feed.type.trim(),
                     },
                     // detail: feed.description,
                     onClick: () => {
-                        here.openURL(feed.url);
+                        here.openURL(feed.Url);
                     },
                 };
             });
-
-            // popovers[index].push({
-            //     title: "View All…",
-            //     onClick: () => { _.each(values[index], (feed) => { here.openURL(feed.url) }) }
-            // })
         });
 
         let tabs = [
             {
-                title: "综合",
+                title: "科技",
                 data: popovers[0],
             },
-            // {
-            //     title: "科技",
-            //     data: popovers[1]
-            // },
-            // {
-            //     title: "创业",
-            //     data: popovers[2]
-            // },
-            // {
-            //     title: "生活",
-            //     data: popovers[3]
-            // },
-            // {
-            //     title: "政务",
-            //     data: popovers[4]
-            // }
+            {
+                title: "财经",
+                data: popovers[1],
+            },
+            {
+                title: "影视",
+                data: popovers[2],
+            },
+            {
+                title: "情感",
+                data: popovers[3],
+            },
+            {
+                title: "媒体",
+                data: popovers[4],
+            },
+            {
+                title: "政务",
+                data: popovers[5],
+            },
+            {
+                title: "健康",
+                data: popovers[6],
+            },
+            {
+                title: "搞笑",
+                data: popovers[7],
+            },
+            {
+                title: "开发",
+                data: popovers[8],
+            },
         ];
 
         // Popover
