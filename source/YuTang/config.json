@@ -1,6 +1,6 @@
 {
     "name": "鱼塘热榜",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "显示鱼塘热榜内容",
     "icon": "icon.png",
     "identifier": "app.here.yutang",

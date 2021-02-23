@@ -38,6 +38,7 @@ function updateData() {
     here.miniWindow.data = { title: "Updating…" };
     here.miniWindow.reload();
     Promise.all([
+        getData("https://api.tophub.fun/GetAllInfoGzip?id=1006"),
         getData("https://api.tophub.fun/v2/GetAllInfoGzip?id=1065"),
         getData("https://api.tophub.fun/GetRandomInfo?time=0&is_follow=0"),
     ]).then(function (values) {
@@ -80,8 +81,12 @@ function updateData() {
                 data: popovers[0],
             },
             {
-                title: "鱼塘最新榜",
+                title: "鱼塘热榜",
                 data: popovers[1],
+            },
+            {
+                title: "鱼塘最新榜",
+                data: popovers[2],
             },
         ];
 
