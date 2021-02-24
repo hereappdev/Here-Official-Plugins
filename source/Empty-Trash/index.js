@@ -6,7 +6,17 @@ here.on("load", () => {
     };
     here.miniWindow.onClick(() => {
         console.log("Did click on miniwin cell");
-        here.exec("osascript -e 'tell application \"Finder\" to empty trash'")
+        here.exec(`ls ~/.Trash | wc -l`)
+            .then((stdOut) => {
+                const count = parseInt(stdOut);
+                console.log(`Files count: ${count}`);
+                if (typeof count == "number" && count == 0) {
+                    console.log(`The trash can is empty.`);
+                    return Promise.resolve();
+                } else {
+                    return here.exec("osascript -e 'tell application \"Finder\" to empty trash'");
+                }
+            })
             .then((stdOut) => {
                 // console.log("stdOut: ", stdOut)
                 if (stdOut != undefined && stdOut.length > 0) {
