@@ -1,6 +1,6 @@
 {
     "name": "Empty Trash",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "Quick empty trash",
     "identifier": "app.here.emptytrash",
     "createdBy": "Here",
@@ -8,5 +8,5 @@
     "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Empty-Trash/appcast.xml",
     "script": "index.js",
     "defaultCategory": "quick",
-    "displayOn": ["mini"]
+    "displayOn": ["mini", "menuBar"]
 }
