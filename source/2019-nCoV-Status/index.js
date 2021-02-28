@@ -76,7 +76,7 @@ function updateData() {
                 width: 375,
                 height: 550,
                 backgroundColor: "#ffffff",
-                foregroundColor: rgba(0, 0, 0, 0.5),
+                // foregroundColor: rgba(0, 0, 0, 0.5),
                 hideStatusBar: false,
             };
             here.popover.reload();
