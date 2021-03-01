@@ -26,12 +26,9 @@ here.on("load", () => {
                     `osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to true'`
                 ).then(() => {
                     console.log("Switch to dark.");
-                    here.menuBar.set({
-                        title: "Dark"
-                    })
                     // here.miniWindow.data.accessory.isOn = false;
                     // console.log(`after isOn: ${isOn}`);
-                    here.menuBar.setIcon("./sun.png")
+                    here.menuBar.setIcon("./light.png")
                     .catch((err) => {
                          console.error(err)
                     })
@@ -44,10 +41,7 @@ here.on("load", () => {
                     console.log("Switch to light.");
                     //  here.miniWindow.data.accessory.isOn = true;
                     // console.log(`after isOn: ${isOn}`);
-                    here.menuBar.set({
-                        title: "Light"
-                    })
-                    here.menuBar.setIcon("./menuBarIcon.png")
+                    here.menuBar.setIcon("./dark.png")
                     .catch((err) => {
                          console.error(err)
                     })
