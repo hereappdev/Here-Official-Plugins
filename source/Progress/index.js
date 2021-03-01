@@ -2,8 +2,8 @@ const moment = require("moment");
 
 function bar(factor) {
     let bar = "";
-    for (let index = 0; index < 17; index++) {
-        if (index / 17 <= factor) {
+    for (let index = 0; index < 16; index++) {
+        if (index / 16 <= factor) {
             bar += "■";
         } else {
             bar += "□";
@@ -62,13 +62,13 @@ function updateData() {
     const today = progressOfToday();
 
     let popovers = [
-        { title: `${year.bar} Year Progress ${year.current}/${year.total}`, accessory: { title: year.percent + "%" } },
+        { title: `${year.bar} Year ${year.current}/${year.total}`, accessory: { title: year.percent + "%" } },
         {
-            title: `${month.bar} Month Progress ${month.current}/${month.total}`,
+            title: `${month.bar} Month ${month.current}/${month.total}`,
             accessory: { title: month.percent + "%" },
         },
         {
-            title: `${today.bar} Day Progress ${moment().format("HH:mm:ss")}`,
+            title: `${today.bar} Day ${moment().format("HH:mm:ss")}`,
             accessory: { title: today.percent + "%" },
         },
     ];
