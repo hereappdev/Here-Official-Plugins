@@ -41,9 +41,6 @@ here.on("load", () => {
 
     // Menu Bar
     here.menuBar = new MenuBar();
-    here.menuBar.data = {
-        title: "Empty",
-    };
     here.menuBar.onClick(() => {
         console.log(`on menu bar click.`)
         onClick();
