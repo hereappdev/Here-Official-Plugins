@@ -68,16 +68,16 @@ class Test {
         return new Promise((res, rej) => {
             var str = ""
 
-            http.get("https://www.baidu.com/")
+            http.get("https://here.app/")
             .then((response) => {
                 console.log("response:", response.statusCode)
                 if (response.statusCode > 400) {
-                    return Promise.reject(`http.get("https://www.baidu.com/"): status code - ${response.statusCode}`)
+                    return Promise.reject(`http.get("https://here.app"): status code - ${response.statusCode}`)
 
                 } else {
-                    str += 'http.get("https://www.baidu.com")\n'
+                    str += 'http.get("https://here.app")\n'
                     return new Promise((aRes, aRej) => {
-                        http.get("http://www.baidu.com")
+                        http.get("http://here.app")
                         .then(() => {
                             // 不允许 http
                             aRes(false)
@@ -93,10 +93,10 @@ class Test {
             .then((result) => {
                 console.log("result:", result)
                 if (result) {
-                    str += 'http.get("http://www.baidu.com") not allowed\n'
+                    str += 'http.get("http://here.app") not allowed\n'
 
                     return http.get({
-                        url: "http://www.baidu.com",
+                        url: "http://here.app",
                         allowHTTPRequest: true
                     })
 
@@ -106,7 +106,7 @@ class Test {
             })
             .then((response) => {
                 if (response.statusCode < 400) {
-                    str += 'http.get({ url: "http://www.baidu.com", allowHTTPRequest: true })'
+                    str += 'http.get({ url: "http://here.app", allowHTTPRequest: true })'
                     res({
                         ret: true,
                         msg: str
@@ -447,11 +447,11 @@ class Test {
     testSetMiniWindow() {
         return new Promise((res, rej) => {
             let date = new Date()
-            here.miniWindow.set({ title: `${date}` })
+            here.miniWindow.set({ title: `${date}`, detail: "Here Test" })
             .then(() => {
                 res({
                     ret: true,
-                    msg: `promise: here.miniWindow.set({ title: ${date} }).then(() => {})`
+                    msg: `promise: here.miniWindow.set({ title: ${date}, detail: "Here Test" }).then(() => {})`
                 })
             })
         })
@@ -459,10 +459,10 @@ class Test {
     testSetMiniWindowCB() {
         return new Promise((res, rej) => {
             let date = new Date()
-            here.miniWindow.set({ title: `${date}` }, () => {
+            here.miniWindow.set({ title: `${date}`, detail: "Here Test" }, () => {
                 res({
                     ret: true,
-                    msg: `callback: here.miniWindow.set({ title: ${date} }, (err) => {})`
+                    msg: `callback: here.miniWindow.set({ title: ${date}, detail: "Here Test" }, (err) => {})`
                 })
             })
         })

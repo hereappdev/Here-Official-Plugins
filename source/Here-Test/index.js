@@ -65,7 +65,7 @@ function coverage(module) {
 }
 
 here.on('load', () => {
-    here.miniWindow.set({ title: "Testing…" })
+    here.miniWindow.set({ title: "Testing…", detail: "Here Test", })
     here.dock.set({ title: "Testing…", detail: "Detail" })
     here.menuBar.set({ title: "Testing…" })
     
