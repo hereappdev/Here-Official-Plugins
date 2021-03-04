@@ -181,24 +181,24 @@ class Test {
     // fs ========== END
 
     // pasteboard ========== START
-    testSetGetText() {
-        return new Promise((res, rej) => {
-            let num = Math.random() * 100000
-            pasteboard.setText(`${num}`)
-            let pNum = Number(pasteboard.getText())
-            if (num == pNum) {
-                res({
-                    ret: true,
-                    msg: `pasteboard.setText(${num})\npasteboard.getText(${pNum})`
-                })
-            } else {
-                res({
-                    ret: false,
-                    msg: "Failed to set/get text in pasteboard"
-                })
-            }
-        })
-    }
+    // testSetGetText() {
+    //     return new Promise((res, rej) => {
+    //         let num = Math.random() * 100000
+    //         pasteboard.setText(`${num}`)
+    //         let pNum = Number(pasteboard.getText())
+    //         if (num == pNum) {
+    //             res({
+    //                 ret: true,
+    //                 msg: `pasteboard.setText(${num})\npasteboard.getText(${pNum})`
+    //             })
+    //         } else {
+    //             res({
+    //                 ret: false,
+    //                 msg: "Failed to set/get text in pasteboard"
+    //             })
+    //         }
+    //     })
+    // }
     
     testOnChage() {
         return new Promise((res, rej) => {
