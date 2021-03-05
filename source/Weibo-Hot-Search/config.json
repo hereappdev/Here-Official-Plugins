@@ -9,5 +9,5 @@
     "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Weibo-Hot-Search/appcast.xml",
     "script": "index.js",
     "defaultCategory": "news",
-    "displayOn": ["mini"]
+    "displayOn": ["mini", "menuBar"]
 }
