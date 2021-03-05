@@ -26,7 +26,6 @@ function updateData() {
 
             entryList = _.map(entryList, (entry) => {
                 entry.title = entry["title"];
-                entry.url = entry["url_show"];
                 return entry;
             });
 
@@ -46,8 +45,8 @@ function updateData() {
                 title: topFeed.title,
                 detail: "cnBeta",
                 onClick: () => {
-                    if (topFeed.url != undefined) {
-                        here.openURL(topFeed.url);
+                    if (topFeed.url_show != undefined) {
+                        here.openURL(topFeed.url_show);
                     }
                 },
             };
@@ -62,8 +61,9 @@ function updateData() {
                         imageCornerRadius: 4,
                     },
                     onClick: () => {
-                        if (entry.url != undefined) {
-                            here.openURL(entry.url);
+                        if (entry.url_show != undefined) {
+                            console.log(entry.url_show);
+                            here.openURL(entry.url_show);
                         }
                     },
                 };
