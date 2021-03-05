@@ -18,7 +18,8 @@ here.on("load", () => {
     here.miniWindow.reload();
 });
 
-here.on("query", (query) => {
+here.on("query", (query, keyword) => {
+    console.log(`query: ${query} keyword: ${keyword}`)
     if (typeof query != "string") {
         console.error(`query is not string!`);
         return;
