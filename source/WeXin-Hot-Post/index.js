@@ -6,12 +6,15 @@ const pref = require("pref");
 // const jsonPref = pref.all()
 
 function getData(api) {
+    console.log("开始执行：getData()")
+
     const LIMIT = 30;
 
     let entryList = [];
     return http.get(api).then(function (response) {
+        console.log("执行：http.get(" + api + ")")
         var json = [];
-
+        console.log(typeof(response.data.Data.data))
         if (response.data.Data.data == undefined) {
             json = response.data.Data;
         } else {
@@ -125,6 +128,8 @@ function updateData() {
         popover.data = tabs;
         here.popover = popover;
         here.popover.reload();
+    }).catch(function (e){
+        console.log("报错：catch error");
     });
 }
 
