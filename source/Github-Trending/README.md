@@ -4,10 +4,11 @@
 
 ## Usage
 
-* Code Language: `php`, `javascript`, `swift`.
+* Code Language: `php`, `javascript`, `swift`, empty for all the language.
 	via [https://github.com/trending/swift?since=daily](https://github.com/trending/swift?since=daily)
 * Spoken Language Code: `en`,`fr`, `zh`
 	via [http://www.lingoes.net/en/translator/langcode.htm](http://www.lingoes.net/en/translator/langcode.htm)
+* More API info check here: [API](https://gh-trending-api.herokuapp.com/repositories/python?since=xxx&spoken_lang=xxx)
 
 ## Development
 

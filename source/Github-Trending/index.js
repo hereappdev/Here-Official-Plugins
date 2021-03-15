@@ -4,27 +4,28 @@ const http = require("http");
 const net = require("net");
 
 var codeLanguage = ""; // via https://github.com/trending
-var spokenLanguageCode = "";
+var spokenLanguageCode = "en";
 
 const json = pref.all();
-    if (json == undefined) {
+
+if (json == undefined) {
         console.log("No prefs found.");
     }
-
-    if (json != undefined) {
-        codeLanguage = json.codeLanguage;
-        spokenLanguageCode = json.spokenLanguageCode;
-    }
+if (json != undefined) {
+    codeLanguage = json.codeLanguage;
+    spokenLanguageCode = json.spokenLanguageCode;
+}
 
 const CHANNELS = [
-    { api: "today", title: "Today" },
+    { api: "daily", title: "Today" },
     { api: "weekly", title: "Weekly" },
     { api: "monthly", title: "Monthly" },
 ];
 
 function getDate(api, title = "", LIMIT = 25) {
     let entryList = [];
-    return http.get("https://weapp.44i.cc/api/github/trending?time=" + api + "&lang=" + codeLanguage + "&spoken_language_code=" + spokenLanguageCode).then(function (response) {
+    // console.log("https://gh-trending-api.herokuapp.com/repositories/" + codeLanguage + "?since=" + api + "&spoken_lang=" + spokenLanguageCode)
+    return http.get("https://gh-trending-api.herokuapp.com/repositories/" + codeLanguage + "?since=" + api + "&spoken_lang=" + spokenLanguageCode).then(function (response) {
         const json = response.data;
         entryList = json;
 
@@ -75,12 +76,12 @@ function updateData() {
         }
         
         // Mini Window
-        here.miniWindow.data.title = topFeed.author_account + "/" + topFeed.name;
+        here.miniWindow.data.title = topFeed.username + "/" + topFeed.repositoryName;
         here.miniWindow.data.detail = "Github Trending";
-        here.miniWindow.data.accessory = { title: (Number(topFeed.star.replace(",","")) / 1000).toFixed(1) + "k⭐️" };
+        here.miniWindow.data.accessory = { title: (topFeed.totalStars / 1000).toFixed(1) + "k⭐️" };
         here.miniWindow.onClick(function () {
             if (topFeed["name"] != undefined) {
-                here.openURL(topFeed.link);
+                here.openURL(topFeed.url);
             }
         });
         here.miniWindow.reload();
@@ -93,12 +94,12 @@ function updateData() {
                 title: data.title /*  */,
                 data: _.map(data.entryList, (entry) => {
                     return {
-                        title: entry.author_account + "/" + entry.name,
+                        title: entry.username + "/" + entry.repositoryName,
                         accessory: {
-                            title: (Number(entry.star.replace(",","")) / 1000).toFixed(1) + "k⭐️",
+                            title: (entry.totalStars / 1000).toFixed(1) + "k⭐️",
                         },
                         onClick: () => {
-                            here.openURL(entry.link);
+                            here.openURL(entry.url);
                         },
                     };
                 }),

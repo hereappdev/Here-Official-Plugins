@@ -21,7 +21,7 @@
             "title": "Spoken Language Code",
             "type": "text",
             "key": "spokenLanguageCode",
-            "default": "EN"
+            "default": "en"
         }
     ]
 }
