@@ -42,9 +42,6 @@ function updateData() {
 
     let entryList = [];
 
-
-
-
     http.post({
         url: "https://the.top/api/index/Index/list",
         parameters: {"limit":5,"act":"getNodeLists","page":1,"nameArray":["zhihu_total","weibo","baidu_ssrd","tencent_news","en_today","cnbeta_hot","kr_renqi"],"style":"txt","ispage":0}
@@ -53,14 +50,11 @@ function updateData() {
 
         const json = response.data.result.lists
 
-console.log(json)
         if (json == undefined) {
             return here.miniWindow.set({ title: "Invalid data." });
         }
 
         let entryList = json;
-        console.log(entryList.length)
-
 
         if (entryList.length <= 1) {
             return here.miniWindow.set({ title: "Entrylist is empty." });
