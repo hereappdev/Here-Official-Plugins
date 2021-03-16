@@ -123,6 +123,14 @@ function updateData() {
                 title: curPrice,
                 detail: percentage,
             };
+            // Set menu bar icon based on + / - 
+            if(percentage.indexOf("+") != -1){
+                here.menuBar.setIcon("./menuBarIcon.png")
+
+            }else{
+                here.menuBar.setIcon("./menuBarIcon-down.png")
+            }
+
             here.menuBar.reload();
 
             // Mini Window
