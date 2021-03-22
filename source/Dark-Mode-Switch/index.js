@@ -1,5 +1,6 @@
 const hotkey = require("hotkey");
 const os = require('os');
+const i18n = require('i18n')
 
 function checkDarkMode() {
     if (os.interfaceThemeIsDark()) {
@@ -13,8 +14,8 @@ function checkDarkMode() {
 here.on("load", () => {
     // Mini Window
     here.miniWindow.data = {
-        title: "Dark Mode Switch",
-        detail: "Click to switch",
+        title: __("Dark Mode Switch"),
+        detail: __("Click to switch"),
     };
 
     // Menu Bar
