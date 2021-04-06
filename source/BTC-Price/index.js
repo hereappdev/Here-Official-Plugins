@@ -238,7 +238,7 @@ function updateData() {
                 unitSymbol +
                 (usdPrice["price"] * rate > 100
                     ? (usdPrice["price"] * rate).toFixed(0)
-                    : (usdPrice["price"] * rate).toFixed(2)) +
+                    : (usdPrice["price"] * rate).toFixed(3)) +
                 "";
             const lowPrice =
                 unitSymbol +
