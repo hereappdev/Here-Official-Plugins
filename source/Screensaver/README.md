@@ -1,6 +1,6 @@
 # ScreenSaver
 
-> Turn On ScreenSaver
+> Turn on ScreenSaver
 
 ## Development
 

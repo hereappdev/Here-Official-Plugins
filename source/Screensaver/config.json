@@ -1,7 +1,7 @@
 {
     "name": "ScreenSaver",
-    "version": "1.0.1",
-    "description": "Turn On ScreenSaver",
+    "version": "1.0.2",
+    "description": "Turn on ScreenSaver",
     "icon": "icon.png",
     "identifier": "app.here.screensaver",
     "createdBy": "Here",
@@ -9,5 +9,5 @@
     "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Screensaver/appcast.xml",
     "script": "index.js",
     "defaultCategory": "quick",
-    "displayOn": ["mini"]
+    "displayOn": ["mini", "menubar"]
 }
