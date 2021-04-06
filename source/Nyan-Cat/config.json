@@ -1,0 +1,12 @@
+{
+    "name": "Nyan Cat",
+    "version": "1.0.0",
+    "description": "Nyan Cat everywhere",
+    "identifier": "app.here.nyancat",
+    "createdBy": "Here",
+    "website": "https://here.app",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Nyan-Cat/appcast.xml",
+    "script": "index.js",
+    "defaultCategory": "quick",
+    "displayOn": ["mini", "menuBar"]
+}
