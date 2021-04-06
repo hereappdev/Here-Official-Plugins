@@ -1,0 +1,13 @@
+{
+    "name": "黄历(万年历)",
+    "version": "1.0.0",
+    "description": "黄历(万年历)",
+    "icon": "icon.png",
+    "identifier": "app.here.huangli",
+    "createdBy": "Here",
+    "website": "https://here.app",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/HuangLi/appcast.xml",
+    "script": "index.js",
+    "defaultCategory": "quick",
+    "displayOn": ["mini", "menuBar", "dock"]
+}
