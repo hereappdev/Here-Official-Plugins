@@ -1,7 +1,9 @@
+const i18n = require('i18n')
+
 here.on("load", () => {
     here.miniWindow.data = {
-        title: "Apple Service Coverage",
-        detail: "Check the Status of your Apple Devices",
+        title: __("Apple Service Coverage"),
+        detail: __("Check the Status of your Apple Devices"),
     };
     here.miniWindow.reload();
 

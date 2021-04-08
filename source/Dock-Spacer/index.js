@@ -1,3 +1,5 @@
+const i18n = require('i18n')
+
 function onClick() {
     here.exec(`defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="small-spacer-tile";}';killall Dock`);
 }
@@ -5,8 +7,8 @@ function onClick() {
 here.on("load", () => {
     // Mini Window
     here.miniWindow.data = {
-        title: "Dock Spacer",
-        detail: "Click to add spacer to Dock",
+        title: __("Dock Spacer"),
+        detail: __("Click to add spacer to Dock"),
     };
     here.miniWindow.onClick(() => {
         console.log("Did click on miniwin cell");

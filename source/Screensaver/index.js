@@ -1,10 +1,11 @@
+const i18n = require('i18n')
 const hotkey = require("hotkey");
 
 here.on("load", () => {
     // Mini Window
     here.miniWindow.data = {
-        title: "Screen Saver",
-        detail: "Turn on screensaver",
+        title: __("Screen Saver"),
+        detail: __("Click to turn on"),
     };
 
     here.miniWindow.data.accessory = new here.SwitchAccessory({

@@ -1,6 +1,6 @@
 {
     "name": "Game 2048",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Get to the 2048 Tile!",
     "icon": "icon.png",
     "identifier": "app.here.game2048",

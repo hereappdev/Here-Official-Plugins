@@ -1,12 +1,13 @@
 const _ = require("underscore");
 const crypto = require("crypto");
 const pasteboard = require("pasteboard");
+const i18n = require('i18n')
 
 here.on("load", () => {
     // Mini Window
     here.miniWindow.data = {
-        title: "MD5 Encode",
-        detail: "Encode clipboard",
+        title: __("MD5 Encode"),
+        detail: __("Encode from clipboard"),
     };
     here.miniWindow.onClick(function () {
         const text = pasteboard.getText();

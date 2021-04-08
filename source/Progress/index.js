@@ -1,4 +1,26 @@
 const moment = require("moment");
+const pref = require("pref");
+const i18n = require('i18n')
+
+    var displayType = "Year";
+
+    here.miniWindow.data = { title: "Updating…" };
+    here.miniWindow.reload();
+
+    const json = pref.all();
+    const json1 = pref.get("displayType");
+
+    console.log(JSON.stringify(json))
+    if (json == undefined) {
+        console.log("No prefs found.");
+    }
+
+    if (json["location"] != undefined) {
+        location = json["location"];
+    }
+
+    
+
 
 function bar(factor) {
     let bar = "";
@@ -62,20 +84,20 @@ function updateData() {
     const today = progressOfToday();
 
     let popovers = [
-        { title: `${year.bar} Year ${year.current}/${year.total}`, accessory: { title: year.percent + "%" } },
+        { title: `${year.bar} ` + __("Year") + `(${year.current}/${year.total})`, accessory: { title: year.percent + "%" } },
         {
-            title: `${month.bar} Month ${month.current}/${month.total}`,
+            title: `${month.bar} ` + __("Month") + `(${month.current}/${month.total})`,
             accessory: { title: month.percent + "%" },
         },
         {
-            title: `${today.bar} Day ${moment().format("HH:mm:ss")}`,
+            title: `${today.bar} ` + __("Day") + `(${moment().format("HH:mm:ss")})`,
             accessory: { title: today.percent + "%" },
         },
     ];
 
     // Mini Window
     here.miniWindow.data = {
-        title: "Progress of the Year",
+        title: __("Progress of the Year"),
         detail: year.bar,
         accessory: {
             badge: `${year.percent}%`,
@@ -86,6 +108,13 @@ function updateData() {
     // Popover
     here.popover.data = popovers;
     here.popover.reload();
+
+    // Dock
+    here.dock.data = {
+        title: curPrice,
+        detail: percentage,
+    };
+    here.dock.reload();
 }
 
 here.on("load", () => {

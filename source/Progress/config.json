@@ -1,6 +1,6 @@
 {
     "name": "Progress of the Year",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Progress of the Year",
     "identifier": "app.here.progress",
     "createdBy": "Here",
@@ -8,5 +8,14 @@
     "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Progress/appcast.xml",
     "script": "index.js",
     "defaultCategory": "quick",
-    "displayOn": ["mini"]
+    "displayOn": ["mini", "menuBar", "dock"],
+    "preferences": [
+        {
+            "title": "Display Type",
+            "type": "popup",
+            "key": "displayType",
+            "default": 2,
+            "options": ["Week", "Month", "Year"]
+        }
+    ]
 }
