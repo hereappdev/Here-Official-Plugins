@@ -71,7 +71,7 @@ function updateBatteryInfo() {
                 // Dock
                 here.dock.data = {
                     title: percentage,
-                    detail: title,
+                    detail: otherInfo.length.toString() + __(" device"),
                 }
                 here.dock.reload()
 

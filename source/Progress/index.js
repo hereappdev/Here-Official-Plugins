@@ -111,8 +111,8 @@ function updateData() {
 
     // Dock
     here.dock.data = {
-        title: curPrice,
-        detail: percentage,
+        title: year.percent + "%",
+        detail: year.current + "/" + year.total,
     };
     here.dock.reload();
 }
