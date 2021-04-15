@@ -9,14 +9,14 @@ here.on("load", () => {
 
     // Popover
     here.popover = new here.WebViewPopover();
-    here.popover.data = {
-        url: "http://www.nyan.cat/index.php?cat=original",
-        width: 772,
-        height: 400,
-        backgroundColor: "#ffffff",
-        foregroundColor: rgba(0, 0, 0, 0.5),
-        hideStatusBar: false,
-    };
+    // here.popover.data = {
+    //     url: "http://www.nyan.cat/index.php?cat=original",
+    //     width: 772,
+    //     height: 400,
+    //     backgroundColor: "#ffffff",
+    //     foregroundColor: rgba(0, 0, 0, 0.5),
+    //     hideStatusBar: false,
+    // };
     here.popover.reload();
 
     // Menu Bar
