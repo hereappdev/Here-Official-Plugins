@@ -3,12 +3,12 @@ here.on("load", () => {
     // Mini Window
     here.miniWindow.data = {
         title: "Nyan Cat",
-        detail: "🐱Nyan Cat",
+        detail: "I'm on your menubar now.🌈🐱",
     };
     here.miniWindow.reload();
 
     // Popover
-    here.popover = new here.WebViewPopover();
+    // here.popover = new here.WebViewPopover();
     // here.popover.data = {
     //     url: "http://www.nyan.cat/index.php?cat=original",
     //     width: 772,
@@ -17,7 +17,7 @@ here.on("load", () => {
     //     foregroundColor: rgba(0, 0, 0, 0.5),
     //     hideStatusBar: false,
     // };
-    here.popover.reload();
+    // here.popover.reload();
 
     // Menu Bar
     here.menuBar = new MenuBar();
