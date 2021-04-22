@@ -1,6 +1,6 @@
 {
     "name": "Here Test",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Here-Test/config.json",
     "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/Here-Test.hereplugin",
     "description": "Here App API Unit Test",
