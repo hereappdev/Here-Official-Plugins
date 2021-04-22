@@ -14,7 +14,17 @@ function getData(api) {
     return http.get(api).then(function (response) {
         console.log("执行：http.get(" + api + ")")
         var json = [];
-        console.log(typeof(response.data.Data.data))
+        // console.log(typeof(response.data.Data.data))
+
+        if (response == undefined
+            || response.data == undefined
+            || response.data.Data == undefined) {
+            console.error(`invalid response data`)
+            here.miniWindow.set({ title: "Invalid data." });
+            return []
+        }
+
+
         if (response.data.Data.data == undefined) {
             json = response.data.Data;
         } else {
@@ -53,6 +63,10 @@ function updateData() {
     ]).then(function (values) {
 
         const topFeed = values[0][0];
+        if (topFeed == undefined) {
+            here.miniWindow.set({ title: "Invalid data." });
+            return
+        }
 
         // Mini Window
         here.miniWindow.data = {
@@ -129,7 +143,7 @@ function updateData() {
         here.popover = popover;
         here.popover.reload();
     }).catch(function (e){
-        console.log("报错：catch error");
+        console.log(`catch error ${e}`);
     });
 }
 
