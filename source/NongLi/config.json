@@ -1,12 +1,13 @@
 {
     "name": "农历(万年历)",
-    "version": "1.0.0",
+    "version": "1.0.1",
+    "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/NongLi/config.json",
+    "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/NongLi.hereplugin",
     "description": "农历(万年历)",
     "icon": "icon.png",
     "identifier": "app.here.nongli",
     "createdBy": "Here",
     "website": "https://here.app",
-    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/NongLi/appcast.xml",
     "script": "index.js",
     "defaultCategory": "quick",
     "displayOn": ["mini", "menuBar", "dock"]

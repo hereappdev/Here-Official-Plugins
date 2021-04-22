@@ -1,12 +1,13 @@
 {
     "name": "每日诗词",
-    "version": "1.0.4",
+    "version": "1.0.5",
+    "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Daily-Poetry/config.json",
+    "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/Daily-Poetry.hereplugin",
     "description": "  给生活增添一分诗意",
     "icon": "icon.png",
     "identifier": "app.here.dailypoetry",
     "createdBy": "Here",
     "website": "https://here.app",
-    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Daily-Poetry/appcast.xml",
     "script": "index.js",
     "defaultCategory": "quick",
     "displayOn": ["mini", "menuBar"]

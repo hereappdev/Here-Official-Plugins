@@ -1,12 +1,13 @@
 {
     "name": "Product Hunt",
-    "version": "1.0.1",
+    "version": "1.0.2",
+    "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Product-Hunt/config.json",
+    "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/Product-Hunt.hereplugin",
     "description": "Show hot posts",
     "icon": "icon.png",
     "identifier": "app.here.producthunt",
     "createdBy": "Here",
     "website": "https://here.app",
-    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Product-Hunt/appcast.xml",
     "script": "index.js",
     "defaultCategory": "news",
     "displayOn": ["mini"]

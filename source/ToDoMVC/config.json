@@ -1,12 +1,13 @@
 {
     "name": "ToDoMVC",
-    "version": "1.0.1",
+    "version": "1.0.2",
+    "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/feedly/config.json",
+    "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/feedly.hereplugin",
     "description": "A ToDo webapp.",
     "icon": "icon.png",
     "identifier": "app.here.todomvc",
     "createdBy": "Here",
     "website": "https://here.app",
-    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/feedly/ToDoMVC.xml",
     "script": "index.js",
     "defaultCategory": "quick",
     "displayOn": ["mini", "menuBar"]

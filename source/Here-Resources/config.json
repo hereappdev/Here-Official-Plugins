@@ -1,12 +1,13 @@
 {
     "name": "Here Resources",
-    "version": "1.0.3",
+    "version": "1.0.4",
+    "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Here-Resources/config.json",
+    "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/Here-Resources.hereplugin",
     "description": "Everything about Here",
     "icon": "icon.png",
     "identifier": "app.here.hereresources",
     "createdBy": "Here",
     "website": "https://here.app",
-    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Here-Resources/appcast.xml",
     "script": "index.js",
     "defaultCategory": "news",
     "displayOn": ["mini", "menuBar"]

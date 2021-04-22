@@ -1,12 +1,13 @@
 {
    "name": "Game Chrome Dino",
-   "version": "1.0.1",
+   "version": "1.0.2",
+   "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Game-Chrome-Dino/config.json",
+   "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/Game-Chrome-Dino.hereplugin",
    "description": "Chrome Dino (also known as T-Rex Game, or the NO INTERNET GAME)",
    "icon": "icon.png",
    "identifier": "app.here.gamechromedino",
    "createdBy": "Here",
    "website": "https://here.app",
-   "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Game-Chrome-Dino/appcast.xml",
    "script": "index.js",
    "defaultCategory": "quick",
    "displayOn": [

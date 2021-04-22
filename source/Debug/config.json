@@ -1,12 +1,13 @@
 {
     "name": "Debug Info",
-    "version": "1.0.9",
+    "version": "1.0.10",
+    "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Debug/config.json",
+    "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/Debug.hereplugin",
     "description": "Show developing info",
     "icon": "icon.png",
     "identifier": "app.here.debug",
     "createdBy": "Here",
     "website": "https://here.app",
-    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Debug/appcast.xml",
     "script": "index.js",
     "defaultCategory": "fav",
     "displayOn": ["menuBar", "mini", "dock"]

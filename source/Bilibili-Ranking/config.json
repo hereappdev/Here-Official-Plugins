@@ -1,12 +1,14 @@
 {
     "name": "Bilibili排行榜",
-    "version": "1.0.1",
+    "version": "1.0.2",
+    "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Bilibili-Ranking/config.json",
+    "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/Bilibili-Ranking.hereplugin",
     "description": "显示Bilibili排行榜",
     "icon": "icon.png",
     "identifier": "app.here.bilibiliranking",
     "createdBy": "HereCN",
     "website": "https://here.app",
-    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Bilibili-Ranking/appcast.xml",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/mastr/source//appcast.xml",
     "script": "index.js",
     "defaultCategory": "news",
     "displayOn": ["mini", "menuBar"]

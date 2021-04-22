@@ -1,12 +1,14 @@
 {
     "name": "cnBeta",
-    "version": "1.0.7",
+    "version": "1.0.8",
+    "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/cnBeta/config.json",
+    "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/cnBeta.hereplugin",
     "description": "显示cnBeta实时热文",
     "icon": "icon.png",
     "identifier": "app.here.cnbeta",
     "createdBy": "Here",
     "website": "https://here.app",
-    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/cnBeta/appcast.xml",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source//apcast.xml",
     "script": "index.js",
     "defaultCategory": "news",
     "displayOn": ["mini", "menuBar"]

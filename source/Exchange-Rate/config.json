@@ -1,12 +1,13 @@
 {
     "name": "人民币汇率",
-    "version": "1.0.3",
+    "version": "1.0.4",
+    "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Exchange-Rate/config.json",
+    "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/Exchange-Rate.hereplugin",
     "description": "显示人民币兑其他货币汇率(中国人民银行)",
     "icon": "icon.png",
     "identifier": "app.here.exchangerate",
     "createdBy": "Here",
     "website": "https://here.app",
-    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Exchange-Rate/appcast.xml",
     "script": "index.js",
     "defaultCategory": "news",
     "displayOn": ["mini", "menuBar", "dock"]
