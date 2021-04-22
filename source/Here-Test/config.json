@@ -10,6 +10,7 @@
     "script": "index.js",
     "defaultCategory": "fav",
     "displayOn": ["mini", "dock", "menuBar"],
+    "queryKeywords": ["test"],
     "preferences": [
         {
             "title": "Text type",
