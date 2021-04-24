@@ -1,11 +1,12 @@
 {
     "name": "Empty Trash",
-    "version": "1.0.6",
+    "version": "1.0.5",
+    "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Empty-Trash/config.json",
+    "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/Empty-Trash.hereplugin",
     "description": "Quick empty trash",
     "identifier": "app.here.emptytrash",
     "createdBy": "Here",
     "website": "https://here.app",
-    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Empty-Trash/appcast.xml",
     "script": "index.js",
     "defaultCategory": "quick",
     "displayOn": ["mini", "menuBar"]

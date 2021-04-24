@@ -1,0 +1,13 @@
+{
+    "name": "Nyan Cat",
+    "version": "1.0.1",
+    "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Nyan-Cat/config.json",
+    "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/Nyan-Cat.hereplugin",
+    "description": "I'm on your menubar now.🌈🐱",
+    "identifier": "app.here.nyancat",
+    "createdBy": "Here",
+    "website": "https://here.app",
+    "script": "index.js",
+    "defaultCategory": "quick",
+    "displayOn": ["mini", "menuBar"]
+}

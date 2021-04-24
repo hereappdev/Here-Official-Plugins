@@ -1,7 +1,9 @@
+const i18n = require('i18n')
+
 here.on("load", () => {
     here.miniWindow.data = {
-        title: "🕹Chrome Dino",
-        detail: "T-Rex Game! (Keyboard: Space Key)",
+        title: __("🕹Chrome Dino"),
+        detail: __("T-Rex Game! (Keyboard: Space Key)"),
     };
     here.miniWindow.reload();
 

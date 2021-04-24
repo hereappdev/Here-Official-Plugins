@@ -1,14 +1,16 @@
 {
     "name": "Here Test",
-    "version": "1.0.3",
+    "version": "1.0.5",
+    "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Here-Test/config.json",
+    "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/Here-Test.hereplugin",
     "description": "Here App API Unit Test",
     "identifier": "app.here.heretest",
     "createdBy": "Here",
     "website": "https://here.app",
-    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Here-Test/appcast.xml",
     "script": "index.js",
     "defaultCategory": "fav",
     "displayOn": ["mini", "dock", "menuBar"],
+    "queryKeywords": ["hhh"],
     "preferences": [
         {
             "title": "Text type",

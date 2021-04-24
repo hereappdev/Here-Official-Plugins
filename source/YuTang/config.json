@@ -1,12 +1,14 @@
 {
     "name": "鱼塘热榜",
-    "version": "1.0.2",
+    "version": "1.0.3",
+    "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/YuTang/config.json",
+    "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/YuTang.hereplugin",
     "description": "显示鱼塘热榜内容",
     "icon": "icon.png",
     "identifier": "app.here.yutang",
     "createdBy": "HereCN",
     "website": "https://here.app",
-    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/YuTang/appcast.xml",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/YuTangappcast.xml",
     "script": "index.js",
     "defaultCategory": "news",
     "displayOn": ["mini", "menuBar"]

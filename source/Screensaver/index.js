@@ -1,17 +1,29 @@
+const i18n = require('i18n')
 const hotkey = require("hotkey");
 
 here.on("load", () => {
     // Mini Window
     here.miniWindow.data = {
-        title: "Screen Saver",
-        detail: "Click to Start",
+        title: __("Screen Saver"),
+        detail: __("Click to turn on"),
     };
-    here.miniWindow.onClick(function () {
-        here.exec(`open -a ScreenSaverEngine`).then(() => {
-            console.log("Done.");
-        });
+
+    here.miniWindow.data.accessory = new here.SwitchAccessory({
+        isOn: false,
+        onValueChange: (isOn) => {
+            here.exec(`open -a ScreenSaverEngine`);
+        },
     });
+
     here.miniWindow.reload();
+
+    // Menu Bar
+    here.menuBar = new MenuBar();
+    here.menuBar.onClick(() => {
+        here.exec(`open -a ScreenSaverEngine`);
+    });
+
+    here.menuBar.reload();
 
     // Bind hotkey
     const aHotKey = ["cmd", "shift", "esc"];

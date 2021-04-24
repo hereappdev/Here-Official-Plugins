@@ -1,0 +1,13 @@
+{
+    "name": "Dock Spacer",
+    "version": "1.0.2",
+    "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Dock-Spacer/config.json",
+    "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/Dock-Spacer.hereplugin",
+    "description": "Add custom spacers to your Dock",
+    "identifier": "app.here.dockspacer",
+    "createdBy": "Here",
+    "website": "https://here.app",
+    "script": "index.js",
+    "defaultCategory": "quick",
+    "displayOn": ["mini"]
+}

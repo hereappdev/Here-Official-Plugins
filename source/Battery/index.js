@@ -1,5 +1,6 @@
 const pm = require("pm");
 const _ = require("underscore");
+const i18n = require('i18n');
 
 function updateBatteryInfo() {
     console.log("updateBatteryInfo");
@@ -15,27 +16,27 @@ function updateBatteryInfo() {
                 let percentage =
                     Math.round((Number(basicInfo["Current Capacity"]) / Number(basicInfo["Max Capacity"])) * 100) + "%";
 
-                let title = "Battery Health: " + basicInfo["BatteryHealth"];
-                let state = Boolean(basicInfo["Is Charging"]) ? "🔋" : "";
+                let title = __("Battery Health: ") + basicInfo["BatteryHealth"];
+                let state = Boolean(basicInfo[__("[Is Charging]")]) ? "🔋" : "";
 
                 let detailText =
-                    state + "Cycle Count: " + advancedInfo["CycleCount"] + " (" + basicInfo["Power Source State"] + ")";
+                    state + __("Cycle Count: ") + advancedInfo["CycleCount"] + " (" + basicInfo["Power Source State"] + ")";
                 if (basicInfo["Max Capacity"] == 0) {
                     percentage = "100%";
-                    title = `Connected accessories (${otherInfo.length})`;
-                    detailText = "Not charging";
+                    title = __("Connected accessories") + ` (${otherInfo.length})`;
+                    detailText = __("[Not Charging]");
                 }
 
                 // Menu Bar
                 here.menuBar.data = {
                     title: percentage,
-                    detail: "Battery",
+                    detail: __("Battery"),
                 }
                 here.menuBar.reload();
 
                 // Mini Window
                 here.miniWindow.data = {
-                    title: "Battery Status",
+                    title: __("Battery Status"),
                     detail: detailText,
                     accessory: {
                         title: percentage,
@@ -70,7 +71,7 @@ function updateBatteryInfo() {
                 // Dock
                 here.dock.data = {
                     title: percentage,
-                    detail: title,
+                    detail: otherInfo.length.toString() + __(" device"),
                 }
                 here.dock.reload()
 

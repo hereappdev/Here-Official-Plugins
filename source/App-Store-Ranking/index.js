@@ -2,13 +2,14 @@ const _ = require("underscore");
 const http = require("http");
 const net = require("net");
 const pref = require("pref");
+const i18n = require('i18n')
 
 const jsonPref = pref.all();
 
 const CATEGORY = [
-    { title: "免费榜", type: "top-free" },
-    { title: "畅销榜", type: "top-grossing" },
-    { title: "付费榜", type: "top-paid" },
+    { title: __("Free"), type: "top-free" },
+    { title: __("Grossing"), type: "top-grossing" },
+    { title: __("Paid"), type: "top-paid" },
 ];
 
 function getData(api, title) {
@@ -48,7 +49,7 @@ function getData(api, title) {
 }
 
 function updateData() {
-    here.miniWindow.set({ title: "Updating…" });
+    here.miniWindow.set({ title: __("Updating…") });
 
     const apiPrefix = "https://rss.itunes.apple.com/api/v1/";
     const countryCode = jsonPref["countryCode"];

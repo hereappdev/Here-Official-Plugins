@@ -83,7 +83,7 @@ function updateData() {
         if (title.length > 15) {
             title = title.substring(0, 15) + `…`;
         }
-        here.menuBar.data.title = title;
+        // here.menuBar.data.title = title;
         here.menuBar.reload();
 
         // Popover

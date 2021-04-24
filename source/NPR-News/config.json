@@ -1,12 +1,14 @@
 {
     "name": "NPR News",
-    "version": "1.0.3",
+    "version": "1.0.4",
+    "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/NPR-News/config.json",
+    "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/NPR-News.hereplugin",
     "description": "Show hot news",
     "icon": "icon.png",
     "identifier": "app.here.nprnews",
     "createdBy": "Here",
     "website": "https://here.app",
-    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/NPR-News/appcast.xml",
+    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/NR-News/appcast.xml",
     "script": "index.js",
     "defaultCategory": "news",
     "displayOn": ["mini"]

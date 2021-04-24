@@ -49,6 +49,14 @@ function updateData() {
         },
     });
 
+    // Config.json
+    let conf = here.getConfig();
+    const confKeys = _.allKeys(conf);
+    let confTab = _.map(confKeys, (k) => {
+        return { title: `${k}: ${conf[k]}` }
+    })
+    // console.log(`confTab`)
+
     // Popovers
     here.popover.reload();
     here.popover = new here.TabPopover();
@@ -63,6 +71,10 @@ function updateData() {
             title: __("Debug"),
             data: debug,
         },
+        {
+            title: __("Tab-Config"),
+            data: confTab,
+        }
     ];
     here.popover.reload();
 

@@ -1,12 +1,13 @@
 {
     "name": "Net Stat",
-    "version": "1.0.1",
+    "version": "1.0.2",
+    "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Netstat/config.json",
+    "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/Netstat.hereplugin",
     "description": "Download/Upload network speed monitor",
     "icon": "icon.png",
     "identifier": "app.here.netstat",
     "createdBy": "Here",
     "website": "https://here.app",
-    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Netstat/appcast.xml",
     "script": "index.js",
     "defaultCategory": "fav",
     "displayOn": ["mini", "menuBar", "dock"]

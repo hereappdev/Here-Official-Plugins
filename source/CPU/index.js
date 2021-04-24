@@ -1,6 +1,9 @@
 const os = require("os");
 const _ = require("underscore");
 
+here.miniWindow.data.title = "Updating…";
+here.miniWindow.reload();
+
 function updateCPUInfo() {
     console.verbose("updateCPUInfo");
 

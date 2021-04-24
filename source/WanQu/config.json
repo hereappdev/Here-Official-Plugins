@@ -1,12 +1,13 @@
 {
     "name": "湾区日报",
-    "version": "1.0.1",
+    "version": "1.0.2",
+    "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/WanQu/config.json",
+    "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/WanQu.hereplugin",
     "description": "显示湾区日报每日文章",
     "icon": "icon.png",
     "identifier": "app.here.wanqu",
     "createdBy": "Here",
     "website": "https://here.app",
-    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/WanQu/appcast.xml",
     "script": "index.js",
     "defaultCategory": "news",
     "displayOn": ["mini"]

@@ -1,12 +1,13 @@
 {
     "name": "Game 2048",
-    "version": "1.0.0",
+    "version": "1.0.2",
+    "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Game-2048/config.json",
+    "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/Game-2048.hereplugin",
     "description": "Get to the 2048 Tile!",
     "icon": "icon.png",
     "identifier": "app.here.game2048",
     "createdBy": "Here",
     "website": "https://here.app",
-    "appcast": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Game-2048/appcast.xml",
     "script": "index.js",
     "defaultCategory": "quick",
     "displayOn": ["mini", "menuBar"]

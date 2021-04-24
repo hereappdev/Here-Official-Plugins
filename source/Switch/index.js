@@ -1,9 +1,10 @@
 require(`./switches.js`);
+const i18n = require('i18n')
 
 here.on("load", () => {
     here.miniWindow.set({
         title: "Simple Switch",
-        detail: "All in one Switches.",
+        detail: __("All in one Switches."),
     });
 
     Promise.all([hideDesktopIconSwitch(), allFileHiddenSwitch(), doNotDisturbSwitch()])

@@ -1,5 +1,6 @@
 const os = require("os");
 const _ = require("underscore");
+const i18n = require('i18n');
 
 function formatBytes(bytes) {
     if (bytes === 0) return "0.0K";
@@ -46,8 +47,8 @@ function netUsage() {
 
             // Mini Window
             here.miniWindow.data = {
-                title: "Network Speed",
-                detail: "Total Download: " + totalin,
+                title: __("Network Speed"),
+                detail: __("Total Download: ") + totalin,
                 accessory: {
                     title: "⇣" + formatBytes(deltain),
                     detail: "⇡" + formatBytes(deltaout),

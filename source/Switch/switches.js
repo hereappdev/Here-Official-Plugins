@@ -29,7 +29,7 @@ function doNotDisturbSwitch() {
         // console.log(`isDoNotDisturbOn: ${isDNDOn}`);
 
         return Promise.resolve({
-            title: "Do Not Disturb",
+            title: __("Do Not Disturb"),
             accessory: new here.SwitchAccessory({
                 id: "accessory-dnd",
                 isOn: isDNDOn,
@@ -66,7 +66,7 @@ function hideDesktopIconSwitch() {
         console.log(`isDesktopIconsHidden: ${isHidden}`);
 
         return Promise.resolve({
-            title: "Hide desktop icons",
+            title: __("Hide desktop icons"),
             accessory: new here.SwitchAccessory({
                 id: "accessory-hdi",
                 isOn: isHidden,
@@ -101,7 +101,7 @@ function allFileHiddenSwitch() {
         console.log(`isShowing: ${isShowing}`);
 
         return Promise.resolve({
-            title: "Show hidden files",
+            title: __("Show hidden files"),
             accessory: new here.SwitchAccessory({
                 id: "accessory-shf",
                 isOn: isShowing,
