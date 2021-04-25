@@ -9,8 +9,8 @@ var spokenLanguageCode = "en";
 const json = pref.all();
 
 if (json == undefined) {
-        console.log("No prefs found.");
-    }
+    console.log("No prefs found.");
+}
 if (json != undefined) {
     codeLanguage = json.codeLanguage;
     spokenLanguageCode = json.spokenLanguageCode;
@@ -22,10 +22,17 @@ const CHANNELS = [
     { api: "monthly", title: "Monthly" },
 ];
 
-function getDate(api, title = "", LIMIT = 25) {
+function getData(api, title = "", LIMIT = 25) {
     let entryList = [];
-    // console.log("https://gh-trending-api.herokuapp.com/repositories/" + codeLanguage + "?since=" + api + "&spoken_lang=" + spokenLanguageCode)
-    return http.get("https://gh-trending-api.herokuapp.com/repositories/" + codeLanguage + "?since=" + api + "&spoken_lang=" + spokenLanguageCode).then(function (response) {
+    const url = `https://gh-trending-api.herokuapp.com/repositories/${codeLanguage}?since=${api}&spoken_lang=${spokenLanguageCode}`;
+    console.log(`url: ${url}`);
+    return http.get(url).then(function (response) {
+        if (response == undefined || response.data == undefined) {
+            here.miniWindow.data.title = "Invalid response.";
+            here.miniWindow.reload();
+            return;
+        }
+
         const json = response.data;
         entryList = json;
 
@@ -58,7 +65,7 @@ function updateData() {
 
     Promise.all(
         CHANNELS.map((channel) => {
-            return getDate(channel.api, channel.title);
+            return getData(channel.api, channel.title);
         })
     ).then(function (results) {
         const totalData = results[0].entryList;
@@ -74,7 +81,7 @@ function updateData() {
             console.error(`Invalid top feed.`);
             return;
         }
-        
+
         // Mini Window
         here.miniWindow.data.title = topFeed.username + "/" + topFeed.repositoryName;
         here.miniWindow.data.detail = "Github Trending";
