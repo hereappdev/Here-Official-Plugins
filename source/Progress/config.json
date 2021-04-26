@@ -1,6 +1,6 @@
 {
     "name": "Progress of the Year",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Progress/config.json",
     "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/Progress.hereplugin",
     "description": "Progress of the Year",
@@ -16,7 +16,7 @@
             "type": "popup",
             "key": "displayType",
             "default": 2,
-            "options": ["Week", "Month", "Year"]
+            "options": ["Today", "Month", "Year"]
         }
     ]
 }
