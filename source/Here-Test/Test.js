@@ -220,8 +220,8 @@ class Test {
                 })
             })
 
-            let num = Math.random() * 100000
-            pasteboard.setText(`${num}`)
+            // let num = Math.random() * 100000
+            // pasteboard.setText(`${num}`)
         })
     }
     // pasteboard ========== END
