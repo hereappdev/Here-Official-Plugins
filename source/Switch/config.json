@@ -1,8 +1,8 @@
 {
     "name": "Simple Switch",
-    "version": "1.0.5",
-    "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Show-Hidden-Files/config.json",
-    "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/Show-Hidden-Files.hereplugin",
+    "version": "1.0.6",
+    "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Switch/config.json",
+    "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/Switch.hereplugin",
     "description": "All in one simple switch",
     "identifier": "app.here.switch",
     "createdBy": "Here",

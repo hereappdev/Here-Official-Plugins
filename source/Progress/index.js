@@ -1,6 +1,26 @@
 const moment = require("moment");
 const pref = require("pref");
-const i18n = require("i18n");
+const i18n = require('i18n')
+
+    var displayType = "Year";
+
+    here.miniWindow.data = { title: "Updating…" };
+    here.miniWindow.reload();
+
+    const json = pref.all();
+    const json1 = pref.get("displayType");
+
+    console.log(JSON.stringify(json))
+    if (json == undefined) {
+        console.log("No prefs found.");
+    }
+
+    if (json["location"] != undefined) {
+        location = json["location"];
+    }
+
+    
+
 
 function bar(factor) {
     let bar = "";
@@ -51,25 +71,10 @@ function progressOfToday() {
     const start = moment().startOf("day");
     const end = moment().endOf("day");
 
-    const timestamp = moment().unix();
-    const total = 86400;
-    const factor = (timestamp - moment().startOf("day").unix()) / total;
+    const factor = (moment().unix() - moment().startOf("day").unix()) / 86400;
     return {
         percent: Math.round(factor * 100),
         bar: bar(factor),
-        current: timestamp,
-        total: total,
-    };
-}
-
-function convertToMiniWinData(key, data) {
-    console.log(`convertToMiniWinData: ${key}`);
-    return {
-        title: __(`Progress of the ${key}`),
-        detail: data.bar,
-        accessory: {
-            badge: `${data.percent}%`,
-        },
     };
 }
 
@@ -78,35 +83,8 @@ function updateData() {
     const month = progressOfMonth();
     const today = progressOfToday();
 
-    console.log(`123`);
-    console.log(pref._valueForItem(pref.getPrefs()));
-    console.log(`123`);
-    let displayType = pref.get("displayType");
-    if (displayType == undefined || typeof displayType != "string") {
-        displayType = "Year";
-    }
-    console.log(`displayType: ${displayType.toLowerCase()}`);
-    let miniWinData = {};
-    switch (displayType.toLowerCase()) {
-        case "year":
-            miniWinData = convertToMiniWinData(displayType, year);
-            break;
-        case "month":
-            miniWinData = convertToMiniWinData(displayType, month);
-            break;
-        case "today":
-            miniWinData = convertToMiniWinData(displayType, today);
-            break;
-        default:
-            miniWinData = convertToMiniWinData(displayType, year);
-            break;
-    }
-
     let popovers = [
-        {
-            title: `${year.bar} ` + __("Year") + `(${year.current}/${year.total})`,
-            accessory: { title: year.percent + "%" },
-        },
+        { title: `${year.bar} ` + __("Year") + `(${year.current}/${year.total})`, accessory: { title: year.percent + "%" } },
         {
             title: `${month.bar} ` + __("Month") + `(${month.current}/${month.total})`,
             accessory: { title: month.percent + "%" },
@@ -118,7 +96,13 @@ function updateData() {
     ];
 
     // Mini Window
-    here.miniWindow.data = miniWinData;
+    here.miniWindow.data = {
+        title: __("Progress of the Year"),
+        detail: year.bar,
+        accessory: {
+            badge: `${year.percent}%`,
+        },
+    };
     here.miniWindow.reload();
 
     // Popover

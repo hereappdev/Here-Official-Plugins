@@ -1,8 +1,8 @@
 {
     "name": "bilibili新番时间表",
-    "version": "1.0.2",
-    "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/app.here.Bilibili-Timeline/config.json",
-    "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/app.here.Bilibili-Timeline.hereplugin",
+    "version": "1.0.3",
+    "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Bilibili-Timeline/config.json",
+    "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/Bilibili-Timeline.hereplugin",
     "description": "显示 bilibili 新番剧目播放时间",
     "icon": "icon.png",
     "identifier": "app.here.bilibilitimeline",

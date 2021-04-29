@@ -1,6 +1,6 @@
 {
     "name": "BTC Price",
-    "version": "1.1.6",
+    "version": "1.1.7",
     "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/BTC-Price/config.json",
     "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/BTC-Price.hereplugin",
     "description": "Show real-time price of BTC and other cryptocurrencies",
@@ -28,7 +28,7 @@
             "title": "Currency Unit",
             "type": "text",
             "key": "currencyUnit",
-            "default": "CNY"
+            "default": "USD"
         }
     ]
 }
