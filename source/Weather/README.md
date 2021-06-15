@@ -4,7 +4,8 @@
 
 ## Development
 
-* API: [https://api.herecdn.com/weather/?location=beijing&u=c](https://api.herecdn.com/weather/?location=beijing&u=c)
+* State Codes & Country Codes: [https://www.mapsofworld.com/area-code/](https://www.mapsofworld.com/area-code/)
+* API: [https://openweathermap.org/api](https://openweathermap.org/api)
 
 ## License
 
