@@ -1,6 +1,6 @@
 {
     "name": "Weather",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Weather/config.json",
     "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/Weather.hereplugin",
     "description": "Show world weather",
@@ -13,7 +13,7 @@
     "displayOn": ["mini", "menuBar", "dock"],
     "preferences": [
         {
-            "title": "Location",
+            "title": "City Name",
             "type": "text",
             "key": "location",
             "default": "New York"

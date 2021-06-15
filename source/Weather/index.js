@@ -3,6 +3,7 @@ const http = require("http");
 const pref = require("pref");
 const net = require("net");
 const mt = require("moment.min.js");
+const i18n = require('i18n');
 
 function updateData() {
     var location = "New York";
@@ -39,8 +40,9 @@ function updateData() {
         .then((response) => {
             const json = response.data;
 
-            if (json == undefined) {
-                console.error("JSON result undefined");
+            if (json.cod == 404) {
+                console.error(__("City not found, please check settings."));
+                here.miniWindow.set({ title: __("City not found, please check settings.") });
                 return;
             }
 
@@ -51,7 +53,7 @@ function updateData() {
             const weatherText = json["weather"][0]["main"];
             const weatherTemperature = json["main"]["temp"].toFixed(1) + degreeUnits;
 
-            http.get("https://api.openweathermap.org/data/2.5/forecast/daily?cnt=5&appid=de324c3839d438273b1d6f72b2298694&q=" + encodeURIComponent(location) + "&units=" + degreeUnitsCode).then((response) => {
+            http.get("https://api.openweathermap.org/data/2.5/forecast/daily?cnt=7&appid=de324c3839d438273b1d6f72b2298694&q=" + encodeURIComponent(location) + "&units=" + degreeUnitsCode).then((response) => {
             	
             	const json = response.data;
             	const weatherForecasts = json["list"];

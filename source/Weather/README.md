@@ -4,7 +4,7 @@
 
 ## Development
 
-* State Codes & Country Codes: [https://www.mapsofworld.com/area-code/](https://www.mapsofworld.com/area-code/)
+* City Name & Country Codes: [https://www.mapsofworld.com/area-code/](https://www.mapsofworld.com/area-code/)
 * API: [https://openweathermap.org/api](https://openweathermap.org/api)
 
 ## License
