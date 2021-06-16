@@ -10,5 +10,5 @@
     "website": "https://here.app",
     "script": "index.js",
     "defaultCategory": "news",
-    "displayOn": ["mini"]
+    "displayOn": ["mini", "menuBar"]
 }
