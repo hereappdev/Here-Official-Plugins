@@ -1,0 +1,14 @@
+{
+    "name": "Sleep Display",
+    "version": "1.0.0",
+    "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Sleep-Display/config.json",
+    "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/Sleep-Display.hereplugin",
+    "description": "Put display to sleep or wake it up.",
+    "icon": "icon.png",
+    "identifier": "app.here.sleepdisplay",
+    "createdBy": "Here",
+    "website": "https://here.app",
+    "script": "index.js",
+    "defaultCategory": "quick",
+    "displayOn": ["mini", "menubar"]
+}
