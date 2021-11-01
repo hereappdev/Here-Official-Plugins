@@ -7,9 +7,8 @@ const i18n = require('i18n')
 const jsonPref = pref.all();
 
 const CATEGORY = [
-    { title: __("Free"), type: "top-free" },
-    { title: __("Grossing"), type: "top-grossing" },
-    { title: __("Paid"), type: "top-paid" },
+    { title: __("Top Free"), type: "top-free" },
+    { title: __("Top Paid"), type: "top-paid" },
 ];
 
 function getData(api, title) {
@@ -51,15 +50,20 @@ function getData(api, title) {
 function updateData() {
     here.miniWindow.set({ title: __("Updating…") });
 
-    const apiPrefix = "https://rss.itunes.apple.com/api/v1/";
+    // https://rss.applemarketingtools.com/api/v2/us/apps/top-free/50/apps.json
+
+    const apiPrefix = "https://rss.applemarketingtools.com/api/v2/";
     const countryCode = jsonPref["countryCode"];
     Promise.all(
         CATEGORY.map((cat) => {
-            const url = `${apiPrefix}${countryCode}/ios-apps/${cat.type}/all/25/explicit.json`;
+            const url = `${apiPrefix}${countryCode}/apps/${cat.type}/50/apps.json`;
+            console.log(url)
             return getData(url, cat.title);
         })
     ).then(function (results) {
+        console.log(results)
         const freeApps = results[0];
+
         const topFeed = freeApps.entryList[0];
 
         // Mini Window

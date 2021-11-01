@@ -1,6 +1,6 @@
 # App Store Ranking
 
-> Show Apps rank list on [App Store](https://rss.itunes.apple.com/)
+> Show Apps rank list on [App Store](https://rss.applemarketingtools.com/)
 
 ## Usage
 
