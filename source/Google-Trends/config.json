@@ -1,6 +1,6 @@
 {
     "name": "Google Trends",
-    "version": "1.0.5",
+    "version": "1.0.3",
     "configURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/source/Google-Trends/config.json",
     "downloadURL": "https://raw.githubusercontent.com/hereappdev/Here-Official-Plugins/master/downloads/Google-Trends.hereplugin",
     "description": "Show what's trending on Google",
@@ -10,5 +10,5 @@
     "website": "https://here.app",
     "script": "index.js",
     "defaultCategory": "news",
-    "displayOn": ["mini", "menuBar"]
+    "displayOn": ["mini"]
 }

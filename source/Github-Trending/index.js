@@ -3,63 +3,52 @@ const pref = require("pref");
 const http = require("http");
 const net = require("net");
 
+var codeLanguage = ""; // via https://github.com/trending
+var spokenLanguageCode = "en";
+
+const json = pref.all();
+
+if (json == undefined) {
+        console.log("No prefs found.");
+    }
+if (json != undefined) {
+    codeLanguage = json.codeLanguage;
+    spokenLanguageCode = json.spokenLanguageCode;
+}
+
 const CHANNELS = [
     { api: "daily", title: "Today" },
-    { api: "weekly", title: "This Week" },
-    { api: "monthly", title: "This Month" },
+    { api: "weekly", title: "Weekly" },
+    { api: "monthly", title: "Monthly" },
 ];
 
-function getData(api, title = "", LIMIT = 25) {
-    let codeLanguage = ""; // via https://github.com/trending
-    let spokenLanguageCode = "en";
-
-    const json = pref.all();
-
-    if (json == undefined) {
-        console.log("No prefs found.");
-
-    } else {
-        codeLanguage = json.codeLanguage;
-        spokenLanguageCode = json.spokenLanguageCode;
-    }
-
+function getDate(api, title = "", LIMIT = 25) {
     let entryList = [];
-    // console.log("https://gh-trending-api.herokuapp.com/repositories/" + codeLanguage + "?since=" + api + "&spoken_lang=" + spokenLanguageCode)
-    return http
-        .get(
-            "https://gh-trending-api.herokuapp.com/repositories/" +
-                codeLanguage +
-                "?since=" +
-                api +
-                "&spoken_lang=" +
-                spokenLanguageCode
-        )
-        .then(function (response) {
-            const json = response.data;
-            entryList = json;
+    return http.get("https://trendings.herokuapp.com/repo?" + codeLanguage + "&since=" + api + "&spoken_lang=" + spokenLanguageCode).then(function (response) {
+        const json = response.data;
+        entryList = json;
 
-            if (entryList == undefined) {
-                here.miniWindow.data.title = "Invalid data.";
-                here.miniWindow.reload();
-                return;
-            }
+        if (entryList == undefined) {
+            here.miniWindow.data.title = "Invalid data.";
+            here.miniWindow.reload();
+            return;
+        }
 
-            if (entryList.length <= 0) {
-                here.miniWindow.data.title = "Entrylist is empty.";
-                here.miniWindow.reload();
-                return;
-            }
+        if (entryList.length <= 0) {
+            here.miniWindow.data.title = "Entrylist is empty.";
+            here.miniWindow.reload();
+            return;
+        }
 
-            if (entryList.length > LIMIT) {
-                entryList = entryList.slice(0, LIMIT);
-            }
+        if (entryList.length > LIMIT) {
+            entryList = entryList.slice(0, LIMIT);
+        }
 
-            return {
-                title: title,
-                entryList: entryList,
-                listUrl: `https://github.com/trending?since=${api}`,
-            };
-        });
+        return {
+            title: title,
+            entryList: entryList,
+        };
+    });
 }
 
 function updateData() {
@@ -68,63 +57,54 @@ function updateData() {
 
     Promise.all(
         CHANNELS.map((channel) => {
-            return getData(channel.api, channel.title);
+            return getDate(channel.api, channel.title);
         })
     ).then(function (results) {
-        const totalData = results[0].entryList;
+        console.log(results[0].entryList.items[0])
+        const totalData = results[0].entryList.items[0];
 
         if (totalData == undefined || totalData.length == 0) {
             console.error(`Invalid data.`);
             return;
         }
 
-        const topFeed = totalData[0];
+        const topFeed = totalData;
 
         if (topFeed == undefined) {
             console.error(`Invalid top feed.`);
             return;
         }
-
+        
         // Mini Window
-        here.miniWindow.data.title = topFeed.username + "/" + topFeed.repositoryName;
+        here.miniWindow.data.title = topFeed.repo;
         here.miniWindow.data.detail = "Github Trending";
-        here.miniWindow.data.accessory = { title: (topFeed.totalStars / 1000).toFixed(1) + "k⭐️" };
+        here.miniWindow.data.accessory = { title: (topFeed.stars.replace(/,/g, "") / 1000).toFixed(1) + "k⭐️" };
         here.miniWindow.onClick(function () {
             if (topFeed["name"] != undefined) {
-                here.openURL(topFeed.url);
+                here.openURL(topFeed.repo_link);
             }
         });
         here.miniWindow.reload();
 
         // Popover
         let popover = new TabPopover();
-        const tabData = results.map((data) => {
+        popover.data = _.map(results, (data) => {
             // console.log(results);
-            let list = data.entryList.map((entry) => {
-                return {
-                    title: entry.username + "/" + entry.repositoryName,
-                    accessory: {
-                        title: (entry.totalStars / 1000).toFixed(1) + "k⭐️",
-                    },
-                    onClick: () => {
-                        here.openURL(entry.url);
-                    },
-                };
-            });
-            list.unshift({
-                title: `View all trending repositories ${data.title.toLowerCase()}…`,
-                onClick: () => {
-                    console.log(`openURL: ${data.listUrl}`)
-                    here.openURL(data.listUrl);
-                },
-            });
-
             return {
-                title: data.title,
-                data: list,
+                title: data.title /*  */,
+                data: _.map(data.entryList.items, (entry) => {
+                    return {
+                        title: entry.repo,
+                        accessory: {
+                            title: (entry.stars.replace(/,/g, "") / 1000).toFixed(1) + "k⭐️",
+                        },
+                        onClick: () => {
+                            here.openURL(entry.repo_link);
+                        },
+                    };
+                }),
             };
         });
-        popover.data = tabData;
         here.popover = popover;
         here.popover.reload();
     });
