@@ -7,7 +7,7 @@ const mt = require("moment.min.js");
 function updateData() {
     var location = "newyork";
     var degreeUnits = "℉";
-    var degreeUnitsCode = "f";
+    var degreeUnitsCode = "us";
 
     here.miniWindow.data = { title: "Updating…" };
     here.miniWindow.reload();
@@ -22,21 +22,20 @@ function updateData() {
         location = json["location"];
     }
 
-    // console.log(JSON.stringify(json))
+    // console.log(json["degreeUnits"])
 
     if (json["degreeUnits"] != undefined) {
-        if (json["degreeUnits"] == 0) {
+        if (json["degreeUnits"]["index"] == 0) {
             degreeUnits = "℉";
-            degreeUnitsCode = "f";
+            degreeUnitsCode = "us";
         } else {
             degreeUnits = "℃";
-            degreeUnitsCode = "c";
+            degreeUnitsCode = "uk";
         }
     }
 
-    // console.log('degreeUnits:' + degreeUnits)
-
-    http.get("https://apispeedy.com/weather/?location=" + location + "&u=" + degreeUnitsCode)
+    // console.log("https://weather.herecdn.com/" + encodeURI(location) + "?unitGroup=" + degreeUnitsCode + "&include=fcst%2Ccurrent&iconSet=icons2")
+    http.get("https://weather.herecdn.com/" + encodeURI(location) + "?unitGroup=" + degreeUnitsCode + "&include=fcst%2Ccurrent&iconSet=icons2")
         .then((response) => {
             const json = response.data;
 
@@ -46,27 +45,27 @@ function updateData() {
                 console.error("JSON result undefined");
                 return;
             }
+            const weatherCity = json["resolvedAddress"].split(",")[0];
+            const weatherToday = json["days"][0]["datetime"];
+            const weatherLow = json["days"][0]["tempmin"];
+            const weatherHigh = json["days"][0]["tempmax"];
+            const weatherText = json["currentConditions"]["conditions"].split(",")[0];
+            const weatherTemperature = json["currentConditions"]["temp"] + degreeUnits;
 
-            const weatherCity = json["location"]["city"];
-            const weatherToday = json["current_observation"]["pubDate"] * 1000;
-            const weatherLow = json["forecasts"][0]["low"];
-            const weatherHigh = json["forecasts"][0]["high"];
-            const weatherText = json["current_observation"]["condition"]["text"];
-            const weatherTemperature = json["current_observation"]["condition"]["temperature"] + degreeUnits;
-
-            const weatherForecasts = json["forecasts"];
+            const weatherForecasts = json["days"];
             const keys = _.allKeys(weatherForecasts);
 
             let popovers = _.map(keys, (key) => {
+
                 let value = weatherForecasts[key];
+                // console.log(value["conditions"])
                 return {
-                    title: moment(value["date"] * 1000).format("MMM DD, dddd") + " " + (key == 0 ? "(Today)" : ""),
-                    accessory: {
-                        title: value["text"],
-                        imageURL: "images/" + value["code"] + ".png",
-                        imageCornerRadius: 4,
-                    },
-                };
+                        title: moment(value["datetimeEpoch"] * 1000).format("MMM DD, dddd") + " " + (key == 0 ? "(Today)" : ""),
+                        accessory: {
+                            imageURL: "images/" + value["icon"] + ".png",
+                            imageCornerRadius: 4,
+                        },
+                    };
             });
 
             // console.log(JSON.stringify(popovers))
@@ -118,8 +117,8 @@ function updateData() {
 
 here.on("load", () => {
     updateData();
-    // Update every 2 hours
-    setInterval(updateData, 2 * 3600 * 1000);
+    // Update every 12 hours
+    setInterval(updateData, 12 * 3600 * 1000);
 });
 
 net.onChange((type) => {

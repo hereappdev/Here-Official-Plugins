@@ -1,5 +1,4 @@
 const http = require("http");
-const pasteboard = require("pasteboard");
 const net = require("net");
 
 var isIp = (function () {
@@ -25,16 +24,6 @@ var isIp = (function () {
     };
 })();
 
-function clipboardQuery() {
-    var getIP = pasteboard.getText();
-    console.log("getIP");
-    if (isIp(getIP)) {
-        showIP(getIP);
-    } else {
-        here.hudNotification("Not a valid IP address in the clipboard.");
-    }
-}
-
 function showIP(ip) {
     here.miniWindow.set({ title: "Loading...", detail: "Request " + ip + " info." });
 
@@ -46,7 +35,7 @@ function showIP(ip) {
                 title: "Bad HTTP response.",
                 detail: "HTTP " + response.statusCode + " (Click to check IP from clipboard)",
                 onClick: () => {
-                    clipboardQuery();
+                    updateData();
                 },
             };
             here.miniWindow.reload();
@@ -61,7 +50,7 @@ function showIP(ip) {
             detail: ipInfo.isp + " / " + ipInfo.city + " / " + ipInfo.country,
         };
         here.miniWindow.onClick(function () {
-            clipboardQuery();
+            updateData();
         });
         here.miniWindow.reload();
     });
@@ -89,7 +78,7 @@ function updateData() {
 // 直接调用 Webview
 here.popover = new here.WebViewPopover();
 here.popover.data = {
-    url: "https://ip.sb/ip/",
+    url: "https://ip.sb/",
     width: 375,
     height: 500,
 };

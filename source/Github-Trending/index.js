@@ -24,8 +24,7 @@ const CHANNELS = [
 
 function getDate(api, title = "", LIMIT = 25) {
     let entryList = [];
-    // console.log("https://gh-trending-api.herokuapp.com/repositories/" + codeLanguage + "?since=" + api + "&spoken_lang=" + spokenLanguageCode)
-    return http.get("https://gh-trending-api.herokuapp.com/repositories/" + codeLanguage + "?since=" + api + "&spoken_lang=" + spokenLanguageCode).then(function (response) {
+    return http.get("https://trendings.herokuapp.com/repo?" + codeLanguage + "&since=" + api + "&spoken_lang=" + spokenLanguageCode).then(function (response) {
         const json = response.data;
         entryList = json;
 
@@ -61,14 +60,15 @@ function updateData() {
             return getDate(channel.api, channel.title);
         })
     ).then(function (results) {
-        const totalData = results[0].entryList;
+        console.log(results[0].entryList.items[0])
+        const totalData = results[0].entryList.items[0];
 
         if (totalData == undefined || totalData.length == 0) {
             console.error(`Invalid data.`);
             return;
         }
 
-        const topFeed = totalData[0];
+        const topFeed = totalData;
 
         if (topFeed == undefined) {
             console.error(`Invalid top feed.`);
@@ -76,12 +76,12 @@ function updateData() {
         }
         
         // Mini Window
-        here.miniWindow.data.title = topFeed.username + "/" + topFeed.repositoryName;
+        here.miniWindow.data.title = topFeed.repo;
         here.miniWindow.data.detail = "Github Trending";
-        here.miniWindow.data.accessory = { title: (topFeed.totalStars / 1000).toFixed(1) + "k⭐️" };
+        here.miniWindow.data.accessory = { title: (topFeed.stars.replace(/,/g, "") / 1000).toFixed(1) + "k⭐️" };
         here.miniWindow.onClick(function () {
             if (topFeed["name"] != undefined) {
-                here.openURL(topFeed.url);
+                here.openURL(topFeed.repo_link);
             }
         });
         here.miniWindow.reload();
@@ -92,14 +92,14 @@ function updateData() {
             // console.log(results);
             return {
                 title: data.title /*  */,
-                data: _.map(data.entryList, (entry) => {
+                data: _.map(data.entryList.items, (entry) => {
                     return {
-                        title: entry.username + "/" + entry.repositoryName,
+                        title: entry.repo,
                         accessory: {
-                            title: (entry.totalStars / 1000).toFixed(1) + "k⭐️",
+                            title: (entry.stars.replace(/,/g, "") / 1000).toFixed(1) + "k⭐️",
                         },
                         onClick: () => {
-                            here.openURL(entry.url);
+                            here.openURL(entry.repo_link);
                         },
                     };
                 }),

@@ -4,7 +4,8 @@
 
 ## Development
 
-* API: [https://api.herecdn.com/weather/?location=beijing&u=c](https://api.herecdn.com/weather/?location=beijing&u=c)
+* City Name: `New York`, `newyork`
+* API: [https://weather.herecdn.com/newyork?unitGroup=us&include=fcst%2Ccurrent&iconSet=icons2](https://weather.herecdn.com/newyork?unitGroup=us&include=fcst%2Ccurrent&iconSet=icons2)
 
 ## License
 

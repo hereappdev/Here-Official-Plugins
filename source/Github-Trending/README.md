@@ -8,12 +8,12 @@
 	via [https://github.com/trending/swift?since=daily](https://github.com/trending/swift?since=daily)
 * Spoken Language Code: `en`,`fr`, `zh`
 	via [http://www.lingoes.net/en/translator/langcode.htm](http://www.lingoes.net/en/translator/langcode.htm)
-* More API info check here: [API](https://gh-trending-api.herokuapp.com/repositories/python?since=xxx&spoken_lang=xxx)
+* More API info check here: [API](https://trendings.herokuapp.com/repo?lang=java&since=weekly) & [repo](https://github.com/xxdongs/github-trending)
 
 ## Development
 
 * Site: [https://github.com/trending](https://github.com/trending)
-* API: [github-trending-api.now.sh/repositories?since=weekly](https://github-trending-api.now.sh/repositories?since=weekly)
+* API: [trendings.herokuapp.com/repo?lang=java&since=weekly](https://trendings.herokuapp.com/repo?lang=java&since=weekly)
 * `today`, `weekly`, `monthly`
 
 ## License

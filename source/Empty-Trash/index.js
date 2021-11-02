@@ -1,12 +1,12 @@
-const i18n = require('i18n')
+const i18n = require("i18n");
 
 function onClick() {
     here.exec("osascript -e 'tell application \"Finder\" to empty trash'");
     here.hudNotification(__("Files deleted"));
+    here.miniWindow.hide();
 }
 
 here.on("load", () => {
-
     // Mini Window
     here.miniWindow.data = {
         title: __("Empty Trash"),
