@@ -4,7 +4,8 @@
 
 ## Development
 
-* API: [https://weather.herecdn.com/VisualCrossingWebServices/rest/services/timeline/newyork?unitGroup=us&key=MTUW5B3YVNE4N4N6V3WVQX4X9&include=fcst%2Ccurrent](https://weather.herecdn.com/VisualCrossingWebServices/rest/services/timeline/newyork?unitGroup=us&key=MTUW5B3YVNE4N4N6V3WVQX4X9&include=fcst%2Ccurrent)
+* City Name: `New York`, `newyork`
+* API: [https://weather.herecdn.com/newyork?unitGroup=us&include=fcst%2Ccurrent&iconSet=icons2](https://weather.herecdn.com/newyork?unitGroup=us&include=fcst%2Ccurrent&iconSet=icons2)
 
 ## License
 

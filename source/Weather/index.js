@@ -34,8 +34,8 @@ function updateData() {
         }
     }
 
-    console.log("https://weather.herecdn.com/" + location + "?unitGroup=" + degreeUnitsCode + "&include=fcst%2Ccurrent&iconSet=icons2")
-    http.get("https://weather.herecdn.com/" + location + "?unitGroup=" + degreeUnitsCode + "&include=fcst%2Ccurrent&iconSet=icons2")
+    // console.log("https://weather.herecdn.com/" + encodeURI(location) + "?unitGroup=" + degreeUnitsCode + "&include=fcst%2Ccurrent&iconSet=icons2")
+    http.get("https://weather.herecdn.com/" + encodeURI(location) + "?unitGroup=" + degreeUnitsCode + "&include=fcst%2Ccurrent&iconSet=icons2")
         .then((response) => {
             const json = response.data;
 
