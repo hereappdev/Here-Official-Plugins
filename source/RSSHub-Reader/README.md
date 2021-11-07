@@ -4,8 +4,8 @@
 
 ## Development
 
-* Site: [http://www.bbci.co.uk/](http://www.bbci.co.uk/)
-* API: [https://feeds.bbci.co.uk/news/world/rss.xml](https://feeds.bbci.co.uk/news/world/rss.xml)
+* API: [https://rsshub.app](https://rsshub.app)
+* Speed API: [https://rsshub.rssforever.com/ifanr](https://rsshub.rssforever.com/ifanr)
 
 ## License
 
