@@ -37,7 +37,7 @@ function updateMemoryInfo() {
             const swapUsed = usage["swap_used_string"].replace(/\s+/g, "");
 
             // Menu Bar
-            here.dock.data = {
+            here.menuBar.data = {
                 title: (Number(used.slice(0, -2) / mem_size.slice(0, -2)) * 100).toFixed(0) + "%",
                 detail: "MEM",
             };
