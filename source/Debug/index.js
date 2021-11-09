@@ -83,8 +83,8 @@ function updateData() {
         title: __("Debug Info"),
         detail: `Here (${process.versions.stage})`,
         accessory: {
-            title: process.versions.shortVersion,
-            detail: process.versions.buildNumber,
+            title: "v" + process.versions.shortVersion,
+            detail: "build " + process.versions.buildNumber,
         },
         onClick: () => {
             pb.setText(JSON.stringify(process.versions));
@@ -99,13 +99,6 @@ function updateData() {
         detail: process.versions.buildNumber,
     };
     here.menuBar.reload();
-
-    // Dock
-    here.dock.data = {
-        title: "v" + process.versions.shortVersion,
-        detail: process.versions.buildNumber,
-    };
-    here.dock.reload();
 }
 
 here.on("load", () => {
