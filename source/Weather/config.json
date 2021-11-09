@@ -21,9 +21,9 @@
         {
             "title": "Degree Units",
             "type": "popup",
-            "key": "degreeUnits",
+            "key": "temperature",
             "default": 0,
-            "options": ["℉ - Fahrenheit", "℃ - Celsius"]
+            "options": ["℃ - Celsius", "℉ - Fahrenheit"]
         }
     ]
 }
