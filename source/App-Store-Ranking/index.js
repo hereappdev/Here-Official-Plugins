@@ -2,7 +2,7 @@ const _ = require("underscore");
 const http = require("http");
 const net = require("net");
 const pref = require("pref");
-const i18n = require('i18n')
+const i18n = require("i18n");
 
 const jsonPref = pref.all();
 
@@ -16,7 +16,7 @@ function getData(api, title) {
 
     let entryList = [];
     return http.get(api).then(function (response) {
-        const json = response.data;
+        // const json = response.data;
         entryList = json.feed.results;
 
         if (entryList == undefined) {
@@ -57,11 +57,11 @@ function updateData() {
     Promise.all(
         CATEGORY.map((cat) => {
             const url = `${apiPrefix}${countryCode}/apps/${cat.type}/50/apps.json`;
-            console.log(url)
+            console.log(url);
             return getData(url, cat.title);
         })
     ).then(function (results) {
-        console.log(results)
+        console.log(results);
         const freeApps = results[0];
 
         const topFeed = freeApps.entryList[0];

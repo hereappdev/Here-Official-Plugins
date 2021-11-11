@@ -8,7 +8,7 @@ function updateData() {
     here.miniWindow.data.title = "Updating…";
     here.miniWindow.reload();
 
-        here.parseRSSFeed("https://rsshub.rssforever.com/juejin/pins")
+    here.parseRSSFeed("https://rsshub.rssforever.com/juejin/pins")
         .then((feed) => {
             if (feed.items.length <= 0) {
                 return here.miniWindow.set({ title: "No item found." });
@@ -19,8 +19,8 @@ function updateData() {
             }
 
             const topFeed = feed.items[0];
-            console.log(topFeed.title)
-            
+            // console.log(topFeed.title)
+
             // Mini Window
             here.miniWindow.data = {
                 title: topFeed.title,
@@ -49,7 +49,6 @@ function updateData() {
             console.error("Error: " + JSON.stringify(error));
         });
 }
-
 
 here.on("load", () => {
     updateData();

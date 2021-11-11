@@ -1,5 +1,4 @@
 here.on("load", () => {
-
     // Mini Window
     here.miniWindow.data = {
         title: "Nyan Cat",
@@ -21,16 +20,12 @@ here.on("load", () => {
 
     // Menu Bar
     here.menuBar = new MenuBar();
-    var n = 1
+    var n = 1;
     var interval = setInterval(function () {
-        n++
-        if(n == 7)
-            n = 1;
-    here.menuBar.setIcon("./gif/" + n + ".png")
-    // console.log(n);
-    here.menuBar.reload();
-    },70)
-
-    window.clearInterval(interval);
-
+        n++;
+        if (n == 7) n = 1;
+        here.menuBar.setIcon("./gif/" + n + ".png");
+        // console.log(n);
+        here.menuBar.reload();
+    }, 70);
 });

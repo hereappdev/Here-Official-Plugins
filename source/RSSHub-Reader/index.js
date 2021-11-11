@@ -40,7 +40,7 @@ function updateData() {
 
     apiParameter = prefs.apiParameter;
 
-    console.debug("api: " + apiUrl + apiParameter);
+    // console.debug("api: " + apiUrl + apiParameter);
 
     here.parseRSSFeed(apiUrl + apiParameter)
         .then((feed) => {
