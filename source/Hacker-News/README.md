@@ -6,6 +6,7 @@
 
 * Site: [https://news.ycombinator.com/](https://news.ycombinator.com/)
 * API: [https://news.ycombinator.com/rss](https://news.ycombinator.com/rss)
+* APISpeedy: [https://hackernews.apispeedy.com/](https://hackernews.apispeedy.com/)
 
 ## License
 

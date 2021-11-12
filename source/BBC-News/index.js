@@ -8,9 +8,9 @@ function updateData() {
     here.miniWindow.reload();
 
     // API: https://feeds.bbci.co.uk/news/world/rss.xml
-    // API Speedy: https://apispeedy.com/bbc/
+    // API Speedy: https://bbc.apispeedy.com/
 
-    here.parseRSSFeed("https://apispeedy.com/bbc/")
+    here.parseRSSFeed("https://bbc.apispeedy.com/")
         .then((feed) => {
             if (feed.items.length <= 0) {
                 console.error("No item found.");

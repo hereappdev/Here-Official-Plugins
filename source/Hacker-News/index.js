@@ -8,9 +8,9 @@ function updateData() {
     here.miniWindow.reload();
 
     // API: https://news.ycombinator.com/rss
-    // API Speedy: https://apispeedy.com/ycombinator/
+    // API Speedy: https://hackernews.apispeedy.com/
 
-    here.parseRSSFeed("https://apispeedy.com/ycombinator/")
+    here.parseRSSFeed("https://hackernews.apispeedy.com/")
         .then((feed) => {
             if (feed.items.length <= 0) {
                 return here.miniWindow.set({ title: "No item found." });

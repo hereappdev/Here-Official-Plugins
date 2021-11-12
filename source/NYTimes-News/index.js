@@ -8,9 +8,9 @@ function updateData() {
     here.miniWindow.reload();
 
     // API: https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml
-    // API Speedy: https://apispeedy.com/nytimes/
+    // API Speedy: https://nytimes.apispeedy.com/
 
-    here.parseRSSFeed("https://apispeedy.com/nytimes/")
+    here.parseRSSFeed("https://nytimes.apispeedy.com/")
         .then((feed) => {
             if (feed.items.length <= 0) {
                 return here.miniWindow.set({ title: "No item found." });

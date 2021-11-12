@@ -5,6 +5,7 @@
 ## Development
 
 * API: [http://rss.cnn.com/rss/cnn_topstories.rss](http://rss.cnn.com/rss/cnn_topstories.rss)
+* APISpeedy: [https://cnn.apispeedy.com/](https://cnn.apispeedy.com/)
 
 ## License
 

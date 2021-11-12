@@ -6,6 +6,7 @@
 
 * Site: [http://www.bbci.co.uk/](http://www.bbci.co.uk/)
 * API: [https://feeds.bbci.co.uk/news/world/rss.xml](https://feeds.bbci.co.uk/news/world/rss.xml)
+* APISpeedy: [https://bbc.apispeedy.com/](https://bbc.apispeedy.com/)
 
 ## License
 

@@ -6,6 +6,7 @@
 
 * Site: [http://nytimes.com/](http://nytimes.com/)
 * API: [https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml](https://rss.nytimes.com/)
+* APISpeedy: [https://nytimes.apispeedy.com/](https://nytimes.apispeedy.com/)
 
 ## License
 
