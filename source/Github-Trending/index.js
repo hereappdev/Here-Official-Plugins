@@ -9,8 +9,8 @@ var spokenLanguageCode = "en";
 const json = pref.all();
 
 if (json == undefined) {
-        console.log("No prefs found.");
-    }
+    console.log("No prefs found.");
+}
 if (json != undefined) {
     codeLanguage = json.codeLanguage;
     spokenLanguageCode = json.spokenLanguageCode;
@@ -24,31 +24,40 @@ const CHANNELS = [
 
 function getDate(api, title = "", LIMIT = 25) {
     let entryList = [];
-    return http.get("https://trendings.herokuapp.com/repo?" + codeLanguage + "&since=" + api + "&spoken_lang=" + spokenLanguageCode).then(function (response) {
-        const json = response.data;
-        entryList = json;
+    return http
+        .get(
+            "https://trendings.herokuapp.com/repo?" +
+                codeLanguage +
+                "&since=" +
+                api +
+                "&spoken_lang=" +
+                spokenLanguageCode
+        )
+        .then(function (response) {
+            const json = response.data;
+            entryList = json;
 
-        if (entryList == undefined) {
-            here.miniWindow.data.title = "Invalid data.";
-            here.miniWindow.reload();
-            return;
-        }
+            if (entryList == undefined) {
+                here.miniWindow.data.title = "Invalid data.";
+                here.miniWindow.reload();
+                return;
+            }
 
-        if (entryList.length <= 0) {
-            here.miniWindow.data.title = "Entrylist is empty.";
-            here.miniWindow.reload();
-            return;
-        }
+            if (entryList.length <= 0) {
+                here.miniWindow.data.title = "Entrylist is empty.";
+                here.miniWindow.reload();
+                return;
+            }
 
-        if (entryList.length > LIMIT) {
-            entryList = entryList.slice(0, LIMIT);
-        }
+            if (entryList.length > LIMIT) {
+                entryList = entryList.slice(0, LIMIT);
+            }
 
-        return {
-            title: title,
-            entryList: entryList,
-        };
-    });
+            return {
+                title: title,
+                entryList: entryList,
+            };
+        });
 }
 
 function updateData() {
@@ -60,7 +69,7 @@ function updateData() {
             return getDate(channel.api, channel.title);
         })
     ).then(function (results) {
-        console.log(results[0].entryList.items[0])
+        // console.log(results[0].entryList.items[0])
         const totalData = results[0].entryList.items[0];
 
         if (totalData == undefined || totalData.length == 0) {
@@ -74,7 +83,7 @@ function updateData() {
             console.error(`Invalid top feed.`);
             return;
         }
-        
+
         // Mini Window
         here.miniWindow.data.title = topFeed.repo;
         here.miniWindow.data.detail = "Github Trending";

@@ -10,6 +10,7 @@
 
 * Site: [https://www.v2ex.com/](https://www.v2ex.com/)
 * API: [https://www.v2ex.com/api/topics/hot.json](https://www.v2ex.com/api/topics/hot.json)
+* APISpeedy: [https://v2ex.apispeedy.com/api/topics/hot.json](https://v2ex.apispeedy.com/api/topics/hot.json)
 
 ## License
 

@@ -6,7 +6,7 @@
 
 * Site: [http://openexchangerates.org/](http://openexchangerates.org/)
 * [Exchange rate API](https://openexchangerates.org/api/latest.json?app_id=48c5e363909e4a2bba48937790c365e7&show_alternative=1%27)
-* SpeedyAPI with cache: [http://apispeedy.com/openexchangerates/](http://apispeedy.com/openexchangerates/)
+* APISpeedy: [https://openexchangerates.apispeedy.com/api/latest.json?app_id=48c5e363909e4a2bba48937790c365e7&show_alternative=1%27](https://openexchangerates.apispeedy.com/api/latest.json?app_id=48c5e363909e4a2bba48937790c365e7&show_alternative=1%27)
 
 ## License
 

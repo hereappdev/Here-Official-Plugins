@@ -33,9 +33,9 @@ function updateData() {
     here.miniWindow.reload();
 
     Promise.all([
-        getDate("https://apispeedy.com/v2ex/api/topics/hot.json"),
-        getDate("https://apispeedy.com/v2ex/api/topics/latest.json"),
-        getDate("https://apispeedy.com/v2ex/api/topics/show.json?node_name=" + jsonPref["nodeName"]),
+        getDate("https://v2ex.apispeedy.com/api/topics/hot.json"),
+        getDate("https://v2ex.apispeedy.com/api/topics/latest.json"),
+        getDate("https://v2ex.apispeedy.com/api/topics/show.json?node_name=" + jsonPref["nodeName"]),
     ]).then(function (values) {
         const topFeed = values[0][0];
 

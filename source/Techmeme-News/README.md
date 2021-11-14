@@ -6,6 +6,7 @@
 
 * Site: [https://www.techmeme.com/](https://www.techmeme.com/)
 * API: [https://www.techmeme.com/feed.xml](https://www.techmeme.com/feed.xml)
+* APISpeedy: [https://techmeme.apispeedy.com/](https://techmeme.apispeedy.com/)
 
 ## License
 

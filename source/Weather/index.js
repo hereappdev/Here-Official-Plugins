@@ -6,8 +6,8 @@ const mt = require("moment.min.js");
 
 function updateData() {
     var location = "newyork";
-    var degreeUnits = "℉";
-    var degreeUnitsCode = "us";
+    var temperature = "℃";
+    var temperatureCode = "uk";
 
     here.miniWindow.data = { title: "Updating…" };
     here.miniWindow.reload();
@@ -22,20 +22,20 @@ function updateData() {
         location = json["location"];
     }
 
-    // console.log(json["degreeUnits"])
+    // console.log(json["temperature"])
 
-    if (json["degreeUnits"] != undefined) {
-        if (json["degreeUnits"]["index"] == 0) {
-            degreeUnits = "℉";
-            degreeUnitsCode = "us";
+    if (json["temperature"] != undefined) {
+        if (json["temperature"]["index"] == 0) {
+            temperature = "℃";
+            temperatureCode = "uk";
         } else {
-            degreeUnits = "℃";
-            degreeUnitsCode = "uk";
+            temperature = "℉";
+            temperatureCode = "us";
         }
     }
 
-    // console.log("https://weather.herecdn.com/" + encodeURI(location) + "?unitGroup=" + degreeUnitsCode + "&include=fcst%2Ccurrent&iconSet=icons2")
-    http.get("https://weather.herecdn.com/" + encodeURI(location) + "?unitGroup=" + degreeUnitsCode + "&include=fcst%2Ccurrent&iconSet=icons2")
+    // console.log("https://weather.herecdn.com/" + encodeURI(location) + "?unitGroup=" + temperatureCode + "&include=fcst%2Ccurrent&iconSet=icons2")
+    http.get("https://weather.herecdn.com/" + encodeURI(location) + "?unitGroup=" + temperatureCode + "&include=fcst%2Ccurrent&iconSet=icons2")
         .then((response) => {
             const json = response.data;
 
@@ -50,7 +50,7 @@ function updateData() {
             const weatherLow = json["days"][0]["tempmin"];
             const weatherHigh = json["days"][0]["tempmax"];
             const weatherText = json["currentConditions"]["conditions"].split(",")[0];
-            const weatherTemperature = json["currentConditions"]["temp"] + degreeUnits;
+            const weatherTemperature = json["currentConditions"]["temp"] + temperature;
 
             const weatherForecasts = json["days"];
             const keys = _.allKeys(weatherForecasts);
@@ -83,10 +83,10 @@ function updateData() {
                 detail:
                     "↑" +
                     weatherHigh +
-                    degreeUnits +
+                    temperature +
                     " · ↓" +
                     weatherLow +
-                    degreeUnits +
+                    temperature +
                     " (" +
                     moment(weatherToday).format("dddd") +
                     ")",

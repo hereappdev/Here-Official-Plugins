@@ -8,9 +8,9 @@ function updateData() {
     here.miniWindow.reload();
 
     // API: http://rss.cnn.com/rss/cnn_topstories.rss
-    // API Speedy: https://apispeedy.com/cnn/
+    // API Speedy: https://cnn.apispeedy.com/
 
-    here.parseRSSFeed("https://apispeedy.com/cnn/")
+    here.parseRSSFeed("https://cnn.apispeedy.com/")
         .then((feed) => {
             if (feed.items.length <= 0) {
                 console.error("No item found.");

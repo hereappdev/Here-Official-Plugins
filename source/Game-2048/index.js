@@ -2,7 +2,7 @@ const i18n = require('i18n')
 
 here.on("load", () => {
     here.miniWindow.data = {
-        title: "🕹2048",
+        title: "🕹Game: 2048",
         detail: __("Get to the 2048 Tile! (Keyboard: ↑↓← →)"),
     };
     here.miniWindow.reload();

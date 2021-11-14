@@ -1,48 +1,14 @@
 const _ = require("underscore");
-const pref = require("pref");
+const http = require("http");
 const net = require("net");
 
 function updateData() {
-    const LIMIT = 20;
+    const LIMIT = 10;
 
-    var apiName = "";
-    var apiUrl = "";
-    var apiParameter = "";
-
-    here.miniWindow.data = { title: "Updating…" };
+    here.miniWindow.data.title = "Updating…";
     here.miniWindow.reload();
 
-    const prefs = pref.all();
-
-    if (prefs == undefined) {
-        console.error(apiUrl);
-        return Promise.reject();
-    }
-
-    if (prefs.apiName == undefined) {
-        console.debug("apiName is undefined.");
-        return Promise.reject();
-    }
-
-    apiName = prefs.apiName;
-
-    if (prefs.apiUrl == undefined) {
-        console.debug("apiUrl is undefined.");
-        return Promise.reject();
-    }
-
-    apiUrl = prefs.apiUrl;
-
-    if (prefs.apiParameter == undefined) {
-        console.error("apiUrl is undefined.");
-        return Promise.reject();
-    }
-
-    apiParameter = prefs.apiParameter;
-
-    // console.debug("api: " + apiUrl + apiParameter);
-
-    here.parseRSSFeed(apiUrl + apiParameter)
+    here.parseRSSFeed("https://rsshub.rssforever.com/juejin/pins")
         .then((feed) => {
             if (feed.items.length <= 0) {
                 return here.miniWindow.set({ title: "No item found." });
@@ -53,10 +19,12 @@ function updateData() {
             }
 
             const topFeed = feed.items[0];
+            // console.log(topFeed.title)
+
             // Mini Window
             here.miniWindow.data = {
                 title: topFeed.title,
-                detail: apiName + "(RSSHub)",
+                detail: "掘金热门",
                 onClick: () => {
                     if (topFeed.link != undefined) {
                         here.openURL(topFeed.link);

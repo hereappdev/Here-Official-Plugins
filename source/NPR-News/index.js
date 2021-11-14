@@ -9,7 +9,7 @@ function updateData() {
     here.miniWindow.reload();
 
     // API: https://www.npr.org/rss/rss.php
-    // API Speedy: https://apispeedy.com/npr/
+    // API Speedy: https://npr.apispeedy.com/
 
     http.get("https://www.npr.org/feeds/1001/feed.json")
         .then(function (response) {

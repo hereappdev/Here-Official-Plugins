@@ -7,7 +7,7 @@ function updateData() {
     here.miniWindow.data = { title: "Updating…" };
     here.miniWindow.reload();
 
-    here.parseRSSFeed("https://apispeedy.com/techmeme/")
+    here.parseRSSFeed("https://techmeme.apispeedy.com/")
         .then((feed) => {
             if (feed.items.length <= 0) {
                 return here.miniWindow.set({ title: "No item found." });

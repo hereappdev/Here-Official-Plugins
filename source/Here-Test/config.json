@@ -9,7 +9,7 @@
     "website": "https://here.app",
     "script": "index.js",
     "defaultCategory": "fav",
-    "displayOn": ["mini", "dock", "menuBar"],
+    "displayOn": ["mini", "dock"],
     "queryKeywords": ["hhh"],
     "preferences": [
         {

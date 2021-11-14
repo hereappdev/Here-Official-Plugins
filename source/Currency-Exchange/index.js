@@ -28,8 +28,10 @@ function updateData() {
     here.miniWindow.set({ title: "Updating…" });
 
     // API Source: https://openexchangerates.org/api/latest.json?app_id=48c5e363909e4a2bba48937790c365e7&show_alternative=1%27
-    // SpeedyAPI with cache: http://apispeedy.com/openexchangerates/
-    http.request("https://apispeedy.com/openexchangerates/").then(function (response) {
+    // SpeedyAPI with cache: http://openexchangerates.apispeedy.com/api/latest.json?app_id=48c5e363909e4a2bba48937790c365e7&show_alternative=1%27
+    http.request(
+        "https://openexchangerates.apispeedy.com/api/latest.json?app_id=48c5e363909e4a2bba48937790c365e7&show_alternative=1%27"
+    ).then(function (response) {
         const json = response.data;
         const entryList = json.rates;
 
@@ -48,8 +50,8 @@ function updateData() {
         }
 
         const ratio = (entryList[displaySymbols] / currencyValue).toFixed(3).toString();
-        const detail = `${currencySymbols}⇌${displaySymbols}: ${ratio}`
-            
+        const detail = `${currencySymbols}⇌${displaySymbols}: ${ratio}`;
+
         here.miniWindow.data = {
             title: displaySymbols + "⇌" + currencySymbols,
             detail: detail,
@@ -67,7 +69,7 @@ function updateData() {
                 },
             };
         });
-        here.popover.reload()
+        here.popover.reload();
     });
 }
 

@@ -22,7 +22,7 @@
             "title": "API URL",
             "type": "input",
             "key": "apiUrl",
-            "default": "https://rsshub.app/ifanr/"
+            "default": "https://rsshub.rssforever.com/ifanr/"
         },
         {
             "title": "API Parameter",
