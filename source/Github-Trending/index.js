@@ -54,6 +54,7 @@ function getDate(api, title = "", LIMIT = 25) {
             }
 
             return {
+                api: api,
                 title: title,
                 entryList: entryList,
             };
@@ -66,7 +67,7 @@ function updateData() {
 
     Promise.all(
         CHANNELS.map((channel) => {
-            return getDate(channel.api, channel.title);
+            return getDate(channel.api, channel.title)
         })
     ).then(function (results) {
         // console.log(results[0].entryList.items[0])
@@ -111,6 +112,11 @@ function updateData() {
                             here.openURL(entry.repo_link);
                         },
                     };
+                }).concat({
+                    title: "View all…",
+                    onClick: () => {
+                        here.openURL(`https://github.com/trending?since=${data.api}`);
+                    }
                 }),
             };
         });
