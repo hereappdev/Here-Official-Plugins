@@ -34,9 +34,8 @@ function getData(api, title) {
         entryList = _.map(entryList, (entry, key) => {
             // console.log(entry["name"])
             entry.title = entry["name"];
-            entry.url = entry["artistUrl"];
+            entry.url = entry["url"];
             entry.appIcon = entry["artworkUrl100"].replace("200x2002bb.png", "100x100bb.png");
-            entry.rank = entry["genres"][0]["name"];
             return entry;
         });
 
@@ -57,11 +56,11 @@ function updateData() {
     Promise.all(
         CATEGORY.map((cat) => {
             const url = `${apiPrefix}${countryCode}/apps/${cat.type}/50/apps.json`;
-            // console.log(url);
+            console.log(url);
             return getData(url, cat.title);
         })
     ).then(function (results) {
-        // console.log(results);
+        console.log(results);
         const freeApps = results[0];
 
         const topFeed = freeApps.entryList[0];
@@ -90,7 +89,6 @@ function updateData() {
                     return {
                         title: index + 1 + ". " + entry.title,
                         accessory: {
-                            title: entry.rank,
                             imageURL: entry.appIcon,
                             imageCornerRadius: 4,
                         },
