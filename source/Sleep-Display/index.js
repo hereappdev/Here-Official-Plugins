@@ -12,12 +12,12 @@ here.on("load", () => {
             os.systemInfo().then(info => {
                 console.log(info)
                 const device = info["device"]
-                if (device.startsWith("MacBook")) {
+                // if (device.startsWith("MacBook")) {
                     here.exec(`pmset displaysleepnow`)
 
-                } else {
-                    pm.putDisplayToSleep(true)
-                }
+                // } else {
+                //     pm.putDisplayToSleep(true)
+                // }
             })
         }
     };
